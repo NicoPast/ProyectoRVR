@@ -1,65 +1,65 @@
-﻿  FightersSystem.cpp
-D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\TPV2\ObjectFactory.h(38,3): warning C4018: '<': no coinciden signed/unsigned
-D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\TPV2\ObjectFactory.h(36): message : al compilar la función del miembro clase plantilla "void ObjectFactory<T,std::allocator<T>>::destroy(T *)"
+﻿  CollisionSystem.cpp
+D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\TPV2\ObjectFactory.h(38,3): warning C4018: '<': no coinciden signed/unsigned
+D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\TPV2\ObjectFactory.h(36): message : al compilar la función del miembro clase plantilla "void ObjectFactory<T,std::allocator<T>>::destroy(T *)"
           with
           [
-              T=msg::FighterInfo
+              T=msg::Message
           ]
-D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\TPV2\OFFacotry.h(27): message : Vea la referencia a la creación de una instancia de la función plantilla "void ObjectFactory<T,std::allocator<T>>::destroy(T *)" que se está compilando
+D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\TPV2\OFFacotry.h(27): message : Vea la referencia a la creación de una instancia de la función plantilla "void ObjectFactory<T,std::allocator<T>>::destroy(T *)" que se está compilando
           with
           [
-              T=msg::FighterInfo
+              T=msg::Message
           ]
-D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\TPV2\OFFacotry.h(38): message : Vea la referencia a la creación de una instancia de clase plantilla "ObjectFactory<T,std::allocator<T>>" que se está compilando
+D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\TPV2\OFFacotry.h(38): message : Vea la referencia a la creación de una instancia de clase plantilla "ObjectFactory<T,std::allocator<T>>" que se está compilando
           with
           [
-              T=msg::FighterInfo
+              T=msg::Message
           ]
-D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\TPV2\Manager.h(100): message : Vea la referencia a la creación de una instancia de clase plantilla "OFFacotry<T>" que se está compilando
+D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\TPV2\Manager.h(100): message : Vea la referencia a la creación de una instancia de clase plantilla "OFFacotry<T>" que se está compilando
           with
           [
-              T=msg::FighterInfo
+              T=msg::Message
           ]
-D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\TPV2\FightersSystem.cpp(164): message : Vea la referencia a la creación de una instancia de la función plantilla "void Manager::send<msg::FighterInfo,OFFacotry<T>,double,double,double&>(double &&,double &&,double &)" que se está compilando
+D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\TPV2\CollisionSystem.cpp(60): message : Vea la referencia a la creación de una instancia de la función plantilla "void Manager::send<msg::Message,OFFacotry<T>,msg::MsgId>(msg::MsgId &&)" que se está compilando
           with
           [
-              T=msg::FighterInfo
+              T=msg::Message
           ]
-D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\TPV2\ObjectFactory.h(25,17): warning C4018: '<': no coinciden signed/unsigned
-D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\TPV2\OFFacotry.h(22): message : Vea la referencia a la creación de una instancia de la función plantilla "T *ObjectFactory<T,std::allocator<T>>::construct<Vector2D&,Vector2D&,_Ty,_Ty>(Vector2D &,Vector2D &,_Ty &&,_Ty &&)" que se está compilando
+D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\TPV2\ObjectFactory.h(25,17): warning C4018: '<': no coinciden signed/unsigned
+D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\TPV2\OFFacotry.h(22): message : Vea la referencia a la creación de una instancia de la función plantilla "T *ObjectFactory<T,std::allocator<T>>::construct<_Ty>(_Ty &&)" que se está compilando
           with
           [
-              T=msg::Shoot,
-              _Ty=int
+              T=msg::Message,
+              _Ty=msg::MsgId
           ]
-D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\TPV2\OFFacotry.h(23): message : Vea la referencia a la creación de una instancia de la función plantilla "T *ObjectFactory<T,std::allocator<T>>::construct<Vector2D&,Vector2D&,_Ty,_Ty>(Vector2D &,Vector2D &,_Ty &&,_Ty &&)" que se está compilando
+D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\TPV2\OFFacotry.h(23): message : Vea la referencia a la creación de una instancia de la función plantilla "T *ObjectFactory<T,std::allocator<T>>::construct<_Ty>(_Ty &&)" que se está compilando
           with
           [
-              T=msg::Shoot,
-              _Ty=int
+              T=msg::Message,
+              _Ty=msg::MsgId
           ]
-D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\TPV2\OFFacotry.h(13): message : Vea la referencia a la creación de una instancia de la función plantilla "T *OFFacotry<T>::construct_<Vector2D&,Vector2D&,_Ty,_Ty>(Vector2D &,Vector2D &,_Ty &&,_Ty &&)" que se está compilando
+D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\TPV2\OFFacotry.h(13): message : Vea la referencia a la creación de una instancia de la función plantilla "T *OFFacotry<T>::construct_<_Ty>(_Ty &&)" que se está compilando
           with
           [
-              T=msg::Shoot,
-              _Ty=int
+              T=msg::Message,
+              _Ty=msg::MsgId
           ]
-D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\TPV2\OFFacotry.h(14): message : Vea la referencia a la creación de una instancia de la función plantilla "T *OFFacotry<T>::construct_<Vector2D&,Vector2D&,_Ty,_Ty>(Vector2D &,Vector2D &,_Ty &&,_Ty &&)" que se está compilando
+D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\TPV2\OFFacotry.h(14): message : Vea la referencia a la creación de una instancia de la función plantilla "T *OFFacotry<T>::construct_<_Ty>(_Ty &&)" que se está compilando
           with
           [
-              T=msg::Shoot,
-              _Ty=int
+              T=msg::Message,
+              _Ty=msg::MsgId
           ]
-D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\TPV2\Manager.h(100): message : Vea la referencia a la creación de una instancia de la función plantilla "T *OFFacotry<T>::construct<Vector2D&,Vector2D&,_Ty,_Ty>(Vector2D &,Vector2D &,_Ty &&,_Ty &&)" que se está compilando
+D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\TPV2\Manager.h(100): message : Vea la referencia a la creación de una instancia de la función plantilla "T *OFFacotry<T>::construct<_Ty>(_Ty &&)" que se está compilando
           with
           [
-              T=msg::Shoot,
-              _Ty=int
+              T=msg::Message,
+              _Ty=msg::MsgId
           ]
-D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\TPV2\Manager.h(101): message : Vea la referencia a la creación de una instancia de la función plantilla "T *OFFacotry<T>::construct<Vector2D&,Vector2D&,_Ty,_Ty>(Vector2D &,Vector2D &,_Ty &&,_Ty &&)" que se está compilando
+D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\TPV2\Manager.h(101): message : Vea la referencia a la creación de una instancia de la función plantilla "T *OFFacotry<T>::construct<_Ty>(_Ty &&)" que se está compilando
           with
           [
-              T=msg::Shoot,
-              _Ty=int
+              T=msg::Message,
+              _Ty=msg::MsgId
           ]
-  TPV2.vcxproj -> D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\bin\TPV2Debug.exe
+  TPV2.vcxproj -> D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\bin\TPV2Debug.exe

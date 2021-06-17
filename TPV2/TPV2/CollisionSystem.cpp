@@ -26,12 +26,14 @@ void CollisionSystem::update() {
 	vector<Transform*> fs;
 
 	for (auto &f : mngr_->getGroupEntities(ecs::_grp_Fighters)) {
+
 		auto fTR = f->getComponent<Transform>(ecs::Transform);
 		fs.push_back(fTR);
 
 		for (auto &b : mngr_->getGroupEntities(ecs::_grp_Bullets)) {
 			if (!b->isActive())
 				continue;
+		
 
 			auto bTR = b->getComponent<Transform>(ecs::Transform);
 
@@ -39,9 +41,13 @@ void CollisionSystem::update() {
 					bTR->height_, bTR->rotation_, fTR->position_, fTR->width_,
 					fTR->height_, fTR->rotation_)) {
 
-				roundOver = true;
-				auto id = f->getComponent<FighterInfo>(ecs::FighterInfo)->fighterId;
-				mngr_->send<msg::FighterDeath>(id);
+				//roundOver = true;
+				//auto id = f->getComponent<FighterInfo>(ecs::FighterInfo)->fighterId;
+				//mngr_->send<msg::FighterDeath>(id);
+
+				cout << "colision\n";
+
+				bTR->velocity_.setX(-bTR->velocity_.getX());
 			}
 		}
 	}

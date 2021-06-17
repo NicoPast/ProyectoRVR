@@ -1,2 +1,2 @@
-cd D:\PROGRAMING\DV\2\TPV\ProyectosSDL\TPV-P2\P3\TPV2\TPV2
+cd D:\PROGRAMING\DV\3\RVR\ProyectoFinal\TPV2\TPV2
 ..\bin\TPV2Debug.exe client localhost 2000

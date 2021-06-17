@@ -50,7 +50,5 @@ int main(int argc, char **argv) {
 		cout << "  " << argv[0] << " client localhost 2000" << endl;
 	}
 
-	cin >> name;
-
 	return 0;
 }

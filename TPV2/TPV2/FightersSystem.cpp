@@ -120,29 +120,35 @@ void FightersSystem::updateFighter(Entity *e) {
 
 	auto ih = game_->getInputHandler();
 	if (ih->keyDownEvent()) {
-		if (ih->isKeyDown(keys->left)) { // turn left
-			tr->rotation_ = fmod(tr->rotation_ - 5.0, 360.0);
-			tr->velocity_ = tr->velocity_.rotate(-5.0);
-		} else if (ih->isKeyDown(keys->right)) { // turn right
-			tr->rotation_ = fmod(tr->rotation_ + 5.0, 360.0);
-			tr->velocity_ = tr->velocity_.rotate(5.0);
-		} else if (ih->isKeyDown(keys->speedup)) { // speed up
-			tr->velocity_ = Vector2D(0.0, -1.0).rotate(tr->rotation_)
+		if (ih->isKeyDown(keys->up)) { // speed up
+			tr->velocity_ = Vector2D(0.0, -1.0)
 					* (std::min(tr->velocity_.magnitude() + 0.2, 3.0));
-		} else if (ih->isKeyDown(keys->slowdown)) { // slow down
-			tr->velocity_ = Vector2D(0.0, -1.0).rotate(tr->rotation_)
-					* (std::max(tr->velocity_.magnitude() - 0.2, 0.0));
-		} else if (ih->isKeyDown(keys->shoot)
-				&& game_->getTime() - keys->lastShootTime > 1000) { // shoot
-			keys->lastShootTime = game_->getTime();
-			Vector2D p = tr->position_
-					+ Vector2D(tr->width_ / 2, tr->height_ / 2)
-					+ Vector2D(0, -(tr->height_ / 2 + 5.0)).rotate(
-							tr->rotation_);
-			Vector2D d = Vector2D(0, -1).rotate(tr->rotation_) * 2;
-
-			mngr_->send<msg::Shoot>(p, d, 2, 5);
+		} else if (ih->isKeyDown(keys->down)) { // slow down
+			tr->velocity_ = Vector2D(0.0, 1.0)
+					* (std::max(tr->velocity_.magnitude() + 0.2, 0.0));
 		}
+	}
+	if (ih->getMouseButtonState(InputHandler::MOUSEBUTTON::LEFT)
+		&& game_->getTime() - keys->lastShootTime > 1000) { // shoot
+
+		if (mngr_->getClientId() == 0) {
+			if (ih->getMousePos().getX() < tr->position_.getX() + 100)
+				return;
+		}
+		else if (ih->getMousePos().getX() > tr->position_.getX() + 100)
+			return;
+
+		keys->lastShootTime = game_->getTime();
+		Vector2D p = tr->position_
+			+ Vector2D(tr->width_ / 2, tr->height_ / 2)
+			+ Vector2D(0, -(tr->height_ / 2 + 5.0)).rotate(
+				tr->rotation_);
+		//Vector2D d = Vector2D(0, -1).rotate(tr->rotation_) * 2;
+		Vector2D d = (ih->getMousePos() - tr->position_).normalize();
+
+
+
+		mngr_->send<msg::Shoot>(p, d, 2, 5);
 	}
 
 	// motion

@@ -28,14 +28,16 @@ void BulletsSystem::update() {
 
 		Vector2D p = tr->position_ + tr->velocity_;
 
-		if ((p.getX() >= game_->getWindowWidth())
-				|| (p.getX() + tr->width_ <= 0)
-				|| (p.getY() >= game_->getWindowHeight())
-				|| (p.getY() + tr->height_ <= 0)) {
-			e->setActive(false);
-		} else {
-			tr->position_ = p;
+		if ((p.getY() >= game_->getWindowHeight())
+			|| (p.getY() + tr->height_ <= 0)) {
+			tr->velocity_.setY(-tr->velocity_.getY());
 		}
+		if ((p.getX() >= game_->getWindowWidth())
+			|| (p.getX() + tr->width_ <= 0)) {
+			e->setActive(false);
+		}
+
+		tr->position_ = p;
 	}
 }
 
