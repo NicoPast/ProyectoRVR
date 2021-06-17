@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <cstdlib>
 #include <cstring>
+#include <cstdio>
 #include <ctime>
 
 #include "Vector2D.h"
@@ -57,7 +58,7 @@ namespace msg {
 	struct PlayerInfo : Message {
 		PlayerInfo(const char* n) :
 			Message(sizeof(PlayerInfo), _PLAYER_INFO) {
-			strcpy_s(&name[0], 11, n);
+			strncpy(&name[0], n, 11);
 		}
 		char name[11];
 	};

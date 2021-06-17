@@ -19,7 +19,7 @@ public:
 	Manager(SDLGame *game, char* name) :
 			game_(game){
 
-		strcpy_s(&name_[0], 11, name);
+		strncpy(&name_[0], name, 11);
 		msgs_ = new std::list<uptr_msg>();
 
 		// needed only when using method flushMessages
@@ -136,7 +136,7 @@ public:
 	const char* getName() { return &name_[0]; };
 
 	const char* getRivalName() { return otherName_; };
-	const void setRivalName(const char* name) { strcpy_s(otherName_, 11, name); };
+	const void setRivalName(const char* name) { strncpy(otherName_, name, 11); };
 
 private:
 	SDLGame *game_;

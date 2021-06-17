@@ -3,16 +3,16 @@
 
 vector<Resources::FontInfo> Resources::fonts_ {
 //
-		{ ARIAL10, "resources/fonts/ARIAL.ttf", 10 }, //
-		{ ARIAL12, "resources/fonts/ARIAL.ttf", 12 }, //
-		{ ARIAL16, "resources/fonts/ARIAL.ttf", 16 }, //
-		{ ARIAL24, "resources/fonts/ARIAL.ttf", 24 } //
+		{ ARIAL10, "./resources/fonts/ARIAL.ttf", 10 }, //
+		{ ARIAL12, "./resources/fonts/ARIAL.ttf", 12 }, //
+		{ ARIAL16, "./resources/fonts/ARIAL.ttf", 16 }, //
+		{ ARIAL24, "./resources/fonts/ARIAL.ttf", 24 } //
 };
 
 vector<Resources::ImageInfo> Resources::images_ {
 //
-		{ Fighter, "resources/images/fighter.png" }, //
-		{ WhiteRect,"resources/images/whiterect.png" }, //
+		{ Fighter, "./resources/images/fighter.png" }, //
+		{ WhiteRect,"./resources/images/whiterect.png" }, //
 };
 
 vector<Resources::TextMsgInfo> Resources::messages_ {
@@ -29,18 +29,18 @@ vector<Resources::TextMsgInfo> Resources::messages_ {
 
 vector<Resources::MusicInfo> Resources::musics_ {
 //
-		{ Beat, "resources/sound/beat.wav" }, //
-		{ Cheer, "resources/sound/cheer.wav" }, //
-		{ Boooo, "resources/sound/boooo.wav" }, //
-		{ ImperialMarch, "resources/sound/imperial_march.wav"} //
+		{ Beat, "./resources/sound/beat.wav" }, //
+		{ Cheer, "./resources/sound/cheer.wav" }, //
+		{ Boooo, "./resources/sound/boooo.wav" }, //
+		{ ImperialMarch, "./resources/sound/imperial_march.wav"} //
 };
 
 vector<Resources::SoundInfo> Resources::sounds_ {
 //
-		{ Wall_Hit, "resources/sound/wall_hit.wav" }, //
-		{ Paddle_Hit, "resources/sound/paddle_hit.wav" }, //
-		{ RetroGameOverSound, "resources/sound/game-over.mp3" }, //
-		{ BonusBellSound, "resources/sound/bonus-bell.mp3" }, //
-		{ Explosion, "resources/sound/explosion.wav"} //
+		{ Wall_Hit, "./resources/sound/wall_hit.wav" }, //
+		{ Paddle_Hit, "./resources/sound/paddle_hit.wav" }, //
+		{ RetroGameOverSound, "./resources/sound/game-over.mp3" }, //
+		{ BonusBellSound, "./resources/sound/bonus-bell.mp3" }, //
+		{ Explosion, "./resources/sound/explosion.wav"} //
 };
 
