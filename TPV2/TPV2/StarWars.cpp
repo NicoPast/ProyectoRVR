@@ -51,11 +51,24 @@ void StarWars::start() {
 		SDL_SetRenderDrawColor(game_->getRenderer(), COLOR(0x00AAAAFF));
 		SDL_RenderClear(game_->getRenderer());
 
-		ih->update();
-		if (ih->keyDownEvent()) {
-			if (ih->isKeyDown(SDLK_ESCAPE)) {
-				exit_ = true;
-				break;
+		SDL_Event event;
+
+		//While there's an event to handle
+        while( SDL_PollEvent( &event ) )
+        {
+			ih->update(event);
+			//If the user has Xed out the window
+            if( event.type == SDL_QUIT )
+            {
+                //Quit the program
+                exit_ = true;
+            }  
+
+			if (ih->keyDownEvent()) {
+				if (ih->isKeyDown(SDLK_ESCAPE)) {
+					exit_ = true;
+					break;
+				}
 			}
 		}
 
@@ -78,3 +91,6 @@ void StarWars::start() {
 	}
 }
 
+void StarWars::stop(){
+	exit_ = true;
+}

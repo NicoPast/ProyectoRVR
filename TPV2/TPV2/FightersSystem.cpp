@@ -122,10 +122,10 @@ void FightersSystem::updateFighter(Entity *e) {
 	if (ih->keyDownEvent()) {
 		if (ih->isKeyDown(keys->up)) { // speed up
 			tr->velocity_ = Vector2D(0.0, -1.0)
-					* (std::min(tr->velocity_.magnitude() + 0.2, 3.0));
+					* (std::min(tr->velocity_.magnitude() + 0.5, 1.0));
 		} else if (ih->isKeyDown(keys->down)) { // slow down
 			tr->velocity_ = Vector2D(0.0, 1.0)
-					* (std::max(tr->velocity_.magnitude() + 0.2, 0.0));
+					* (std::min(tr->velocity_.magnitude() + 0.5, 1.0));
 		}
 	}
 	if (ih->getMouseButtonState(InputHandler::MOUSEBUTTON::LEFT)

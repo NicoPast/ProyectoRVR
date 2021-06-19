@@ -37,6 +37,11 @@ void NetworkingSystem::update() {
 			mngr_->forwardMsg<msg::FighterInfo>(msg->senderClientId, m->x, m->y, m->rot);
 			break;
 		}
+		case msg::_BULLET_INFO: {
+			msg::BulletInfo* m = static_cast<msg::BulletInfo*>(msg);
+			mngr_->forwardMsg<msg::BulletInfo>(msg->senderClientId, m->id, m->pos, m->vel);
+			break;
+		}
 		case msg::_START_REQ: {
 			mngr_->forwardMsg<msg::Message>(msg->senderClientId, msg::_START_REQ);
 			break;

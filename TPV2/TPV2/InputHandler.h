@@ -26,7 +26,7 @@ public:
 	}
 
 	// update the state
-	void update();
+	void update(SDL_Event event);
 
 	// keyboard
 	inline bool keyDownEvent() {

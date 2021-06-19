@@ -17,6 +17,7 @@ namespace msg {
 		_CLIENT_DISCONNECTED, //
 		_PLAYER_INFO, //
 		_FIGHTER_INFO, //
+		_BULLET_INFO,
 		_START_REQ, //
 		_START_ROUND, //
 		_SHOOT, //
@@ -72,6 +73,18 @@ namespace msg {
 		double x;
 		double y;
 		double rot;
+	};
+
+	struct BulletInfo : Message {
+		BulletInfo(uint8_t bulI, Vector2D p, Vector2D v) : 
+		Message(sizeof(BulletInfo), _BULLET_INFO), id(bulI), pos(p), vel(v){
+
+		}
+
+		uint8_t id;
+
+		Vector2D pos;
+		Vector2D vel;
 	};
 
 	struct Shoot : Message {

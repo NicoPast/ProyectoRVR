@@ -5,6 +5,7 @@
 #include "ObjectPool.h"
 #include "Singleton.h"
 #include "Transform.h"
+#include "BulletInfo.h"
 
 class BulletsPool: public Singleton<BulletsPool> {
 	friend Singleton<BulletsPool> ;
@@ -44,12 +45,17 @@ private:
 	}
 	BulletsPool(std::size_t n) :
 			pool_(n) {
+		uint8_t bulletId = 0;
 		for (Entity *e : pool_.getPool()) {
 			e->addComponent<Transform>();
 			e->addComponent<Image>(SDLGame::instance()->getTextureMngr()->getTexture(Resources::WhiteRect));
+			e->addComponent<BulletInfo>(bulletId, 5);
+			bulletId++;
 		}
 	}
 
 	ObjectPool<Entity> pool_;
+
+	
 };
 

@@ -1,0 +1,3 @@
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles/rebuild_cache.dir
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles/edit_cache.dir
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles/ProyectoRVR.dir

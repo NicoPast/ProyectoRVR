@@ -5,6 +5,7 @@
 #include "FighterInfo.h"
 #include "GameCtrlSystem.h"
 #include "Transform.h"
+#include "BulletInfo.h"
 #include "Manager.h"
 
 CollisionSystem::CollisionSystem() :
@@ -25,12 +26,12 @@ void CollisionSystem::update() {
 
 	vector<Transform*> fs;
 
-	for (auto &f : mngr_->getGroupEntities(ecs::_grp_Fighters)) {
+	for (Entity* f : mngr_->getGroupEntities(ecs::_grp_Fighters)) {
 
 		auto fTR = f->getComponent<Transform>(ecs::Transform);
 		fs.push_back(fTR);
 
-		for (auto &b : mngr_->getGroupEntities(ecs::_grp_Bullets)) {
+		for (Entity* b : mngr_->getGroupEntities(ecs::_grp_Bullets)) {
 			if (!b->isActive())
 				continue;
 		
@@ -45,9 +46,13 @@ void CollisionSystem::update() {
 				//auto id = f->getComponent<FighterInfo>(ecs::FighterInfo)->fighterId;
 				//mngr_->send<msg::FighterDeath>(id);
 
-				cout << "colision\n";
 
 				bTR->velocity_.setX(-bTR->velocity_.getX());
+				Vector2D p = bTR->position_;
+				Vector2D v = bTR->velocity_;
+				uint8_t id = b->getComponent<BulletInfo>(ecs::BulletInfo)->id_;
+				mngr_->send<msg::BulletInfo>(id, p, v);
+				cout << "colision\n";
 			}
 		}
 	}
