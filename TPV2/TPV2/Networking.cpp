@@ -1,10 +1,15 @@
 #include "Networking.h"
 
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "Socket.h"
 
 Networking::Networking() :
 		sock(nullptr), //
-		socketSet(nullptr) //
+		socketSet(nullptr), //
+		socket(nullptr) //
 {
 	if (SDLNet_Init() < 0) {
 		error();
@@ -14,6 +19,8 @@ Networking::Networking() :
 
 Networking::~Networking() {
 	SDLNet_Quit();
+	if(socket)
+		delete socket;
 }
 
 void Networking::send(const msg::Message &msg, TCPsocket sock) {
@@ -44,12 +51,15 @@ msg::Message* Networking::recieve(TCPsocket sock) {
 	return (msg::Message*) buffer;
 }
 
-bool Networking::client(char *host, int port) {
+bool Networking::client(const char *host, const char* port) {
+
+	socket = new Socket(host, port);
+	
 	// a variable that represents the address of the server we want to connect to
 	IPaddress ip;
 
 	// fill in the address in 'ip'
-	if (SDLNet_ResolveHost(&ip, host, port) < 0) {
+	if (SDLNet_ResolveHost(&ip, host, atoi(port)) < 0) {
 		error();
 	}
 
@@ -77,16 +87,38 @@ bool Networking::client(char *host, int port) {
 	return true;
 }
 
-void Networking::server(int port) {
+void Networking::server(const char * port) {
 
 		std::cout << "Starting server at port " << port << std::endl;
+
+		const char* h = "0.0.0.0";
+
+		socket = new Socket(h, port);
+
+		socket->bind();
+
+		while(true){
+			socket->recv();
+			
+		}
+
+		// // an array for clients
+		// constexpr int MAX_CLIENTS = 2;
+		// Socket* clients[MAX_CLIENTS];
+		// for (uint32_t i = 0; i < MAX_CLIENTS; i++) {
+		// 	clients[i] = new Socket(h, port);
+		// 	clients[i]->bind();
+		// }
+
+
+		int p = atoi(port);
 
 		// a variable that represents the address -- in this case only the port
 		IPaddress ip;
 
 		// fill in the address in 'ip' -- note that the 2nd parameter is 'nullptr'
 		// which means that we want to use 'ip' to start a server
-		if (SDLNet_ResolveHost(&ip, nullptr, port) < 0) {
+		if (SDLNet_ResolveHost(&ip, nullptr, p) < 0) {
 			error();
 		}
 

@@ -59,7 +59,37 @@ public:
      *    @param address cadena que representa la dirección o nombre
      *    @param port cadena que representa el puerto o nombre del servicio
      */
-    Socket(const char * address, const char * port);
+    Socket(const char * address, const char * port):sd(-1)
+    {
+        //Construir un socket de tipo AF_INET y SOCK_DGRAM usando getaddrinfo.
+        //Con el resultado inicializar los miembros sd, sa y sa_len de la clase
+        addrinfo hints;
+        addrinfo* results;
+
+        memset(&hints, 0, sizeof(struct addrinfo));
+
+        hints.ai_family = AF_UNSPEC;
+        hints.ai_socktype = SOCK_DGRAM;
+
+        int rc = getaddrinfo(address, port, &hints, &results);
+
+        // rc guarda el codigo de error (si hay alguno)
+        if(rc != 0)
+        {
+            printf("Error: %s\n", gai_strerror(rc));
+        }
+        
+        // intentamos crear el socket
+        sd = socket(results->ai_family, results->ai_socktype, 0);
+        if(sd == -1)
+        {
+            printf("Error con la creacion de sockets\n");
+        }
+
+        // guardamos los miembros sa y sa_len
+        sa = *results->ai_addr;
+        sa_len = results->ai_addrlen;
+    }
 
     /**
      *  Inicializa un Socket copiando los parámetros del socket

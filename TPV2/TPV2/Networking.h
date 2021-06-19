@@ -3,6 +3,8 @@
 #include <iostream>
 #include "messages.h"
 
+class Socket;
+
 class Networking {
 public:
 	Networking();
@@ -21,10 +23,10 @@ public:
 	}
 
 	// start server
-	void server(int port);
+	void server(const char* port);
 
 	// start client
-	bool client(char *host, int port);
+	bool client(const char *host, const char* port);
 
 	uint8_t getClientId() {
 		return clientId;
@@ -37,6 +39,8 @@ private:
 
 	TCPsocket sock;
 	SDLNet_SocketSet socketSet;
+
+	Socket* socket;
 
 	char buffer[256];
 	uint8_t clientId;

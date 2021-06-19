@@ -4,12 +4,12 @@
 
 using namespace std;
 
-void server(int port) {
+void server(const char * port) {
 	Networking net;
 	net.server(port);
 }
 
-void client(char* host, int port, char* name) {
+void client(char* host, char* port, char* name) {
 	try {
 		if (std::strlen(name) < 11) {
 			StarWars s(host, port, name);
@@ -32,13 +32,13 @@ void client(char* host, int port, char* name) {
 int main(int argc, char **argv) {
 	char name [11]= "Anonymous";
 	if (argc == 3 && strcmp(argv[1], "server") == 0) {
-		server(atoi(argv[2])); // start in server mode
+		server(argv[2]); // start in server mode
 	}
 	else if (argc == 4 && strcmp(argv[1], "client") == 0) {
-		client(argv[2], atoi(argv[3]), name); // start in client mode
+		client(argv[2], argv[3], name); // start in client mode
 	}
 	else if (argc == 5 && strcmp(argv[1], "client") == 0) {
-		client(argv[2], atoi(argv[3]), argv[4]);
+		client(argv[2], argv[3], argv[4]);
 	}
 	else {
 		cout << "Usage: " << endl;

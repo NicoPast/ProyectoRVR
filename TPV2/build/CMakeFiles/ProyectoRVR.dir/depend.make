@@ -681,6 +681,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o: /usr/include/SDL2/close_code.h
 
 CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o: ../TPV2/Networking.cpp
 CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o: ../TPV2/Networking.h
+CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o: ../TPV2/Socket.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o: ../TPV2/Vector2D.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o: ../TPV2/messages.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o: /usr/include/SDL2/SDL.h

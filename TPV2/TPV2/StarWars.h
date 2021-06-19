@@ -14,7 +14,7 @@
 class StarWars {
 
 public:
-	StarWars(char* host, int port, char* name);
+	StarWars(char* host, char* port, char* name);
 	virtual ~StarWars();
 
 	// from SDLGame
@@ -30,7 +30,7 @@ private:
 	bool exit_;
 
 	char* host_;
-	int port_;
+	char* port_;
 
 	NetworkingSystem* networkingSystem_;
 	RenderSystem *renderSystem_;

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-StarWars::StarWars(char* host, int port, char* name) :
+StarWars::StarWars(char* host, char* port, char* name) :
 		host_(host), //
 		port_(port), //
 		exit_(false) { 
