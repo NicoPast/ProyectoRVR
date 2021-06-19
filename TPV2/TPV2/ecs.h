@@ -15,6 +15,7 @@ enum CmpId : CmpIdType {
 	CtrlKeys,
 	FighterInfo,
 	BulletInfo,
+	CellInfo,
 	//
 	// don't touch the rest of this enum, it is to identify the max
 	// number of components
@@ -42,6 +43,7 @@ enum HdlrId : HdlrIdType {
 enum SysId : SysIdType {
 	_sys_GameCtrl,
 	_sys_Fighters,
+	_sys_Map,
 	_sys_Bullets,
 	_sys_Collision,
 	_sys_Render,

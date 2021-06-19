@@ -1,0 +1,37 @@
+[33mcommit a4444d9cafdc2245e07a077e4835c94a249999ab[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: NicoPast <nicopast@ucm.es>
+Date:   Sat Jun 19 04:26:32 2021 +0200
+
+    Ya funciona el rebote con el jugador de las balas
+
+[33mcommit 011494a9fbb88f5d7e26921e10650cf448859ed5[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: anmartan <anmartan@ucm.es>
+Date:   Fri Jun 18 00:04:37 2021 +0200
+
+    Proyecto en Linux
+
+[33mcommit 105d37166a9486621c77645d6cf922ac59c40cdc[m
+Author: anmartan <anmartan@ucm.es>
+Date:   Thu Jun 17 21:00:56 2021 +0200
+
+    DELETED: Carpeta .vs
+    
+    Porque mi MV no puede con tanta cosa
+
+[33mcommit ebac4ddb7f09570863780b96ea698e83f204f8bf[m
+Author: Nico <nicopast@ucm.es>
+Date:   Thu Jun 17 16:19:50 2021 +0200
+
+    Movimiento cazas y primeros rebotes
+
+[33mcommit 2068935a37a47d357db40211edb920aa42ea0d54[m
+Author: Nico <nicopast@ucm.es>
+Date:   Thu Jun 17 13:39:03 2021 +0200
+
+    Añadida la plantilla base de TPV2
+
+[33mcommit 784d369033913516c8728e3e2565228ae195cf22[m
+Author: NicoPast <47886480+NicoPast@users.noreply.github.com>
+Date:   Thu Jun 17 13:31:36 2021 +0200
+
+    Initial commit

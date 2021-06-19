@@ -55,6 +55,9 @@ void CollisionSystem::update() {
 				cout << "colision\n";
 			}
 		}
+
+		// TO DO:
+		// for para las colisiones con las celdas del mapa
 	}
 
 	if (Collisions::collidesWithRotation(fs[0]->position_, fs[0]->width_,

@@ -56,7 +56,6 @@ void BulletsSystem::recieve(const msg::Message& msg)
 		break;
 	}
 	case msg::_BULLET_INFO:{
-		cout << "Llego el mensaje\n";
 		const msg::BulletInfo& m = static_cast<const msg::BulletInfo&>(msg);
 		for (auto &e : mngr_->getGroupEntities(ecs::_grp_Bullets)) {
 			if(m.id == e->getComponent<BulletInfo>(ecs::BulletInfo)->id_){

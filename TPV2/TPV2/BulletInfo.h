@@ -13,4 +13,3 @@ struct BulletInfo: Component {
 	uint8_t bulletId;
 	uint8_t bounces;
 };
-
