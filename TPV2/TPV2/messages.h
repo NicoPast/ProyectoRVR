@@ -30,7 +30,7 @@ namespace msg {
 		_last_MsgId_
 	};
 
-	#pragma pack(push,1)
+	#pragma pack(push, 1)
 	
 	struct Message : public Serializable{
 		Message(msgSizeType size, MsgId id) :
