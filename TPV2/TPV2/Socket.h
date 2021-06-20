@@ -111,7 +111,7 @@ public:
      *
      *    @return 0 en caso de éxito o -1 si error (cerrar conexión)
      */
-    int recv(msg::Message * &obj, Socket * &sock) {
+    int recv(msg::Message* &obj, Socket * &sock) {
         struct sockaddr sa;
         socklen_t sa_len = sizeof(struct sockaddr);
 
@@ -128,32 +128,29 @@ public:
             return -1;
         }
 
-        printf("TEST -1?\n");
+        sock = new Socket(&sa, sa_len);
 
-        if ( sock != nullptr )
-        {
-            printf("TEST new?\n");
-            sock = new Socket(&sa, sa_len);
-            printf("TEST !=0?\n");
-        }
-
-        printf("TEST from_Bin\n");
         // leer el id del buffer
         // en funcion de que id es, construye ese mensaje
-        // switch (expression)
-        // {
-        // case /* constant-expression */:
-        //     /* code */
-        //     // obj = new ...;
-        //     break;
+
+        msg::Message m;
+
+        m.from_bin(buffer);
+
+        //std::cout << "TEST m ID: " << m.id << "\n";
+
+        switch (m.id)
+        {
+        case msg::MsgId::_CONNECTED :
+            obj = new msg::ConnectedMsg(0);
+            static_cast<msg::ConnectedMsg*>(obj)->from_bin(buffer);
+            break;
         
-        // default:
-        //     break;
-        // }
+        default:
+            break;
+        }
 
-        obj->from_bin(buffer);
-
-        printf("TEST After From_bin\n");
+        //obj->from_bin(buffer);
 
         return 0;
     }
@@ -174,20 +171,27 @@ public:
      *
      *    @return 0 en caso de éxito o -1 si error
      */
-    int send(Serializable& obj, const Socket& sock)
+    int send(msg::Message& obj, const Socket& sock)
     {
         //Serializar el objeto
         //Enviar el objeto binario a sock usando el socket sd
 
-        obj.to_bin();
-        std::cout << sock.sa_len << "\n";
+        printf("TEST Before To_Bin\n");
 
-        int bytes = sendto(sock.sd, obj.data(), obj.size(), 0, &sock.sa, sock.sa_len);
+        obj.to_bin();
+
+        printf("TEST Before sendTo\n");
+
+        //std::cout << sock << std::endl;
+
+        int bytes = sendto(sd, obj.data(), obj.size, 0, &sock.sa, sock.sa_len);
+
+        printf("TEST After sendTo\n");
 
         if(bytes == -1)
         {
             printf("Error al enviar el paquete\n");
-            fprintf(stderr, "Error using getaddrinfo: %s\n", gai_strerror(bytes));
+            fprintf(stderr, "Error using getaddrinfo: %s\n", strerror(errno));
         }
         return bytes;
     }

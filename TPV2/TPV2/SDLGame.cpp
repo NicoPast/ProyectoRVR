@@ -16,7 +16,6 @@ SDLGame::SDLGame(string windowTitle, int width, int height) :
 		windowTitle_(windowTitle), width_(width), height_(height) {
 	initSDL();
 	initResources();
-	cout << "TEST SDLGame Const\n";
 }
 
 SDLGame::~SDLGame() {
@@ -66,11 +65,7 @@ void SDLGame::closeSDL() {
 
 void SDLGame::initResources() {
 
-	cout << "TEST Before Net\n";
-
 	networking_ = new Networking();
-
-	cout << "TEST After Net\n";
 
 	random_ = new SRandBasedGenerator();
 	random_->init();

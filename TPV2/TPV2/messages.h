@@ -14,7 +14,7 @@ namespace msg {
 	using msgSizeType = uint32_t;
 
 	enum MsgId : uint8_t {
-		_CONNECTED, //
+		_CONNECTED = 0, //
 		_CONNECTION_REFUSED, //
 		_CLIENT_DISCONNECTED, //
 		_PLAYER_INFO, //
@@ -39,8 +39,10 @@ namespace msg {
 		Message(MsgId id) :
 				Message(sizeof(Message), id) {
 		}
+		Message(){
+			
+		}
 		virtual void to_bin() {
-
 			createHeader(sizeof(Message));
 		}
 
@@ -75,7 +77,7 @@ namespace msg {
 		}
 
 		// lee la cabecera del mensaje y la guarda
-		// devuelve el tamano de la cabecera
+		// devuelve el offset
 		int readHeader(char* data, uint32_t messageSize)
 		{
 			alloc_data(MESSAGE_SIZE);
@@ -113,7 +115,8 @@ namespace msg {
 		}
 
 		virtual int from_bin(char * data) override {
-
+			
+			cout << "TEST FromBin ConnectedMsg\n";
 			size_t offset = readHeader(data, sizeof(ConnectedMsg));
 			size_t sz = sizeof(uint32_t);
 			

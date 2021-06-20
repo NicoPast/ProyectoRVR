@@ -38,10 +38,10 @@ void Networking::send(const msg::Message &msg, TCPsocket sock) {
 		error();
 }
 
-msg::Message* Networking::recieve(Socket* sock) {
+msg::Message* Networking::recieve(Socket* & sock) {
 	msg::Message* msg;
 	int r = socket->recv(msg, sock);
-	if(r <= 0)
+	if(r < 0)
 		return nullptr;
 	else return msg;
 }
@@ -73,68 +73,28 @@ bool Networking::client(const char *host, const char* port) {
 
 	socket = new Socket(host, port);
 
-	socket->bind();
-
 	msg::Message mInp(msg::MsgId::_CONNECTED);
 
 	send(mInp, socket);
 
-	cout << "TEST before recieve\n";
-
 	msg::Message* m = recieve(socket);
-
-	cout << "TEST after recieve\n";
 
 	if (m == nullptr) {
 		error(); // something went wrong
 	} else if (m->id == msg::_CONNECTED) { // M0
 		clientId = static_cast<msg::ConnectedMsg*>(m)->clientId; // copy the identifier to id
 	} else {
-		cout << "false\n";
+		cout << "Client msg recieve: false\n";
 		return false;
 	}
-
-	cout << clientId << "\n";
 	
-	std::thread net_thread([this](){ clientThread(); });
-
-	cout << "TEST client\n";
-	
-	// // a variable that represents the address of the server we want to connect to
-	// IPaddress ip;
-
-	// // fill in the address in 'ip'
-	// if (SDLNet_ResolveHost(&ip, host, atoi(port)) < 0) {
-	// 	error();
-	// }
-
-	// // establish the connection with the server
-	// sock = SDLNet_TCP_Open(&ip);
-	// if (!sock) {
-	// 	error();
-	// 	return false;
-	// }
-
-	// msg::Message *m = recieve(sock);
-
-	// if (m == nullptr) {
-	// 	error(); // something went wrong
-	// } else if (m->id == msg::_CONNECTED) { // M0
-	// 	clientId = static_cast<msg::ConnectedMsg*>(m)->clientId; // copy the identifier to id
-	// } else {
-	// 	return false;
-	// }
-
-	// // socket set for non-blocking communication
-	// socketSet = SDLNet_AllocSocketSet(1);
-	// SDLNet_TCP_AddSocket(socketSet, sock);
+	//std::thread net_thread([this](){ clientThread(); });
 
 	return true;
 }
 
 void Networking::clientThread(){
 	while(true){
-		cout << "bucle\n";
 
 		Socket* client;
 
@@ -185,7 +145,9 @@ void Networking::server(const char * port) {
 					clientsSock[j] = client;
 
 					msg::ConnectedMsg m(j);
+					std::cout << "TEST Before send Connected" << std::endl;
 					send(m, client);
+					std::cout << "TEST After send Connected" << std::endl;
 
 				} else {
 					// refuse connection (message type M1)
