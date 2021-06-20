@@ -226,9 +226,22 @@ CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Manager.cpp -o CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.s
 
+CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
+CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.o: ../TPV2/MapSystem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/MapSystem.cpp
+
+CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/MapSystem.cpp > CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.i
+
+CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/MapSystem.cpp -o CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.s
+
 CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o: ../TPV2/Networking.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Networking.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.i: cmake_force
@@ -241,7 +254,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o: ../TPV2/NetworkingSystem.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/NetworkingSystem.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.i: cmake_force
@@ -254,7 +267,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/OFFacotry.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/OFFacotry.cpp.o: ../TPV2/OFFacotry.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/OFFacotry.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/OFFacotry.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/OFFacotry.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/OFFacotry.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/OFFacotry.cpp.i: cmake_force
@@ -267,7 +280,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/OFFacotry.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/ObjectFactory.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/ObjectFactory.cpp.o: ../TPV2/ObjectFactory.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/ObjectFactory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/ObjectFactory.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/ObjectFactory.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/ObjectFactory.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/ObjectFactory.cpp.i: cmake_force
@@ -280,7 +293,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/ObjectFactory.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/ObjectPool.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/ObjectPool.cpp.o: ../TPV2/ObjectPool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/ObjectPool.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/ObjectPool.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/ObjectPool.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/ObjectPool.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/ObjectPool.cpp.i: cmake_force
@@ -293,7 +306,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/ObjectPool.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/RandomNumberGenerator.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/RandomNumberGenerator.cpp.o: ../TPV2/RandomNumberGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/RandomNumberGenerator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/RandomNumberGenerator.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/RandomNumberGenerator.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/RandomNumberGenerator.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/RandomNumberGenerator.cpp.i: cmake_force
@@ -306,7 +319,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/RandomNumberGenerator.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.o: ../TPV2/RenderSystem.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/RenderSystem.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.i: cmake_force
@@ -319,7 +332,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/Resources.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/Resources.cpp.o: ../TPV2/Resources.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/Resources.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/Resources.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/Resources.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Resources.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/Resources.cpp.i: cmake_force
@@ -332,7 +345,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/Resources.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLAudioManager.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLAudioManager.cpp.o: ../TPV2/SDLAudioManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/SDLAudioManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/SDLAudioManager.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/SDLAudioManager.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLAudioManager.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLAudioManager.cpp.i: cmake_force
@@ -345,7 +358,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/SDLAudioManager.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLFontsManager.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLFontsManager.cpp.o: ../TPV2/SDLFontsManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/SDLFontsManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/SDLFontsManager.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/SDLFontsManager.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLFontsManager.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLFontsManager.cpp.i: cmake_force
@@ -358,7 +371,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/SDLFontsManager.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.o: ../TPV2/SDLGame.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLGame.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.i: cmake_force
@@ -371,7 +384,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLTexturesManager.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLTexturesManager.cpp.o: ../TPV2/SDLTexturesManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/SDLTexturesManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/SDLTexturesManager.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/SDLTexturesManager.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLTexturesManager.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLTexturesManager.cpp.i: cmake_force
@@ -384,7 +397,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/SDLTexturesManager.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/SRandBasedGenerator.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/SRandBasedGenerator.cpp.o: ../TPV2/SRandBasedGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/SRandBasedGenerator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/SRandBasedGenerator.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/SRandBasedGenerator.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SRandBasedGenerator.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/SRandBasedGenerator.cpp.i: cmake_force
@@ -397,7 +410,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/SRandBasedGenerator.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/Singleton.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/Singleton.cpp.o: ../TPV2/Singleton.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/Singleton.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/Singleton.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/Singleton.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Singleton.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/Singleton.cpp.i: cmake_force
@@ -410,7 +423,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/Singleton.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o: ../TPV2/StarWars.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/StarWars.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.i: cmake_force
@@ -423,7 +436,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/System.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/System.cpp.o: ../TPV2/System.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/System.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/System.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/System.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/System.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/System.cpp.i: cmake_force
@@ -436,7 +449,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/System.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/Texture.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/Texture.cpp.o: ../TPV2/Texture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/Texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/Texture.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/Texture.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Texture.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/Texture.cpp.i: cmake_force
@@ -449,7 +462,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/Texture.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/TexturesManager.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/TexturesManager.cpp.o: ../TPV2/TexturesManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/TexturesManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/TexturesManager.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/TexturesManager.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/TexturesManager.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/TexturesManager.cpp.i: cmake_force
@@ -462,7 +475,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/TexturesManager.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/Vector2D.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/Vector2D.cpp.o: ../TPV2/Vector2D.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/Vector2D.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/Vector2D.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/Vector2D.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Vector2D.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/Vector2D.cpp.i: cmake_force
@@ -475,7 +488,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/Vector2D.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/jute.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/jute.cpp.o: ../TPV2/jute.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/jute.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/jute.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/jute.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/jute.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/jute.cpp.i: cmake_force
@@ -488,7 +501,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/jute.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.o: ../TPV2/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/main.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.i: cmake_force
@@ -501,7 +514,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.s: cmake_force
 
 CMakeFiles/ProyectoRVR.dir/TPV2/sdl_macros.cpp.o: CMakeFiles/ProyectoRVR.dir/flags.make
 CMakeFiles/ProyectoRVR.dir/TPV2/sdl_macros.cpp.o: ../TPV2/sdl_macros.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/sdl_macros.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/ProyectoRVR.dir/TPV2/sdl_macros.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProyectoRVR.dir/TPV2/sdl_macros.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/sdl_macros.cpp
 
 CMakeFiles/ProyectoRVR.dir/TPV2/sdl_macros.cpp.i: cmake_force
@@ -527,6 +540,7 @@ ProyectoRVR_OBJECTS = \
 "CMakeFiles/ProyectoRVR.dir/TPV2/GameCtrlSystem.cpp.o" \
 "CMakeFiles/ProyectoRVR.dir/TPV2/InputHandler.cpp.o" \
 "CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o" \
+"CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.o" \
 "CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o" \
 "CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o" \
 "CMakeFiles/ProyectoRVR.dir/TPV2/OFFacotry.cpp.o" \
@@ -566,6 +580,7 @@ ProyectoRVR: CMakeFiles/ProyectoRVR.dir/TPV2/FontsManager.cpp.o
 ProyectoRVR: CMakeFiles/ProyectoRVR.dir/TPV2/GameCtrlSystem.cpp.o
 ProyectoRVR: CMakeFiles/ProyectoRVR.dir/TPV2/InputHandler.cpp.o
 ProyectoRVR: CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o
+ProyectoRVR: CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.o
 ProyectoRVR: CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o
 ProyectoRVR: CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o
 ProyectoRVR: CMakeFiles/ProyectoRVR.dir/TPV2/OFFacotry.cpp.o
@@ -594,7 +609,7 @@ ProyectoRVR: /usr/lib/x86_64-linux-gnu/libSDL2_ttf.so
 ProyectoRVR: /usr/lib/x86_64-linux-gnu/libSDL2_net.so
 ProyectoRVR: /usr/lib/x86_64-linux-gnu/libSDL2_mixer.so
 ProyectoRVR: CMakeFiles/ProyectoRVR.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Linking CXX executable ProyectoRVR"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Linking CXX executable ProyectoRVR"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ProyectoRVR.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <vector>
 #include <memory>
+#include <thread>
 
 #include "Socket.h"
 
@@ -71,37 +72,69 @@ msg::Message* Networking::recieve(TCPsocket sock) {
 bool Networking::client(const char *host, const char* port) {
 
 	socket = new Socket(host, port);
-	
-	// a variable that represents the address of the server we want to connect to
-	IPaddress ip;
 
-	// fill in the address in 'ip'
-	if (SDLNet_ResolveHost(&ip, host, atoi(port)) < 0) {
-		error();
-	}
+	socket->bind();
 
-	// establish the connection with the server
-	sock = SDLNet_TCP_Open(&ip);
-	if (!sock) {
-		error();
-		return false;
-	}
-
-	msg::Message *m = recieve(sock);
+	msg::Message* m = recieve(socket);
 
 	if (m == nullptr) {
 		error(); // something went wrong
 	} else if (m->id == msg::_CONNECTED) { // M0
 		clientId = static_cast<msg::ConnectedMsg*>(m)->clientId; // copy the identifier to id
 	} else {
+		cout << "false\n";
 		return false;
 	}
 
-	// socket set for non-blocking communication
-	socketSet = SDLNet_AllocSocketSet(1);
-	SDLNet_TCP_AddSocket(socketSet, sock);
+	cout << clientId << "\n";
+	
+	std::thread net_thread([this](){ clientThread(); });
+	
+	// // a variable that represents the address of the server we want to connect to
+	// IPaddress ip;
+
+	// // fill in the address in 'ip'
+	// if (SDLNet_ResolveHost(&ip, host, atoi(port)) < 0) {
+	// 	error();
+	// }
+
+	// // establish the connection with the server
+	// sock = SDLNet_TCP_Open(&ip);
+	// if (!sock) {
+	// 	error();
+	// 	return false;
+	// }
+
+	// msg::Message *m = recieve(sock);
+
+	// if (m == nullptr) {
+	// 	error(); // something went wrong
+	// } else if (m->id == msg::_CONNECTED) { // M0
+	// 	clientId = static_cast<msg::ConnectedMsg*>(m)->clientId; // copy the identifier to id
+	// } else {
+	// 	return false;
+	// }
+
+	// // socket set for non-blocking communication
+	// socketSet = SDLNet_AllocSocketSet(1);
+	// SDLNet_TCP_AddSocket(socketSet, sock);
 
 	return true;
+}
+
+void Networking::clientThread(){
+	while(true){
+		cout << "bucle\n";
+
+		Socket* client;
+
+		msg::Message *msg = recieve(client);
+
+		if(!msg)
+			continue;
+
+		lastMsgs.push_back(msg);
+	}
 }
 
 void Networking::server(const char * port) {
@@ -167,8 +200,10 @@ void Networking::server(const char * port) {
 				}
 				
 				msg::ClientDisconnectedMsg m(i);
-				for (int i = 0; i < MAX_CLIENTS_SOCK; i++) {
-					send(m, clientsSock[i]);
+				for (int j = 0; j < MAX_CLIENTS_SOCK; j++) {
+					if (clientsSock[j] != nullptr){
+						send(m, clientsSock[j]);
+					}
 				}
 				break;
         	}

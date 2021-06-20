@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL_net.h>
 #include <iostream>
+#include <list>
 #include "messages.h"
 
 class Socket;
@@ -16,10 +17,17 @@ public:
 	}
 
 	msg::Message* recieve() {
-		if (SDLNet_CheckSockets(socketSet, 0) > 0 && SDLNet_SocketReady(sock))
-			return recieve(sock);
-		else
-			return nullptr;
+		// if (SDLNet_CheckSockets(socketSet, 0) > 0 && SDLNet_SocketReady(sock))
+		// 	return recieve(sock);
+		// else
+		// 	return nullptr;
+
+		if(lastMsgs.size() > 0){
+			msg::Message* m = lastMsgs.front();
+			lastMsgs.pop_front();
+			return m;
+		}
+		return nullptr;
 	}
 
 	// start server
@@ -27,6 +35,8 @@ public:
 
 	// start client
 	bool client(const char *host, const char* port);
+
+	void clientThread();
 
 	uint8_t getClientId() {
 		return clientId;
@@ -43,6 +53,8 @@ private:
 	SDLNet_SocketSet socketSet;
 
 	Socket* socket;
+
+	std::list<msg::Message*> lastMsgs;
 
 	char buffer[256];
 	uint8_t clientId;

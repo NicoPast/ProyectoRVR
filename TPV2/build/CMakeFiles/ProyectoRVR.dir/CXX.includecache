@@ -19,6 +19,8 @@ vector
 -
 memory
 -
+thread
+-
 Socket.h
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Socket.h
 
@@ -26,6 +28,8 @@ Socket.h
 SDL_net.h
 -
 iostream
+-
+list
 -
 messages.h
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/messages.h

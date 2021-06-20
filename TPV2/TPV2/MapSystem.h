@@ -19,4 +19,4 @@ private:
     double height;
     int rows;
     int cols;
-}
+};

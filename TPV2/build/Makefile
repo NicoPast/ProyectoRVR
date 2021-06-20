@@ -474,6 +474,33 @@ TPV2/Manager.cpp.s:
 	$(MAKE) -f CMakeFiles/ProyectoRVR.dir/build.make CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.s
 .PHONY : TPV2/Manager.cpp.s
 
+TPV2/MapSystem.o: TPV2/MapSystem.cpp.o
+
+.PHONY : TPV2/MapSystem.o
+
+# target to build an object file
+TPV2/MapSystem.cpp.o:
+	$(MAKE) -f CMakeFiles/ProyectoRVR.dir/build.make CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.o
+.PHONY : TPV2/MapSystem.cpp.o
+
+TPV2/MapSystem.i: TPV2/MapSystem.cpp.i
+
+.PHONY : TPV2/MapSystem.i
+
+# target to preprocess a source file
+TPV2/MapSystem.cpp.i:
+	$(MAKE) -f CMakeFiles/ProyectoRVR.dir/build.make CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.i
+.PHONY : TPV2/MapSystem.cpp.i
+
+TPV2/MapSystem.s: TPV2/MapSystem.cpp.s
+
+.PHONY : TPV2/MapSystem.s
+
+# target to generate assembly for a file
+TPV2/MapSystem.cpp.s:
+	$(MAKE) -f CMakeFiles/ProyectoRVR.dir/build.make CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.s
+.PHONY : TPV2/MapSystem.cpp.s
+
 TPV2/Networking.o: TPV2/Networking.cpp.o
 
 .PHONY : TPV2/Networking.o
@@ -1116,6 +1143,9 @@ help:
 	@echo "... TPV2/Manager.o"
 	@echo "... TPV2/Manager.i"
 	@echo "... TPV2/Manager.s"
+	@echo "... TPV2/MapSystem.o"
+	@echo "... TPV2/MapSystem.i"
+	@echo "... TPV2/MapSystem.s"
 	@echo "... TPV2/Networking.o"
 	@echo "... TPV2/Networking.i"
 	@echo "... TPV2/Networking.s"

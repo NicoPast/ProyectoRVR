@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ProyectoRVR.dir/TPV2/GameCtrlSystem.cpp.o"
   "CMakeFiles/ProyectoRVR.dir/TPV2/InputHandler.cpp.o"
   "CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o"
+  "CMakeFiles/ProyectoRVR.dir/TPV2/MapSystem.cpp.o"
   "CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o"
   "CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o"
   "CMakeFiles/ProyectoRVR.dir/TPV2/OFFacotry.cpp.o"
