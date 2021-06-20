@@ -20,6 +20,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/BulletsPool.cpp.o: ../TPV2/ObjectPool.h
 CMakeFiles/ProyectoRVR.dir/TPV2/BulletsPool.cpp.o: ../TPV2/RandomNumberGenerator.h
 CMakeFiles/ProyectoRVR.dir/TPV2/BulletsPool.cpp.o: ../TPV2/Resources.h
 CMakeFiles/ProyectoRVR.dir/TPV2/BulletsPool.cpp.o: ../TPV2/SDLGame.h
+CMakeFiles/ProyectoRVR.dir/TPV2/BulletsPool.cpp.o: ../TPV2/Serializable.h
 CMakeFiles/ProyectoRVR.dir/TPV2/BulletsPool.cpp.o: ../TPV2/Singleton.h
 CMakeFiles/ProyectoRVR.dir/TPV2/BulletsPool.cpp.o: ../TPV2/Texture.h
 CMakeFiles/ProyectoRVR.dir/TPV2/BulletsPool.cpp.o: ../TPV2/TexturesManager.h
@@ -95,6 +96,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/BulletsSystem.cpp.o: ../TPV2/ObjectPool.h
 CMakeFiles/ProyectoRVR.dir/TPV2/BulletsSystem.cpp.o: ../TPV2/RandomNumberGenerator.h
 CMakeFiles/ProyectoRVR.dir/TPV2/BulletsSystem.cpp.o: ../TPV2/Resources.h
 CMakeFiles/ProyectoRVR.dir/TPV2/BulletsSystem.cpp.o: ../TPV2/SDLGame.h
+CMakeFiles/ProyectoRVR.dir/TPV2/BulletsSystem.cpp.o: ../TPV2/Serializable.h
 CMakeFiles/ProyectoRVR.dir/TPV2/BulletsSystem.cpp.o: ../TPV2/Singleton.h
 CMakeFiles/ProyectoRVR.dir/TPV2/BulletsSystem.cpp.o: ../TPV2/System.h
 CMakeFiles/ProyectoRVR.dir/TPV2/BulletsSystem.cpp.o: ../TPV2/Texture.h
@@ -173,6 +175,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/CollisionSystem.cpp.o: ../TPV2/ObjectFactory.h
 CMakeFiles/ProyectoRVR.dir/TPV2/CollisionSystem.cpp.o: ../TPV2/RandomNumberGenerator.h
 CMakeFiles/ProyectoRVR.dir/TPV2/CollisionSystem.cpp.o: ../TPV2/Resources.h
 CMakeFiles/ProyectoRVR.dir/TPV2/CollisionSystem.cpp.o: ../TPV2/SDLGame.h
+CMakeFiles/ProyectoRVR.dir/TPV2/CollisionSystem.cpp.o: ../TPV2/Serializable.h
 CMakeFiles/ProyectoRVR.dir/TPV2/CollisionSystem.cpp.o: ../TPV2/Singleton.h
 CMakeFiles/ProyectoRVR.dir/TPV2/CollisionSystem.cpp.o: ../TPV2/System.h
 CMakeFiles/ProyectoRVR.dir/TPV2/CollisionSystem.cpp.o: ../TPV2/Texture.h
@@ -252,6 +255,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/Entity.cpp.o: ../TPV2/ObjectFactory.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Entity.cpp.o: ../TPV2/RandomNumberGenerator.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Entity.cpp.o: ../TPV2/Resources.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Entity.cpp.o: ../TPV2/SDLGame.h
+CMakeFiles/ProyectoRVR.dir/TPV2/Entity.cpp.o: ../TPV2/Serializable.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Entity.cpp.o: ../TPV2/Singleton.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Entity.cpp.o: ../TPV2/System.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Entity.cpp.o: ../TPV2/Texture.h
@@ -329,6 +333,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/FightersSystem.cpp.o: ../TPV2/ObjectFactory.h
 CMakeFiles/ProyectoRVR.dir/TPV2/FightersSystem.cpp.o: ../TPV2/RandomNumberGenerator.h
 CMakeFiles/ProyectoRVR.dir/TPV2/FightersSystem.cpp.o: ../TPV2/Resources.h
 CMakeFiles/ProyectoRVR.dir/TPV2/FightersSystem.cpp.o: ../TPV2/SDLGame.h
+CMakeFiles/ProyectoRVR.dir/TPV2/FightersSystem.cpp.o: ../TPV2/Serializable.h
 CMakeFiles/ProyectoRVR.dir/TPV2/FightersSystem.cpp.o: ../TPV2/Singleton.h
 CMakeFiles/ProyectoRVR.dir/TPV2/FightersSystem.cpp.o: ../TPV2/System.h
 CMakeFiles/ProyectoRVR.dir/TPV2/FightersSystem.cpp.o: ../TPV2/Texture.h
@@ -503,6 +508,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/GameCtrlSystem.cpp.o: ../TPV2/ObjectFactory.h
 CMakeFiles/ProyectoRVR.dir/TPV2/GameCtrlSystem.cpp.o: ../TPV2/RandomNumberGenerator.h
 CMakeFiles/ProyectoRVR.dir/TPV2/GameCtrlSystem.cpp.o: ../TPV2/Resources.h
 CMakeFiles/ProyectoRVR.dir/TPV2/GameCtrlSystem.cpp.o: ../TPV2/SDLGame.h
+CMakeFiles/ProyectoRVR.dir/TPV2/GameCtrlSystem.cpp.o: ../TPV2/Serializable.h
 CMakeFiles/ProyectoRVR.dir/TPV2/GameCtrlSystem.cpp.o: ../TPV2/Singleton.h
 CMakeFiles/ProyectoRVR.dir/TPV2/GameCtrlSystem.cpp.o: ../TPV2/System.h
 CMakeFiles/ProyectoRVR.dir/TPV2/GameCtrlSystem.cpp.o: ../TPV2/Texture.h
@@ -623,6 +629,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o: ../TPV2/ObjectFactory.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o: ../TPV2/RandomNumberGenerator.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o: ../TPV2/Resources.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o: ../TPV2/SDLGame.h
+CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o: ../TPV2/Serializable.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o: ../TPV2/Singleton.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o: ../TPV2/System.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o: ../TPV2/Texture.h
@@ -681,6 +688,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o: /usr/include/SDL2/close_code.h
 
 CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o: ../TPV2/Networking.cpp
 CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o: ../TPV2/Networking.h
+CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o: ../TPV2/Serializable.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o: ../TPV2/Socket.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o: ../TPV2/Vector2D.h
 CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o: ../TPV2/messages.h
@@ -747,6 +755,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o: ../TPV2/ObjectFactory.h
 CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o: ../TPV2/RandomNumberGenerator.h
 CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o: ../TPV2/Resources.h
 CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o: ../TPV2/SDLGame.h
+CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o: ../TPV2/Serializable.h
 CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o: ../TPV2/Singleton.h
 CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o: ../TPV2/System.h
 CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o: ../TPV2/Texture.h
@@ -836,6 +845,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.o: ../TPV2/RenderSystem.h
 CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.o: ../TPV2/Resources.h
 CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.o: ../TPV2/SDLGame.h
 CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.o: ../TPV2/SDL_macros.h
+CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.o: ../TPV2/Serializable.h
 CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.o: ../TPV2/Singleton.h
 CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.o: ../TPV2/System.h
 CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.o: ../TPV2/Texture.h
@@ -1024,6 +1034,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.o: ../TPV2/SDLGame.cpp
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.o: ../TPV2/SDLGame.h
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.o: ../TPV2/SDLTexturesManager.h
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.o: ../TPV2/SRandBasedGenerator.h
+CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.o: ../TPV2/Serializable.h
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.o: ../TPV2/Texture.h
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.o: ../TPV2/TexturesManager.h
 CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.o: ../TPV2/Vector2D.h
@@ -1162,6 +1173,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o: ../TPV2/RenderSystem.h
 CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o: ../TPV2/Resources.h
 CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o: ../TPV2/SDLGame.h
 CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o: ../TPV2/SDL_macros.h
+CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o: ../TPV2/Serializable.h
 CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o: ../TPV2/Singleton.h
 CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o: ../TPV2/StarWars.cpp
 CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o: ../TPV2/StarWars.h
@@ -1221,6 +1233,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o: /usr/include/SDL2/SDL_video.h
 CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o: /usr/include/SDL2/begin_code.h
 CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o: /usr/include/SDL2/close_code.h
 
+CMakeFiles/ProyectoRVR.dir/TPV2/System.cpp.o: ../TPV2/Serializable.h
 CMakeFiles/ProyectoRVR.dir/TPV2/System.cpp.o: ../TPV2/System.cpp
 CMakeFiles/ProyectoRVR.dir/TPV2/System.cpp.o: ../TPV2/System.h
 CMakeFiles/ProyectoRVR.dir/TPV2/System.cpp.o: ../TPV2/Vector2D.h
@@ -1355,6 +1368,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.o: ../TPV2/RandomNumberGenerator.h
 CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.o: ../TPV2/RenderSystem.h
 CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.o: ../TPV2/Resources.h
 CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.o: ../TPV2/SDLGame.h
+CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.o: ../TPV2/Serializable.h
 CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.o: ../TPV2/Singleton.h
 CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.o: ../TPV2/StarWars.h
 CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.o: ../TPV2/System.h

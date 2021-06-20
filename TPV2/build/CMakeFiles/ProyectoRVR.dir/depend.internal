@@ -21,6 +21,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/BulletsPool.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/RandomNumberGenerator.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Resources.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLGame.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Singleton.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Texture.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/TexturesManager.h
@@ -96,6 +97,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/BulletsSystem.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/RandomNumberGenerator.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Resources.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLGame.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Singleton.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/System.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Texture.h
@@ -174,6 +176,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/CollisionSystem.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/RandomNumberGenerator.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Resources.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLGame.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Singleton.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/System.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Texture.h
@@ -253,6 +256,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/Entity.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/RandomNumberGenerator.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Resources.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLGame.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Singleton.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/System.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Texture.h
@@ -330,6 +334,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/FightersSystem.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/RandomNumberGenerator.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Resources.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLGame.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Singleton.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/System.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Texture.h
@@ -504,6 +509,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/GameCtrlSystem.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/RandomNumberGenerator.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Resources.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLGame.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Singleton.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/System.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Texture.h
@@ -624,6 +630,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/RandomNumberGenerator.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Resources.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLGame.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Singleton.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/System.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Texture.h
@@ -682,6 +689,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/Manager.cpp.o
 CMakeFiles/ProyectoRVR.dir/TPV2/Networking.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Networking.cpp
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Networking.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Socket.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Vector2D.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/messages.h
@@ -748,6 +756,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/NetworkingSystem.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/RandomNumberGenerator.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Resources.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLGame.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Singleton.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/System.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Texture.h
@@ -837,6 +846,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/RenderSystem.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Resources.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLGame.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDL_macros.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Singleton.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/System.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Texture.h
@@ -1025,6 +1035,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/SDLGame.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLGame.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLTexturesManager.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SRandBasedGenerator.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Texture.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/TexturesManager.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Vector2D.h
@@ -1163,6 +1174,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Resources.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLGame.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDL_macros.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Singleton.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/StarWars.cpp
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/StarWars.h
@@ -1222,6 +1234,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/StarWars.cpp.o
  /usr/include/SDL2/begin_code.h
  /usr/include/SDL2/close_code.h
 CMakeFiles/ProyectoRVR.dir/TPV2/System.cpp.o
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/System.cpp
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/System.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Vector2D.h
@@ -1356,6 +1369,7 @@ CMakeFiles/ProyectoRVR.dir/TPV2/main.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/RenderSystem.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Resources.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/SDLGame.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Singleton.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/StarWars.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/System.h

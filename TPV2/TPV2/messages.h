@@ -6,6 +6,7 @@
 #include <ctime>
 
 #include "Vector2D.h"
+#include "Serializable.h"
 
 namespace msg {
 
@@ -17,7 +18,7 @@ namespace msg {
 		_CLIENT_DISCONNECTED, //
 		_PLAYER_INFO, //
 		_FIGHTER_INFO, //
-		_BULLET_INFO,
+		_BULLET_INFO, //
 		_START_REQ, //
 		_START_ROUND, //
 		_SHOOT, //
@@ -30,12 +31,19 @@ namespace msg {
 
 	#pragma pack(push,1)
 
-	struct Message {
+	struct Message : public Serializable{
 		Message(msgSizeType size, MsgId id) :
 				size(size), senderClientId(0), id(id) {
 		}
 		Message(MsgId id) :
 				Message(sizeof(Message), id) {
+		}
+		void to_bin() override{
+
+		}
+
+		int from_bin(char * data) override {
+			return 0;
 		}
 		msgSizeType size;
 		uint32_t senderClientId;

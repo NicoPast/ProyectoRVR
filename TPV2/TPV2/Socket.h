@@ -110,7 +110,28 @@ public:
      *
      *    @return 0 en caso de éxito o -1 si error (cerrar conexión)
      */
-    int recv(Serializable &obj, Socket * &sock);
+    int recv(Serializable &obj, Socket * &sock) {
+        struct sockaddr sa;
+        socklen_t sa_len = sizeof(struct sockaddr);
+
+        char buffer[MAX_MESSAGE_SIZE];
+
+        ssize_t bytes = ::recvfrom(sd, buffer, MAX_MESSAGE_SIZE, 0, &sa, &sa_len);
+
+        if ( bytes <= 0 )
+        {
+            return -1;
+        }
+
+        if ( sock != 0 )
+        {
+            sock = new Socket(&sa, sa_len);
+        }
+
+        obj.from_bin(buffer);
+
+        return 0;
+    }
 
     int recv(Serializable &obj) //Descarta los datos del otro extremo
     {
@@ -128,7 +149,20 @@ public:
      *
      *    @return 0 en caso de éxito o -1 si error
      */
-    int send(Serializable& obj, const Socket& sock);
+    int send(Serializable& obj, const Socket& sock)
+    {
+        //Serializar el objeto
+        //Enviar el objeto binario a sock usando el socket sd
+
+        obj.to_bin();
+        int bytes = sendto(sock.sd, obj.data(), obj.size(), 0, &sock.sa, sock.sa_len);
+
+        if(bytes == -1)
+        {
+            printf("Error al enviar el paquete\n");
+        }
+        return bytes;
+    }
 
     /**
      *  Enlaza el descriptor del socket a la dirección y puerto

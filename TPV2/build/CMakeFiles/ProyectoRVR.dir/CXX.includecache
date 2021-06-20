@@ -15,6 +15,10 @@ stdio.h
 -
 stdlib.h
 -
+vector
+-
+memory
+-
 Socket.h
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Socket.h
 
@@ -25,6 +29,10 @@ iostream
 -
 messages.h
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/messages.h
+
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
+stdlib.h
+-
 
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Socket.h
 sys/socket.h
@@ -59,6 +67,8 @@ ctime
 -
 Vector2D.h
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Vector2D.h
+Serializable.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/TPV2/TPV2/Serializable.h
 
 /usr/include/SDL2/SDL.h
 SDL_main.h

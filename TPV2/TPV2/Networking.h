@@ -35,7 +35,9 @@ public:
 private:
 	void error();
 	void send(const msg::Message &msg, TCPsocket sock);
+	void send(msg::Message &msg, Socket* sock);
 	msg::Message* recieve(TCPsocket sock);
+	msg::Message* recieve(Socket* sock);
 
 	TCPsocket sock;
 	SDLNet_SocketSet socketSet;

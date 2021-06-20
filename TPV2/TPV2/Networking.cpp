@@ -3,6 +3,8 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <vector>
+#include <memory>
 
 #include "Socket.h"
 
@@ -23,16 +25,31 @@ Networking::~Networking() {
 		delete socket;
 }
 
+void Networking::send(msg::Message &msg, Socket* sock){
+	if(socket->send(msg, *sock) < 0){
+		error();
+	}
+}
+
 void Networking::send(const msg::Message &msg, TCPsocket sock) {
 	int n = SDLNet_TCP_Send(sock, (char*) &msg, msg.size);
 	if (n < msg.size)
 		error();
 }
 
+msg::Message* Networking::recieve(Socket* sock) {
+	msg::Message* msg;
+	int r = socket->recv(*msg, sock);
+	if(r <= 0)
+		return nullptr;
+	else return msg;
+}
+
 msg::Message* Networking::recieve(TCPsocket sock) {
 	int n = 0;
 	int m = 0;
 	while (n < sizeof(msg::msgSizeType)) {
+
 		m = SDLNet_TCP_Recv(sock, buffer + n, sizeof(msg::msgSizeType) - n);
 		if (m <= 0)
 			return nullptr;
@@ -97,10 +114,85 @@ void Networking::server(const char * port) {
 
 		socket->bind();
 
-		while(true){
-			socket->recv();
-			
+		// an array for clients
+		constexpr int MAX_CLIENTS_SOCK = 2;
+		Socket* clientsSock[MAX_CLIENTS_SOCK];
+		for (uint32_t i = 0; i < MAX_CLIENTS_SOCK; i++) {
+			clientsSock[i] = nullptr;
 		}
+
+		while(true){
+
+			Socket* client;
+
+			//int r = socket.recv(msg, client);
+			msg::Message* msg = recieve(client);
+
+			if(msg == nullptr)
+				continue;
+
+			switch (msg->id)
+        	{
+            case msg::MsgId::_CONNECTED: {
+				uint32_t j = 0;
+				while (j < MAX_CLIENTS_SOCK && clientsSock[j] != nullptr)
+					j++;
+				if (j < MAX_CLIENTS_SOCK) {
+					std::cout << "Client connected, assigned id " << j << std::endl;
+					clientsSock[j] = client;
+
+					msg::ConnectedMsg m(j);
+					send(m, client);
+
+				} else {
+					// refuse connection (message type M1)
+					msg::Message m(msg::_CONNECTION_REFUSED);
+					send(m, client);
+				}
+                break;
+            }
+            case msg::MsgId::_CLIENT_DISCONNECTED: {
+				int i = 0;
+				for (i = 0; i < MAX_CLIENTS_SOCK; i++) {
+					if (clientsSock[i] != nullptr){
+						if(clientsSock[i] == client){
+							delete clientsSock[i];
+							clientsSock[i] = nullptr;
+						}
+					}
+            	}
+                if(i >= MAX_CLIENTS_SOCK){
+					std::cout << "User not registered logged off\n";
+                	break;
+				}
+				
+				msg::ClientDisconnectedMsg m(i);
+				for (int i = 0; i < MAX_CLIENTS_SOCK; i++) {
+					send(m, clientsSock[i]);
+				}
+				break;
+        	}
+            // case ChatMessage::MessageType::MESSAGE: {
+            //     msgOut = msgInp;
+            //     std::cout << msgInp.nick << " sent: " << msgInp.message << "\n";
+            //     break;
+            // }
+            default: 
+                std::cout << "Message Type unknown " << msg->id << "\n";
+                continue;
+		}
+
+		//std::cout << "Connected users:\n";
+        // auto it = clients.begin();
+        // while(it != clients.end()) {
+        //     // std::cout << *((*it).get()) << "\n";
+        //     if(*((*it).get()) == *client){
+        //         it++;
+        //         continue;
+        //     }
+        //     socket.send(msgOut, *((*it).get()));
+        //     it++;
+        // }
 
 		// // an array for clients
 		// constexpr int MAX_CLIENTS = 2;
@@ -219,6 +311,7 @@ void Networking::server(const char * port) {
 		SDLNet_Quit();
 
 	}
+}
 
 void Networking::error() {
 }
