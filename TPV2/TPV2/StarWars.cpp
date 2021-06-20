@@ -24,11 +24,16 @@ void StarWars::initGame(char* name) {
 	if (!game_->getNetworking()->client(host_, port_)) {
 		throw "Couldn`t connect to server!";
 	}
-	cout << "TEST Init\n";
+
+	cout << "TEST Mngr y pool Init\n";
 
 	mngr_ = new Manager(game_, name);
 
+	cout << "TEST Pool Init\n";
+
 	BulletsPool::init(100);
+
+	cout << "TEST Systems Init\n";
 
 	networkingSystem_ = mngr_->addSystem<NetworkingSystem>();
 	fightersSystem_ = mngr_->addSystem<FightersSystem>();
@@ -38,6 +43,7 @@ void StarWars::initGame(char* name) {
 	renderSystem_ = mngr_->addSystem<RenderSystem>();
 
 	game_->getAudioMngr()->playMusic(Resources::ImperialMarch);
+	cout << "TEST End Init\n";
 }
 
 void StarWars::closeGame() {
@@ -45,14 +51,23 @@ void StarWars::closeGame() {
 }
 
 void StarWars::start() {
+	cout << "TEST start\n";
+
 	exit_ = false;
 	auto ih = InputHandler::instance();
 
+	cout << "TEST start before while\n";
+
 	while (!exit_) {
+
+		cout << "TEST while start\n";
+
 		Uint32 startTime = game_->getTime();
 		SDL_SetRenderDrawColor(game_->getRenderer(), COLOR(0x00AAAAFF));
 		SDL_RenderClear(game_->getRenderer());
 
+		cout << "TEST while events\n";
+		
 		SDL_Event event;
 
 		//While there's an event to handle
@@ -74,17 +89,40 @@ void StarWars::start() {
 			}
 		}
 
+		cout << "TEST while mngr ref\n";
+
 		mngr_->refresh();
 
+		cout << "TEST while before updates\n";
+
 		gameCtrlSystem_->update();
+		
+		cout << "TEST while before fFpd\n";
+
 		fightersSystem_->update();
+
+		cout << "TEST while before bUpd\n";
+
 		bulletsSystem_->update();
+
+		cout << "TEST while before colUpd\n";
+
 		if (collisionSystem_ != nullptr)
 			collisionSystem_->update();
+
+		cout << "TEST while before rUpd\n";
+
 		renderSystem_->update();
 
+		cout << "TEST while before flush\n";
+
 		mngr_->flushMessages();
+
+		cout << "TEST while before netSys update\n";
+
 		networkingSystem_->update();
+
+		cout << "TEST while before painting\n";
 
 		SDL_RenderPresent(game_->getRenderer());
 		Uint32 frameTime = game_->getTime() - startTime;

@@ -19,8 +19,13 @@ public:
 	Manager(SDLGame *game, char* name) :
 			game_(game){
 
+		cout << name << "\n";
+		
+		cout << "TEST Manager Const\n";
 		strncpy(&name_[0], name, 11);
+		cout << "TEST Manager list\n";
 		msgs_ = new std::list<uptr_msg>();
+		cout << "TEST End Manager Const\n";
 
 		// needed only when using method flushMessages
 		// that uses the std::swap

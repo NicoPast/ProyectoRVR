@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-
+#include <iostream>
 /*
  * usage:
  *
@@ -34,8 +34,10 @@ public:
 	// can call this init method at the begining of the program.
 	template<typename ...Targs>
 	inline static T* init(Targs &&...args) {
-		//assert(instance_.get() == nullptr);
+		assert(instance_.get() == nullptr);
+		std::cout << "TEST hola?\n";
 		instance_.reset(new T(std::forward<Targs>(args)...));
+		std::cout << "TEST adios?\n";
 		return instance_.get();
 	}
 
