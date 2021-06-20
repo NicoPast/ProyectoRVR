@@ -10,6 +10,7 @@
 
 namespace msg {
 
+	constexpr size_t MESSAGE_SIZE = 1024;
 	using msgSizeType = uint32_t;
 
 	enum MsgId : uint8_t {
@@ -30,7 +31,7 @@ namespace msg {
 	};
 
 	#pragma pack(push,1)
-
+	
 	struct Message : public Serializable{
 		Message(msgSizeType size, MsgId id) :
 				size(size), senderClientId(0), id(id) {
@@ -39,13 +40,63 @@ namespace msg {
 				Message(sizeof(Message), id) {
 		}
 		virtual void to_bin() {
+
+			createHeader(sizeof(Message));
 		}
 
 		virtual int from_bin(char * data) {
+			readHeader(data, sizeof(Message));
 			return 0;
 		}
-		msgSizeType size;			// creo que no
-		uint32_t senderClientId;	// hacen falta
+
+		// crea una cabecera para el mensaje:
+		// MsgId: identificador del mensaje
+		// tamano del mensaje: en bytes
+		// clientId: quien envia el mensaje
+		// devuelve el tamano de la cabecera
+		int createHeader(uint32_t messageSize)
+		{
+			alloc_data(MESSAGE_SIZE);
+    		memset(_data, 0, MESSAGE_SIZE);
+
+			size_t sz = sizeof(MsgId);
+			memcpy(_data, &id, sz);
+			size_t offset = sz;
+
+			sz = messageSize;
+			memcpy(_data, &size, sz);
+			offset += sz;
+
+			sz = sizeof(uint32_t);
+			memcpy(_data + offset, &senderClientId, sz);
+			offset += sz;
+
+			return offset;
+		}
+
+		// lee la cabecera del mensaje y la guarda
+		// devuelve el tamano de la cabecera
+		int readHeader(char* data, uint32_t messageSize)
+		{
+			alloc_data(MESSAGE_SIZE);
+			memcpy(static_cast<void *>(_data), data, MESSAGE_SIZE);
+
+			size_t sz = sizeof(MsgId);
+			memcpy(&id, _data, sz);
+			size_t offset = sz;
+
+			sz = messageSize;
+			memcpy(&size, _data + offset, sz);
+			offset += sz;
+
+			sz = sizeof(uint32_t);
+			memcpy(&senderClientId, _data + offset, sz);
+			offset += sz;
+			
+			return offset;
+		}
+		msgSizeType size;			
+		uint32_t senderClientId;
 		MsgId id;
 	};
 
@@ -54,43 +105,18 @@ namespace msg {
 				Message(sizeof(ConnectedMsg), _CONNECTED), clientId(clientId) {
 		}
 		virtual void to_bin() override {
-			//estos creo que no hacen falta pero los meto por si acaso
-			size_t sz = sizeof(ConnectedMsg);
-			memcpy(_data, &size, sz);
-			size_t offset = sz;
+			
+			size_t offset = createHeader(sizeof(ConnectedMsg));
+			size_t sz = sizeof(uint32_t);
 
-			sz = sizeof(uint32_t);
-			memcpy(_data + offset, &senderClientId, sz);
-			offset += sz;
-
-			// hasta aqui los no necesarios
-
-			sz = sizeof(MsgId);
-			memcpy(_data + offset, &id, sz);
-			offset += sz;
-
-			sz = sizeof(uint32_t);
 			memcpy(_data + offset, &clientId, sz);
 		}
 
 		virtual int from_bin(char * data) override {
 
-			//estos creo que no hacen falta pero los meto por si acaso
-			size_t sz = sizeof(ConnectedMsg);
-			memcpy(&size, _data, sz);
-			size_t offset = sz;
-
-			sz = sizeof(uint32_t);
-			memcpy(&senderClientId, _data + offset, sz);
-			offset += sz;
-
-			// hasta aqui los no necesarios
-
-			sz = sizeof(MsgId);
-			memcpy(&id, _data + offset, sz);
-			offset += sz;
-
-			sz = sizeof(uint32_t);
+			size_t offset = readHeader(data, sizeof(ConnectedMsg));
+			size_t sz = sizeof(uint32_t);
+			
 			memcpy(&clientId, _data + offset, sz);
 			return 0;
 		}
@@ -102,43 +128,18 @@ namespace msg {
 				Message(sizeof(ClientDisconnectedMsg), _CLIENT_DISCONNECTED), clientId(clientId) {
 		}
 		virtual void to_bin() override {
-			//estos creo que no hacen falta pero los meto por si acaso
-			size_t sz = sizeof(ClientDisconnectedMsg);
-			memcpy(_data, &size, sz);
-			size_t offset = sz;
+			
+			size_t offset = createHeader(sizeof(ClientDisconnectedMsg));
+			size_t sz = sizeof(uint32_t);
 
-			sz = sizeof(uint32_t);
-			memcpy(_data + offset, &senderClientId, sz);
-			offset += sz;
-
-			// hasta aqui los no necesarios
-
-			sz = sizeof(MsgId);
-			memcpy(_data + offset, &id, sz);
-			offset += sz;
-
-			sz = sizeof(uint32_t);
 			memcpy(_data + offset, &clientId, sz);
 		}
 
 		virtual int from_bin(char * data) override {
 
-			//estos creo que no hacen falta pero los meto por si acaso
-			size_t sz = sizeof(ClientDisconnectedMsg);
-			memcpy(&size, _data, sz);
-			size_t offset = sz;
+			size_t offset = readHeader(data, sizeof(ClientDisconnectedMsg));
+			size_t sz = sizeof(uint32_t);
 
-			sz = sizeof(uint32_t);
-			memcpy(&senderClientId, _data + offset, sz);
-			offset += sz;
-
-			// hasta aqui los no necesarios
-
-			sz = sizeof(MsgId);
-			memcpy(&id, _data + offset, sz);
-			offset += sz;
-
-			sz = sizeof(uint32_t);
 			memcpy(&clientId, _data + offset, sz);
 			return 0;
 		}
@@ -151,43 +152,18 @@ namespace msg {
 			strncpy(&name[0], n, 11);
 		}
 		virtual void to_bin() override {
-			//estos creo que no hacen falta pero los meto por si acaso
-			size_t sz = sizeof(PlayerInfo);
-			memcpy(_data, &size, sz);
-			size_t offset = sz;
+			
+			size_t offset = createHeader(sizeof(PlayerInfo));
+			size_t sz = sizeof(char) * 11;
 
-			sz = sizeof(uint32_t);
-			memcpy(_data + offset, &senderClientId, sz);
-			offset += sz;
-
-			// hasta aqui los no necesarios
-
-			sz = sizeof(MsgId);
-			memcpy(_data + offset, &id, sz);
-			offset += sz;
-
-			sz = sizeof(char) * 11;
 			memcpy(_data + offset, &name, sz);
 		}
 
 		virtual int from_bin(char * data) override {
 
-			//estos creo que no hacen falta pero los meto por si acaso
-			size_t sz = sizeof(PlayerInfo);
-			memcpy(&size, _data, sz);
-			size_t offset = sz;
+			size_t offset = readHeader(data, sizeof(PlayerInfo));
+			size_t sz = sizeof(char) * 11;
 
-			sz = sizeof(uint32_t);
-			memcpy(&senderClientId, _data + offset, sz);
-			offset += sz;
-
-			// hasta aqui los no necesarios
-
-			sz = sizeof(MsgId);
-			memcpy(&id, _data + offset, sz);
-			offset += sz;
-
-			sz = sizeof(char) * 11;
 			memcpy(&name, _data + offset, sz);
 			return 0;
 		}
@@ -200,22 +176,9 @@ namespace msg {
 
 		}
 		virtual void to_bin() override {
-			//estos creo que no hacen falta pero los meto por si acaso
-			size_t sz = sizeof(FighterInfo);
-			memcpy(_data, &size, sz);
-			size_t offset = sz;
+			size_t offset = createHeader(sizeof(FighterInfo));
+			size_t sz = sizeof(double);
 
-			sz = sizeof(uint32_t);
-			memcpy(_data + offset, &senderClientId, sz);
-			offset += sz;
-
-			// hasta aqui los no necesarios
-
-			sz = sizeof(MsgId);
-			memcpy(_data + offset, &id, sz);
-			offset += sz;
-
-			sz = sizeof(double);
 			memcpy(_data + offset, &x, sz);
 			offset += sz;
 
@@ -228,22 +191,9 @@ namespace msg {
 
 		virtual int from_bin(char * data) override {
 
-			//estos creo que no hacen falta pero los meto por si acaso
-			size_t sz = sizeof(FighterInfo);
-			memcpy(&size, _data, sz);
-			size_t offset = sz;
+			size_t offset = readHeader(data, sizeof(FighterInfo));
+			size_t sz = sizeof(double);
 
-			sz = sizeof(uint32_t);
-			memcpy(&senderClientId, _data + offset, sz);
-			offset += sz;
-
-			// hasta aqui los no necesarios
-
-			sz = sizeof(MsgId);
-			memcpy(&id, _data + offset, sz);
-			offset += sz;
-
-			sz = sizeof(double);
 			memcpy(&x, _data + offset, sz);
 			offset += sz;
 
@@ -261,29 +211,16 @@ namespace msg {
 
 	struct BulletInfo : Message {
 		BulletInfo(uint8_t bulI, Vector2D p, Vector2D v) : 
-		Message(sizeof(BulletInfo), _BULLET_INFO), id(bulI), pos(p), vel(v){
+		Message(sizeof(BulletInfo), _BULLET_INFO), bulletId(bulI), pos(p), vel(v){
 
 		}
 		virtual void to_bin() override {
-			//estos creo que no hacen falta pero los meto por si acaso
-			size_t sz = sizeof(BulletInfo);
-			memcpy(_data, &size, sz);
-			size_t offset = sz;
-
-			sz = sizeof(uint32_t);
-			memcpy(_data + offset, &senderClientId, sz);
+			
+			size_t offset = createHeader(sizeof(BulletInfo));
+			size_t sz = sizeof(uint8_t);
+			
+			memcpy(_data + offset, &bulletId, sz);
 			offset += sz;
-
-			// hasta aqui los no necesarios
-
-			sz = sizeof(MsgId);
-			memcpy(_data + offset, &id, sz);
-			offset += sz;
-
-			// aqui esta el segundo id
-			// sz = sizeof(uint8_t);
-			// memcpy(_data + offset, &id, sz);
-			// offset += sz;
 
 			sz = sizeof(Vector2D);
 			memcpy(_data + offset, &pos, sz);
@@ -294,33 +231,19 @@ namespace msg {
 
 		virtual int from_bin(char * data) override {
 
-			//estos creo que no hacen falta pero los meto por si acaso
-			size_t sz = sizeof(BulletInfo);
-			memcpy(&size, _data, sz);
-			size_t offset = sz;
-
-			sz = sizeof(uint32_t);
-			memcpy(&senderClientId, _data + offset, sz);
+			size_t offset = readHeader(data, sizeof(BulletInfo));
+			size_t sz = sizeof(uint8_t);
+			memcpy(_data + offset, &id, sz);
 			offset += sz;
-
-			// hasta aqui los no necesarios
-
-			sz = sizeof(MsgId);
-			memcpy(&id, _data + offset, sz);
-			offset += sz;
-
-			// aqui esta el segundo id
-			// sz = sizeof(uint8_t);
-			// memcpy(_data + offset, &id, sz);
-			// offset += sz;
 
 			sz = sizeof(Vector2D);
 			memcpy(&pos, _data + offset, sz);
 			offset += sz;
 
 			memcpy(&vel, _data + offset, sz);
+			return 0;
 		}
-		uint8_t id;
+		uint8_t bulletId;
 
 		Vector2D pos;
 		Vector2D vel;
@@ -332,22 +255,10 @@ namespace msg {
 
 		}
 		virtual void to_bin() override {
-			//estos creo que no hacen falta pero los meto por si acaso
-			size_t sz = sizeof(Shoot);
-			memcpy(_data, &size, sz);
-			size_t offset = sz;
 
-			sz = sizeof(uint32_t);
-			memcpy(_data + offset, &senderClientId, sz);
-			offset += sz;
+			size_t offset = createHeader(sizeof(Shoot));
+			size_t sz = sizeof(Vector2D);
 
-			// hasta aqui los no necesarios
-
-			sz = sizeof(MsgId);
-			memcpy(_data + offset, &id, sz);
-			offset += sz;
-
-			sz = sizeof(Vector2D);
 			memcpy(_data + offset, &pos, sz);
 			offset += sz;
 
@@ -363,22 +274,9 @@ namespace msg {
 
 		virtual int from_bin(char * data) override {
 
-			//estos creo que no hacen falta pero los meto por si acaso
-			size_t sz = sizeof(Shoot);
-			memcpy(&size, _data, sz);
-			size_t offset = sz;
+			size_t offset = readHeader(data, sizeof(Shoot));
+			size_t sz = sizeof(Vector2D);
 
-			sz = sizeof(uint32_t);
-			memcpy(&senderClientId, _data + offset, sz);
-			offset += sz;
-
-			// hasta aqui los no necesarios
-
-			sz = sizeof(MsgId);
-			memcpy(&id, _data + offset, sz);
-			offset += sz;
-			
-			sz = sizeof(Vector2D);
 			memcpy(&pos, _data + offset, sz);
 			offset += sz;
 
@@ -404,48 +302,21 @@ namespace msg {
 
 		}
 		virtual void to_bin() override {
-			//estos creo que no hacen falta pero los meto por si acaso
-			size_t sz = sizeof(FighterDeath);
-			memcpy(_data, &size, sz);
-			size_t offset = sz;
+			size_t offset = createHeader(sizeof(FighterDeath));
+			size_t sz = sizeof(Vector2D);
 
-			sz = sizeof(uint32_t);
-			memcpy(_data + offset, &senderClientId, sz);
-			offset += sz;
-
-			// hasta aqui los no necesarios
-
-			sz = sizeof(MsgId);
-			memcpy(_data + offset, &id, sz);
-			offset += sz;
-
-			sz = sizeof(Vector2D);
 			memcpy(_data + offset, &fighterID, sz);
 		}
 
 		virtual int from_bin(char * data) override {
 
-			//estos creo que no hacen falta pero los meto por si acaso
-			size_t sz = sizeof(FighterDeath);
-			memcpy(&size, _data, sz);
-			size_t offset = sz;
+			size_t offset = readHeader(data, sizeof(FighterDeath));
+			size_t sz = sizeof(uint32_t);
 
-			sz = sizeof(uint32_t);
-			memcpy(&senderClientId, _data + offset, sz);
-			offset += sz;
-
-			// hasta aqui los no necesarios
-
-			sz = sizeof(MsgId);
-			memcpy(&id, _data + offset, sz);
-			offset += sz;
-
-			sz = sizeof(uint32_t);
 			memcpy(&fighterID, _data + offset, sz);
 			return 0;
 		}
 		uint32_t fighterID;
 	};
-
 #pragma pack(pop)
 }
