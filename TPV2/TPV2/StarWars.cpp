@@ -10,6 +10,7 @@ StarWars::StarWars(char* host, char* port, char* name) :
 		port_(port), //
 		exit_(false) { 
 	initGame(name);
+	cout << "TEST Constructor\n";
 }
 
 StarWars::~StarWars() {
@@ -23,6 +24,7 @@ void StarWars::initGame(char* name) {
 	if (!game_->getNetworking()->client(host_, port_)) {
 		throw "Couldn`t connect to server!";
 	}
+	cout << "TEST Init\n";
 
 	mngr_ = new Manager(game_, name);
 

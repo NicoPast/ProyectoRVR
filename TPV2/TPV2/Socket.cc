@@ -26,20 +26,21 @@ int Socket::recv(Serializable &obj, Socket * &sock)
     return 0;
 }
 
-int Socket::send(const Serializable& obj, const Socket& sock)
-{
-    //Serializar el objeto
-    //Enviar el objeto binario a sock usando el socket sd
+// int Socket::send(Serializable& obj, const Socket& sock)
+// {
+//     //Serializar el objeto
+//     //Enviar el objeto binario a sock usando el socket sd
 
-    obj.to_bin();
-    int bytes = sendto(sock.sd, obj.data(), obj.size(), 0, &sock.sa, sock.sa_len);
+//     obj.to_bin();
+//     std::cout << sock.sa_len << "\n";
+//     int bytes = sendto(sock.sd, obj.data(), obj.size(), 0, &sock.sa, sock.sa_len);
 
-    if(bytes == -1)
-    {
-        printf("Error al enviar el paquete\n");
-    }
-    return bytes;
-}
+//     if(bytes == -1)
+//     {
+//         printf("Error al enviar el paquete\n");
+//     }
+//     return bytes;
+// }
 
 bool operator== (const Socket &s1, const Socket &s2)
 {

@@ -40,7 +40,7 @@ void Networking::send(const msg::Message &msg, TCPsocket sock) {
 
 msg::Message* Networking::recieve(Socket* sock) {
 	msg::Message* msg;
-	int r = socket->recv(*msg, sock);
+	int r = socket->recv(msg, sock);
 	if(r <= 0)
 		return nullptr;
 	else return msg;
@@ -75,7 +75,15 @@ bool Networking::client(const char *host, const char* port) {
 
 	socket->bind();
 
+	msg::Message mInp(msg::MsgId::_CONNECTED);
+
+	send(mInp, socket);
+
+	cout << "TEST before recieve\n";
+
 	msg::Message* m = recieve(socket);
+
+	cout << "TEST after recieve\n";
 
 	if (m == nullptr) {
 		error(); // something went wrong
@@ -89,6 +97,8 @@ bool Networking::client(const char *host, const char* port) {
 	cout << clientId << "\n";
 	
 	std::thread net_thread([this](){ clientThread(); });
+
+	cout << "TEST client\n";
 	
 	// // a variable that represents the address of the server we want to connect to
 	// IPaddress ip;
@@ -349,4 +359,5 @@ void Networking::server(const char * port) {
 }
 
 void Networking::error() {
+	cout << "ERROR IN NETWORKING\n";
 }

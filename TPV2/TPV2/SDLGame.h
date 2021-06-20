@@ -25,6 +25,7 @@ public:
 	inline static SDLGame* init(string windowTitle, int width, int height) {
 		assert(instance_.get() == nullptr);
 		instance_.reset(new SDLGame(windowTitle, width, height));
+		cout << "TEST SDL Game\n";
 		return instance_.get();
 	}
 
