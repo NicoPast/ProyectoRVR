@@ -70,3 +70,18 @@ struct MSGPlayerInfo : public GameMessage{
 struct MSGServerMsg : public GameMessage{
 
 };
+
+struct MSGPaddlesInfo : public GameMessage{
+    MSGPaddlesInfo(uint8_t matchId) : GameMessage(UPDATE_PLAYER, matchId){}
+
+    MSGPaddlesInfo(std::pair<float, float> player1, uint8_t matchId) : 
+    GameMessage(UPDATE_PLAYER, matchId), position1_(player1) {
+
+    }
+
+    void to_bin();
+
+    int from_bin(char * bobj);
+
+    std::pair<float, float> position1_;
+};

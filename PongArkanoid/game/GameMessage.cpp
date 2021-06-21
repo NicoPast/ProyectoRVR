@@ -86,3 +86,21 @@ int MSGPlayerInfo::from_bin(char * bobj){
     memcpy((void *)name.c_str(), b, sizeof(char) * MAX_NAME_LENGTH);
     return 0;
 }
+
+void MSGPaddlesInfo::to_bin(){
+    write_Header(sizeof(GameMessage) + sizeof(std::pair<float, float>));
+    
+    char* b = _data + sizeof(GameMessage);
+
+    memcpy(b, &position1_, sizeof(std::pair<float, float>));
+    // b += sizeof(char) * NICK_SIZE;
+}
+
+int MSGPaddlesInfo::from_bin(char * bobj){
+    read_Header(bobj);
+
+    char* b = _data +  + sizeof(std::pair<float, float>);
+
+    memcpy(&position1_, b, sizeof(std::pair<float, float>));
+    return 0;
+}

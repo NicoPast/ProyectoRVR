@@ -4,6 +4,7 @@
 #include <stdio.h>
 
 #include "Color.h"
+#include "Paddle.h"
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
@@ -18,9 +19,13 @@ private:
     int screenW;
     int screenH;
 
+    Paddle* leftPaddle;
+    Paddle* rightPaddle;
+
     //The window we'll be rendering to
     SDL_Window* gWindow = NULL;
-        
+    SDL_Renderer* gRenderer = NULL;
+
     //The surface contained by the window
     SDL_Surface* gScreenSurface = NULL;
     //Key press surfaces constants
@@ -53,4 +58,7 @@ public:
     void run();
 
     void manageMsg(GameMessage* msg);
+
+
+    SDL_Renderer* getRenderer() {return gRenderer;}
 };

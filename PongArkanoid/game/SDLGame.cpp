@@ -27,6 +27,7 @@ SDLGame::~SDLGame()
 
 void SDLGame::run()
 {
+    leftPaddle = new Paddle(50,50,50,50,gKeyPressColors[2], this);
     bool quit = false;
     //Event handler
     SDL_Event e;
@@ -37,6 +38,9 @@ void SDLGame::run()
     gCurrentColor = &gKeyPressColors[KEY_PRESS_SURFACE_DEFAULT];
     while (!quit)
     {
+        SDL_SetRenderDrawColor( gRenderer, 0x00, 0x00, 0x00, 0xFF );
+		SDL_RenderClear( gRenderer );
+
         //Handle events on queue
         while (SDL_PollEvent(&e) != 0)
         {
@@ -44,6 +48,12 @@ void SDLGame::run()
             if (e.type == SDL_QUIT)
             {
                 quit = true;
+                break;
+            }
+            if(e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE)
+            {
+                quit = true;
+                break;
             }
             //User presses a key
             else if (e.type == SDL_KEYDOWN)
@@ -52,40 +62,28 @@ void SDLGame::run()
                 switch (e.key.keysym.sym)
                 {
                 case SDLK_UP:{
-                    gCurrentColor = &gKeyPressColors[KEY_PRESS_SURFACE_UP];
+                    leftPaddle->move(0,1);
+                    //gCurrentColor = &gKeyPressColors[KEY_PRESS_SURFACE_UP];
                     MSGPlayerInfo msg(client->getName(), client->getMatchId());
                     client->send_Message(&msg);
+                    
                     break;
                 }
-
                 case SDLK_DOWN:
-                    gCurrentColor = &gKeyPressColors[KEY_PRESS_SURFACE_DOWN];
-                    break;
-
-                case SDLK_LEFT:
-                    gCurrentColor = &gKeyPressColors[KEY_PRESS_SURFACE_LEFT];
-                    break;
-
-                case SDLK_RIGHT:
-                    gCurrentColor = &gKeyPressColors[KEY_PRESS_SURFACE_RIGHT];
-                    break;
-
-                case SDLK_ESCAPE:
-                    quit = true;
-                    break;
-
-                default:
-                    gCurrentColor = &gKeyPressColors[KEY_PRESS_SURFACE_DEFAULT];
-                    break;
+                {
+                    leftPaddle->move(0,-1);
+                }
                 }
             }
         }
+        leftPaddle->Update();
 
         //Fill the surface white
-        SDL_FillRect(gScreenSurface, NULL, SDL_MapRGB(gScreenSurface->format, gCurrentColor->r, gCurrentColor->g, gCurrentColor->b));
+        //SDL_FillRect(gScreenSurface, NULL, SDL_MapRGB(gScreenSurface->format, gCurrentColor->r, gCurrentColor->g, gCurrentColor->b));
 
         //Update the surface
-        SDL_UpdateWindowSurface(gWindow);
+        //SDL_UpdateWindowSurface(gWindow);
+        SDL_RenderPresent(gRenderer);
     }
 
     //Free resources and close SDL
@@ -137,6 +135,8 @@ bool SDLGame::init()
         }
         else
         {
+            gRenderer = SDL_CreateRenderer(gWindow, -1, 0);
+            SDL_SetRenderDrawColor(gRenderer, 0, 0, 0, 255);
             //Get window surface
             gScreenSurface = SDL_GetWindowSurface(gWindow);
 
@@ -155,6 +155,8 @@ void SDLGame::manageMsg(GameMessage *msg)
 {
     switch (msg->type)
     {
+    case GameMessage::MessageType::UPDATE_PLAYER:
+        break;
     case GameMessage::MessageType::PLAYER_INFO:
         std::cout << "PlayerName: " << static_cast<MSGPlayerInfo *>(msg)->name;
         break;
