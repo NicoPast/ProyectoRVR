@@ -57,3 +57,7 @@ std::string& NetClient::getName(){
 uint8_t NetClient::getMatchId(){
     return matchId;
 }
+
+void NetClient::setMatchId(uint8_t mId){
+    matchId = mId;
+}

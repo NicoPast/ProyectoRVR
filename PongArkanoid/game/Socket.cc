@@ -57,10 +57,10 @@ GameMessage* Socket::recv(Socket * &sock)
         return nullptr;
     }
 
-    if ( sock != 0 )
-    {
+    // if ( sock != 0 )
+    // {
         sock = new Socket(&sa, sa_len);
-    }
+    //}
 
     msg.from_bin(buffer);
 
@@ -93,8 +93,8 @@ bool operator== (const Socket &s1, const Socket &s2)
     //Comparar los campos sin_family, sin_addr.s_addr y sin_port
     //de la estructura sockaddr_in de los Sockets s1 y s2
     //Retornar false si alguno difiere
-    const sockaddr_in so1 = (const sockaddr_in&)(s1.sa);
-    const sockaddr_in so2 = (const sockaddr_in&)(s2.sa);
+    sockaddr_in so1 = (const sockaddr_in&)(s1.sa);
+    sockaddr_in so2 = (const sockaddr_in&)(s2.sa);
     return
            so1.sin_addr.s_addr   == so2.sin_addr.s_addr &&
            so1.sin_family        == so2.sin_family      &&

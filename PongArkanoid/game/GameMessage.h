@@ -24,6 +24,7 @@ struct GameMessage: public Serializable
         LOGIN = 0,
         LOGOUT,
         SERVER_MSG,   // uso mensajes genericos
+        SET_MATCH,
         PLAYER_INFO,
         UPDATE_PLAYER,
         SHOOT,

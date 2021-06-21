@@ -32,25 +32,34 @@ void NetServer::do_messages()
 
                 // hace matchmaking
                 // intenta entrar en la siguiente partida libre
-                // for(i = 0; i < 2; i++){
-                //     if(!matches[actualMatch].occupied){
-                //         std::unique_ptr<Socket> soc(client);
-                //         matches[actualMatch].clients[i] = std::move(soc);
-                //         matches[actualMatch].occupied[i] = true;
-                //         if(i == 1){
-                //             actualMatch++;
-                //         }
-                //         entered = true;
-                //         break;
-                //     }
-                // }
+                for(i = 0; i < 2; i++){
+                    if(!matches[actualMatch].occupied[i]){
+                        std::unique_ptr<Socket> soc(client);
+                        matches[actualMatch].clients[i] = std::move(soc);
+                        matches[actualMatch].occupied[i] = true;
+
+                        std::cout << "Player Connected:\nInfo: " << *client << "\n";
+                        GameMessage msg (GameMessage::MessageType::SET_MATCH, actualMatch);
+                        socket.send(&msg, *client);
+
+                        if(i == 1){
+                            actualMatch = (actualMatch + 1) % Match::MAX_MATCHES;
+                        }
+                        entered = true;
+                        break;
+                    }
+                }
 
                 // si no pudo, espera a la siguiente
                 if(!entered){
+                    std::cout << "Player Waiting:\nInfo: " << *client << "\n";
                     std::unique_ptr<Socket> soc(client);
                     clients.push_back(std::move(soc));
                     full = true;
                 }
+
+                // debe avisar a su compañero de la partida
+                // que se ha conectado
 
                 // std::string m = msgInp.nick + " logged in.";
                 // //std::string m2 = "Connected users: " + std::to_string(clients.size());
@@ -59,22 +68,32 @@ void NetServer::do_messages()
                 // //msgOut.message = m2;
                 // //socket.send(msgOut, *client);
                 // msgOut.message = m;
-                std::cout << "Player Connected:\nInfo: " << *client << "\n";
+                //std::cout << "Player Connected:\nInfo: " << *client << "\n";
                 break;
             }
             case GameMessage::MessageType::LOGOUT: {
                 auto it = clients.begin();
                 bool found = false;
-                while(it != clients.end() && !found){
-                    if(*((*it).get()) == *client){
-                        found = true;
+                int i = 0;
+                for(i = 0; i < 2; i++){
+                    Socket* s = matches[msgInp->matchId].clients[i].get();
+                    if(*s == *client){
+                        matches[msgInp->matchId].clients[i].release();
+                        matches[msgInp->matchId].occupied[i] = false;
+                        break;
                     }
-                    else it++;
+                    std::cout << matches[msgInp->matchId].occupied[i] << "\n";
                 }
+                // while(it != clients.end() && !found){
+                //     if(*((*it).get()) == *client){
+                //         found = true;
+                //     }
+                //     else it++;
+                // }
                 
-                if(it != clients.end()){
+                if(i < 2){
                     // std::string m = msgInp.nick + " logged out.";
-                    clients.erase(it);
+                    //clients.erase(it);
                     // msgOut.type = ChatMessage::SERVER_MSG;
                     // msgOut.nick = "Server";
                     // msgOut.message = m;

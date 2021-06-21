@@ -159,6 +159,10 @@ void SDLGame::manageMsg(GameMessage *msg)
         std::cout << "PlayerName: " << static_cast<MSGPlayerInfo *>(msg)->name;
         break;
 
+    case GameMessage::MessageType::SET_MATCH:
+        client->setMatchId(msg->matchId);
+        break;
+
     default:
         break;
     }

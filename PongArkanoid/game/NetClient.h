@@ -72,7 +72,8 @@ public:
     std::string& getName();
 
     /**
-     *  Get Match en la que se encuentra el cliente
+     *  Get & Set Match en la que se encuentra el cliente
      */
     uint8_t getMatchId();
+    void setMatchId(uint8_t mId);
 };
