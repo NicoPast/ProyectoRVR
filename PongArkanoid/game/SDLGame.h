@@ -47,6 +47,8 @@ private:
 
     NetClient* client;
 
+    int playerId = -1;
+
     bool loadColors();
     bool init();
     void close();

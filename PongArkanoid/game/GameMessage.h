@@ -25,6 +25,7 @@ struct GameMessage: public Serializable
         LOGOUT,
         SERVER_MSG,   // uso mensajes genericos
         SET_MATCH,
+        PLAYER_WAIT,
         PLAYER_INFO,
         UPDATE_PLAYER,
         SHOOT,
@@ -36,7 +37,9 @@ struct GameMessage: public Serializable
 
     GameMessage(){};
 
-    GameMessage(MessageType msgT, uint8_t mId) : type(msgT), matchId(mId){};
+    GameMessage(MessageType msgT, int mId) : type(msgT), matchId(mId){};
+
+    GameMessage(MessageType msgT) : type(msgT){};
 
     void to_bin();
 
@@ -46,18 +49,19 @@ struct GameMessage: public Serializable
 
     int read_Header(char * bobj);
 
-    uint8_t type;
+    uint8_t type = SERVER_MSG;
 
-    uint8_t matchId;
+    int matchId = -1;
 };
 
 
 struct MSGPlayerInfo : public GameMessage{
-    MSGPlayerInfo(uint8_t matchId) : GameMessage(PLAYER_INFO, matchId){}
+    MSGPlayerInfo() : GameMessage(PLAYER_INFO, 0){}
 
     MSGPlayerInfo(std::string n, uint8_t matchId) : 
     GameMessage(PLAYER_INFO, matchId), name(n) {
-
+        if(name.size() > MAX_NAME_LENGTH)
+            name.resize(MAX_NAME_LENGTH);
     }
 
     void to_bin();
@@ -65,6 +69,21 @@ struct MSGPlayerInfo : public GameMessage{
     int from_bin(char * bobj);
 
     std::string name;
+};
+
+struct MSGSetMatch : public GameMessage{
+    MSGSetMatch() : GameMessage(SET_MATCH, 0){}
+
+    MSGSetMatch(int n, uint8_t matchId) : 
+    GameMessage(SET_MATCH, matchId), playerId(n) {
+        
+    }
+
+    void to_bin();
+
+    int from_bin(char * bobj);
+
+    int playerId;
 };
 
 struct MSGServerMsg : public GameMessage{

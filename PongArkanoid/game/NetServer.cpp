@@ -12,7 +12,7 @@ void NetServer::do_messages()
          * crear un unique_ptr con el objeto socket recibido y usar std::move
          * para añadirlo al vector
          */
-        Socket* client;
+        Socket* client = nullptr;
         
         GameMessage* msgInp = socket.recv(client);
 
@@ -27,80 +27,93 @@ void NetServer::do_messages()
         switch (msgInp->type)
         {
             case GameMessage::MessageType::LOGIN: {
-                int i = 0;
-                bool entered = false;
-
-                // hace matchmaking
-                // intenta entrar en la siguiente partida libre
-                for(i = 0; i < 2; i++){
-                    if(!matches[actualMatch].occupied[i]){
-                        std::unique_ptr<Socket> soc(client);
-                        matches[actualMatch].clients[i] = std::move(soc);
-                        matches[actualMatch].occupied[i] = true;
-
-                        std::cout << "Player Connected:\nInfo: " << *client << "\n";
-                        GameMessage msg (GameMessage::MessageType::SET_MATCH, actualMatch);
-                        socket.send(&msg, *client);
-
-                        if(i == 1){
-                            actualMatch = (actualMatch + 1) % Match::MAX_MATCHES;
-                        }
-                        entered = true;
-                        break;
-                    }
+                getClientInMatch(client);
+                if(clients.size() == 0){
+                    std::cout << "Player Connected in match [" << actualMatch-1 << "]\n";
+                    //std::cout << "-> Info: " << *(matches[msgInp->matchId].clients[0].get()) << "\n";
+                    //std::cout << "-> Info: " << *(matches[msgInp->matchId].clients[1].get()) << "\n";
                 }
-
-                // si no pudo, espera a la siguiente
-                if(!entered){
+                else{
                     std::cout << "Player Waiting:\nInfo: " << *client << "\n";
-                    std::unique_ptr<Socket> soc(client);
-                    clients.push_back(std::move(soc));
-                    full = true;
                 }
 
-                // debe avisar a su compañero de la partida
-                // que se ha conectado
-
-                // std::string m = msgInp.nick + " logged in.";
-                // //std::string m2 = "Connected users: " + std::to_string(clients.size());
-                // msgOut.type = ChatMessage::SERVER_MSG;
-                // msgOut.nick = "SERV";
-                // //msgOut.message = m2;
-                // //socket.send(msgOut, *client);
-                // msgOut.message = m;
-                //std::cout << "Player Connected:\nInfo: " << *client << "\n";
                 break;
             }
             case GameMessage::MessageType::LOGOUT: {
-                auto it = clients.begin();
                 bool found = false;
                 int i = 0;
-                for(i = 0; i < 2; i++){
-                    Socket* s = matches[msgInp->matchId].clients[i].get();
-                    if(*s == *client){
-                        matches[msgInp->matchId].clients[i].release();
-                        matches[msgInp->matchId].occupied[i] = false;
-                        break;
-                    }
-                    std::cout << matches[msgInp->matchId].occupied[i] << "\n";
-                }
-                // while(it != clients.end() && !found){
-                //     if(*((*it).get()) == *client){
-                //         found = true;
-                //     }
-                //     else it++;
-                // }
+
+                auto it = matches.find(msgInp->matchId);
                 
-                if(i < 2){
-                    // std::string m = msgInp.nick + " logged out.";
-                    //clients.erase(it);
-                    // msgOut.type = ChatMessage::SERVER_MSG;
-                    // msgOut.nick = "Server";
-                    // msgOut.message = m;
-                    std::cout << "Player Disconnected:\nInfo: " << *client << "\n";
-                    std::cout << "Remaining Players: " << clients.size() << "\n";
+                if(it != matches.end())
+                {
+                    for(i = 0; i < 2; i++){
+                        if(*(matches[msgInp->matchId].clients[i].get()) == *client){
+                            int j = (i + 1) % 2;
+
+                            Socket* s = matches[msgInp->matchId].clients[j].get();
+
+                            std::unique_ptr<Socket> soc(matches[msgInp->matchId].clients[j].get());
+                            clients.push_back(std::move(soc));
+
+                            GameMessage msg(GameMessage::MessageType::PLAYER_WAIT);
+                            socket.send(&msg, *clients.back());
+
+                            matches[msgInp->matchId].clients[i].release();
+                            matches[msgInp->matchId].clients[j].release();
+                            it = matches.erase(it);
+
+                            while(clients.size() >= 2 && matches.size() < Match::MAX_MATCHES){
+                                Match m;
+                                m.clients[0] = std::move(clients.front());
+                                clients.front().release();
+                                clients.pop_front();
+
+                                m.clients[1] = std::move(clients.front());
+                                clients.front().release();
+                                clients.pop_front();
+
+                                m.matchId = actualMatch;
+                                actualMatch++;
+                                matches[m.matchId] = std::move(m);
+
+                                MSGSetMatch msg(0, m.matchId);
+
+                                //GameMessage msg(GameMessage::MessageType::SET_MATCH, m.matchId);
+                                
+                                // debe avisar a su compañero de la partida
+                                // que se ha conectado
+                                for(int i = 0; i < 2; i++){
+                                    socket.send(&msg, *(matches[m.matchId].clients[i].get()));
+                                    msg.playerId = i+1;
+                                }
+
+                                std::cout << "Match Created!\n";
+                            }
+
+                            std::cout << "Player in match [" << msgInp->matchId << "] Disconnected -> Info: " << *client << "\n";
+                            std::cout << "Remaining Players: " << clients.size() << "\n";  
+                            found = true;
+                            break;
+                        }
+                    }          
                 }
-                else std::cout << "User not registered logged off\n";
+
+                if(!found){
+                    auto itC = clients.begin();
+                    while(itC != clients.end() && !found){
+                        if(*((*itC).get()) == *client){
+                            found = true;
+                            std::cout << "Player waiting Disconnected -> Info: " << *client << "\n";
+                            *(itC)->release();
+                            clients.erase(itC);
+                            std::cout << "Remaining Players: " << clients.size() << "\n";  
+                            break;
+                        }
+                        else itC++;
+                    }
+                    if(!found) std::cout << "User not registered logged off\n";
+                }
                 break;
             }
             case GameMessage::MessageType::PLAYER_INFO:
@@ -110,5 +123,38 @@ void NetServer::do_messages()
                 std::cout << "Message Type unknown " << msgInp->type << "\n";
                 return;
         }
+    }
+}
+
+void NetServer::getClientInMatch(Socket* cl){
+    std::unique_ptr<Socket> soc(cl);
+    clients.push_back(std::move(soc));
+
+    while(clients.size() >= 2 && matches.size() < Match::MAX_MATCHES){
+        Match m;
+        m.clients[0] = std::move(clients.front());
+        clients.front().release();
+        clients.pop_front();
+
+        m.clients[1] = std::move(clients.front());
+        clients.front().release();
+        clients.pop_front();
+
+        m.matchId = actualMatch;
+        actualMatch++;
+        matches[m.matchId] = std::move(m);
+
+        MSGSetMatch msg(0, m.matchId);
+
+        //GameMessage msg(GameMessage::MessageType::SET_MATCH, m.matchId);
+        
+        // debe avisar a su compañero de la partida
+        // que se ha conectado
+        for(int i = 0; i < 2; i++){
+            socket.send(&msg, *(matches[m.matchId].clients[i].get()));
+            msg.playerId = i+1;
+        }
+
+        std::cout << "Match Created!\n";
     }
 }

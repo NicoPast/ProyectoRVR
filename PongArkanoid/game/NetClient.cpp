@@ -54,10 +54,10 @@ std::string& NetClient::getName(){
     return nick;
 }
 
-uint8_t NetClient::getMatchId(){
+int NetClient::getMatchId(){
     return matchId;
 }
 
-void NetClient::setMatchId(uint8_t mId){
+void NetClient::setMatchId(int mId){
     matchId = mId;
 }

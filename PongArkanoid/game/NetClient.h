@@ -31,7 +31,7 @@ private:
 
     std::thread* t;
 
-    uint8_t matchId;
+    int matchId = -1;
 public:
     /**
      * @param s dirección del servidor
@@ -39,6 +39,11 @@ public:
      * @param n nick del usuario
      */
     NetClient(SDLGame* g, const char * s, const char * p, const char * n);
+
+    ~NetClient(){
+        // if(t)
+        //     t->join();
+    }
 
     /**
      *  Envía el mensaje de login al servidor
@@ -74,6 +79,6 @@ public:
     /**
      *  Get & Set Match en la que se encuentra el cliente
      */
-    uint8_t getMatchId();
-    void setMatchId(uint8_t mId);
+    int getMatchId();
+    void setMatchId(int mId);
 };

@@ -102,5 +102,25 @@ int MSGPaddlesInfo::from_bin(char * bobj){
     char* b = _data +  + sizeof(std::pair<float, float>);
 
     memcpy(&position1_, b, sizeof(std::pair<float, float>));
+}
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+
+void MSGSetMatch::to_bin(){
+    write_Header(sizeof(MSGSetMatch));
+    
+    char* b = _data + sizeof(GameMessage);
+
+    memcpy(b, &playerId, sizeof(playerId));
+    // b += sizeof(char) * NICK_SIZE;
+}
+
+int MSGSetMatch::from_bin(char * bobj){
+    read_Header(bobj);
+
+    char* b = _data + sizeof(GameMessage);
+
+    playerId = 0;
+    memcpy(&playerId, b, sizeof(playerId));
     return 0;
 }
