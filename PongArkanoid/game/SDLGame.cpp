@@ -24,10 +24,13 @@ SDLGame::~SDLGame()
 {
     delete client;
 }
-
+void SDLGame::addBullet(Bullet* b)
+{
+    bullets_.push_back(b);
+}
 void SDLGame::run()
 {
-    leftPaddle = new Paddle(50,50,50,50,gKeyPressColors[2], this);
+    leftPaddle = new Paddle(0,0,50,50,gKeyPressColors[2], this);
     bool quit = false;
     //Event handler
     SDL_Event e;
@@ -75,9 +78,18 @@ void SDLGame::run()
                 }
                 }
             }
+            else if (e.type == SDL_MOUSEBUTTONDOWN)
+            {
+                int x, y;
+                SDL_GetMouseState(&x, &y);
+                leftPaddle->shoot(x, y);
+            }
         }
         leftPaddle->Update();
-
+        for(int i = 0; i < bullets_.size(); i++)
+        {
+            bullets_[i]->Update();
+        }
         //Fill the surface white
         //SDL_FillRect(gScreenSurface, NULL, SDL_MapRGB(gScreenSurface->format, gCurrentColor->r, gCurrentColor->g, gCurrentColor->b));
 

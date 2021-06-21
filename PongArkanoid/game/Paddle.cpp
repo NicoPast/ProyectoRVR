@@ -9,9 +9,16 @@ void Paddle::Update()
 
 void Paddle::move(float x, float y)
 {
-    x_ += x;
-    y_ += y;
+    position_.first += x;
+    position_.second += y;
 
-    paddle_.x = x_;
-    paddle_.y = y_;
+    paddle_.x = position_.first;
+    paddle_.y = position_.second;
+}
+
+void Paddle::shoot(float x, float y)
+{
+    std::pair<float, float> dir {x - position_.first, y - position_.second};
+
+    game_->addBullet(new Bullet(position_,dir, game_));
 }

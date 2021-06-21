@@ -2,9 +2,11 @@
 
 #include <SDL.h>
 #include <stdio.h>
+#include <vector>
 
 #include "Color.h"
 #include "Paddle.h"
+#include "Bullet.h"
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
@@ -21,6 +23,7 @@ private:
 
     Paddle* leftPaddle;
     Paddle* rightPaddle;
+    std::vector<Bullet*> bullets_;
 
     //The window we'll be rendering to
     SDL_Window* gWindow = NULL;
@@ -57,6 +60,7 @@ public:
     SDLGame(const char * s, const char * p, const char * n, int w, int h);
     ~SDLGame();
 
+    void addBullet(Bullet* b);
     void run();
 
     void manageMsg(GameMessage* msg);
