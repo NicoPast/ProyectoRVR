@@ -24,13 +24,10 @@ SDLGame::~SDLGame()
 {
     delete client;
 }
-void SDLGame::addBullet(Bullet* b)
-{
-    bullets_.push_back(b);
-}
 void SDLGame::run()
 {
-    leftPaddle = new Paddle(0,0,50,50,gKeyPressColors[2], this);
+    logic_ = new Logic(this);
+    
     bool quit = false;
     //Event handler
     SDL_Event e;
@@ -38,7 +35,6 @@ void SDLGame::run()
     client->run();
 
     //Set default current surface
-    gCurrentColor = &gKeyPressColors[KEY_PRESS_SURFACE_DEFAULT];
     while (!quit)
     {
         SDL_SetRenderDrawColor( gRenderer, 0x00, 0x00, 0x00, 0xFF );
@@ -65,7 +61,7 @@ void SDLGame::run()
                 switch (e.key.keysym.sym)
                 {
                     case SDLK_UP:{
-                        leftPaddle->move(0,1);
+                        logic_->movePaddle(playerId, true);
                         MSGPlayerInfo msg(client->getName(), client->getMatchId());
                         client->send_Message(&msg);
                         
@@ -73,7 +69,7 @@ void SDLGame::run()
                     }
                     case SDLK_DOWN:
                     {
-                        leftPaddle->move(0,-1);
+                        logic_->movePaddle(playerId, false);
                     }
                 }
             }
@@ -81,21 +77,10 @@ void SDLGame::run()
             {
                 int x, y;
                 SDL_GetMouseState(&x, &y);
-                leftPaddle->shoot(x, y);
+                logic_->shoot(playerId, x, y);
             }
         }
-        leftPaddle->Update();
-        int i = 0;
-        while (i < bullets_.size())
-        {
-            if(bullets_[i]->Update())
-            {
-                delete bullets_[i];
-                bullets_.erase(bullets_.begin() + i);
-            }
-            else
-                i++;            
-        }
+        logic_->Update();
 
         SDL_RenderPresent(gRenderer);
     }

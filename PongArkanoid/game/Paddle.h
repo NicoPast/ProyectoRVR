@@ -34,6 +34,7 @@ public:
 
     void Update();
 
-    void move(float x, float y);
-    void shoot(float x, float y);
+    void move(float y);
+
+    std::pair<float, float> getPos(){return position_;}
 };

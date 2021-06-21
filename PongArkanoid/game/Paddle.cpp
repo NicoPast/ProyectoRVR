@@ -7,18 +7,10 @@ void Paddle::Update()
     SDL_RenderFillRect( game_->getRenderer(), &paddle_ );
 }
 
-void Paddle::move(float x, float y)
+void Paddle::move(float y)
 {
-    position_.first += x;
+    
     position_.second += y;
 
-    paddle_.x = position_.first;
     paddle_.y = position_.second;
-}
-
-void Paddle::shoot(float x, float y)
-{
-    std::pair<float, float> dir {x - position_.first, y - position_.second};
-
-    game_->addBullet(new Bullet(position_,dir, game_));
 }

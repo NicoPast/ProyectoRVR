@@ -14,17 +14,16 @@ private:
     SDL_Rect bullet_;
 
     int collisionsLeft_ = 5;
-    const float VEL_ = 1.0f;
-    const float SIZE_ = 20.0f;
-
+    float vel_;
+    float size_;
     std::pair<float, float> position_;
     std::pair<float, float> direction_;
 
-    void bounce();
 
 public:
     Bullet();
-    Bullet(std::pair<float, float> pos, std::pair<float, float> dir, SDLGame* g): direction_(dir), game_(g)
+    Bullet(std::pair<float, float> pos, std::pair<float, float> dir, float v, float s, SDLGame* g): 
+    direction_(dir), game_(g), vel_(v), size_(s)
     {
         float inv_length = 1.0f / sqrt(dir.first * dir.first + dir.second * dir.second);
         direction_.first = dir.first * inv_length;
@@ -35,13 +34,14 @@ public:
 
         bullet_.x = pos.first;
         bullet_.y = pos.second;
-        bullet_.w = SIZE_;
-        bullet_.h = SIZE_;
+        bullet_.w = size_;
+        bullet_.h = size_;
     };
 
     ~Bullet(){};
     bool Update();
     
+    void bounce(bool hor, bool vert);
     bool collides(std::pair<float, float> pos, float w, float h);
     
 
