@@ -67,4 +67,5 @@ public:
 
 
     SDL_Renderer* getRenderer() {return gRenderer;}
+    
 };

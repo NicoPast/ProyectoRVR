@@ -1,7 +1,28 @@
+#include <stdio.h>
 #include "Paddle.h"
 #include "SDLGame.h"
 
-void Bullet::Update()
+
+void Bullet::bounce()
+{
+    bool bounced = false;
+
+    if (bullet_.y < 0 || bullet_.y + SIZE_ > SCREEN_HEIGHT)
+    {
+        direction_.second *= -1.25f;
+        bounced = true;
+    }   
+
+    if (bullet_.x < 0 || bullet_.x + SIZE_ > SCREEN_WIDTH)
+    {
+        direction_.first *= -1.25f;
+        bounced = true;
+    }
+
+    if(bounced)
+        collisionsLeft_ --;
+}
+bool Bullet::Update()
 {
     position_.first +=  (VEL_ * direction_.first);
     position_.second += (VEL_ * direction_.second);
@@ -11,6 +32,10 @@ void Bullet::Update()
 
     SDL_SetRenderDrawColor( game_->getRenderer(), 0xFF, 0xFF, 0xFF, 0xFF );		
     SDL_RenderFillRect( game_->getRenderer(), &bullet_ );
+
+    bounce();
+
+    return collisionsLeft_ == 0;
 }
 
 bool Bullet::collides(std::pair<float, float> pos, float w, float h)

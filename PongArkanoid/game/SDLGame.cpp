@@ -64,18 +64,17 @@ void SDLGame::run()
                 //Select surfaces based on key press
                 switch (e.key.keysym.sym)
                 {
-                case SDLK_UP:{
-                    leftPaddle->move(0,1);
-                    //gCurrentColor = &gKeyPressColors[KEY_PRESS_SURFACE_UP];
-                    MSGPlayerInfo msg(client->getName(), client->getMatchId());
-                    client->send_Message(&msg);
-                    
-                    break;
-                }
-                case SDLK_DOWN:
-                {
-                    leftPaddle->move(0,-1);
-                }
+                    case SDLK_UP:{
+                        leftPaddle->move(0,1);
+                        MSGPlayerInfo msg(client->getName(), client->getMatchId());
+                        client->send_Message(&msg);
+                        
+                        break;
+                    }
+                    case SDLK_DOWN:
+                    {
+                        leftPaddle->move(0,-1);
+                    }
                 }
             }
             else if (e.type == SDL_MOUSEBUTTONDOWN)
@@ -86,43 +85,23 @@ void SDLGame::run()
             }
         }
         leftPaddle->Update();
-        for(int i = 0; i < bullets_.size(); i++)
+        int i = 0;
+        while (i < bullets_.size())
         {
-            bullets_[i]->Update();
+            if(bullets_[i]->Update())
+            {
+                delete bullets_[i];
+                bullets_.erase(bullets_.begin() + i);
+            }
+            else
+                i++;            
         }
-        //Fill the surface white
-        //SDL_FillRect(gScreenSurface, NULL, SDL_MapRGB(gScreenSurface->format, gCurrentColor->r, gCurrentColor->g, gCurrentColor->b));
 
-        //Update the surface
-        //SDL_UpdateWindowSurface(gWindow);
         SDL_RenderPresent(gRenderer);
     }
 
     //Free resources and close SDL
     close();
-}
-
-bool SDLGame::loadColors()
-{
-    //Loading success flag
-    bool success = true;
-
-    //Load default surface
-    gKeyPressColors[KEY_PRESS_SURFACE_DEFAULT] = Color();
-
-    //Load up surface
-    gKeyPressColors[KEY_PRESS_SURFACE_UP] = Color(0xFF, 0, 0);
-
-    //Load down surface
-    gKeyPressColors[KEY_PRESS_SURFACE_DOWN] = Color(0, 0xFF, 0);
-
-    //Load left surface
-    gKeyPressColors[KEY_PRESS_SURFACE_LEFT] = Color(0, 0, 0xFF);
-
-    //Load right surface
-    gKeyPressColors[KEY_PRESS_SURFACE_RIGHT] = Color(0xFF, 0xFF, 0xFF);
-
-    return success;
 }
 
 bool SDLGame::init()
@@ -151,12 +130,6 @@ bool SDLGame::init()
             SDL_SetRenderDrawColor(gRenderer, 0, 0, 0, 255);
             //Get window surface
             gScreenSurface = SDL_GetWindowSurface(gWindow);
-
-            if (!loadColors())
-            {
-                printf("Couldn't create the colors for the diferent keys\n");
-                success = false;
-            }
         }
     }
 
