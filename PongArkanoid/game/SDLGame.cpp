@@ -161,6 +161,14 @@ void SDLGame::manageMsg(GameMessage *msg)
 
     case GameMessage::MessageType::SET_MATCH:
         client->setMatchId(msg->matchId);
+        playerId = static_cast<MSGSetMatch*>(msg)->playerId;
+        std::cout << "Match [" << client->getMatchId() << "] joined with id: " << playerId << "\n"; 
+        break;
+
+    case GameMessage::MessageType::PLAYER_WAIT:
+        client->setMatchId(-1);
+        playerId = -1;
+        std::cout << "Player waiting for companion\n";
         break;
 
     default:

@@ -57,20 +57,25 @@ GameMessage* Socket::recv(Socket * &sock)
         return nullptr;
     }
 
-    // if ( sock != 0 )
-    // {
+    if ( sock == nullptr)
+    {
         sock = new Socket(&sa, sa_len);
-    //}
+    }
 
     msg.from_bin(buffer);
 
     switch (msg.type)
     {
     case GameMessage::MessageType::PLAYER_INFO:
-        obj = new MSGPlayerInfo(msg.matchId);
+        obj = new MSGPlayerInfo();
         static_cast<MSGPlayerInfo*>(obj)->from_bin(buffer);
         break;
-    
+
+    case GameMessage::MessageType::SET_MATCH:
+        obj = new MSGSetMatch();
+        static_cast<MSGSetMatch*>(obj)->from_bin(buffer);
+        break;
+    case GameMessage::MessageType::PLAYER_WAIT:
     default:
         obj = new GameMessage();
         obj->from_bin(buffer);

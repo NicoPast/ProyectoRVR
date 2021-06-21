@@ -1,19 +1,20 @@
 #pragma once
 
 #include <vector>
+#include <list>
+#include <map>
 #include <memory>
 
 #include "Socket.h"
 
 struct Match
 {
-    static const int MAX_MATCHES = 2;
+    static const size_t MAX_MATCHES = 1;
 
     std::unique_ptr<Socket> clients[2];
     bool occupied [2];
 
-    int gameId;
-    bool active;
+    int matchId;
 };
 
 class NetServer{
@@ -23,10 +24,10 @@ private:
      *  Lista de clientes conectados al servidor de juego, representados por
      *  su socket, esperando a entrar en partida
      */
-    std::vector<std::unique_ptr<Socket>> clients;
+    std::list<std::unique_ptr<Socket>> clients;
     // TO DO: hacer que sean parejas de jugadores y multithreads
 
-    Match matches[Match::MAX_MATCHES];
+    std::map<int, Match> matches;
 
     int actualMatch = 0;
 
@@ -47,4 +48,10 @@ public:
      *  lo distribuye a los clientes. Mantiene actualizada la lista de clientes
      */
     void do_messages();
+
+    /**
+     * Mete a un cliente en la partida que pueda y crea una partida si puede
+     * con los que esten esperando
+     */
+    void getClientInMatch(Socket* cl);
 };

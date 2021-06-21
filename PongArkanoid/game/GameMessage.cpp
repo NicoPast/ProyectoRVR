@@ -86,3 +86,25 @@ int MSGPlayerInfo::from_bin(char * bobj){
     memcpy((void *)name.c_str(), b, sizeof(char) * MAX_NAME_LENGTH);
     return 0;
 }
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+
+void MSGSetMatch::to_bin(){
+    write_Header(sizeof(MSGSetMatch));
+    
+    char* b = _data + sizeof(GameMessage);
+
+    memcpy(b, &playerId, sizeof(playerId));
+    // b += sizeof(char) * NICK_SIZE;
+}
+
+int MSGSetMatch::from_bin(char * bobj){
+    read_Header(bobj);
+
+    char* b = _data + sizeof(GameMessage);
+
+    playerId = 0;
+    memcpy(&playerId, b, sizeof(playerId));
+    return 0;
+}
