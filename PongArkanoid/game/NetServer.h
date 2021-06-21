@@ -7,6 +7,8 @@
 
 struct Match
 {
+    static const int MAX_MATCHES = 2;
+
     std::unique_ptr<Socket> clients[2];
     bool occupied [2];
 
@@ -16,12 +18,19 @@ struct Match
 
 class NetServer{
 private:
+
     /**
      *  Lista de clientes conectados al servidor de juego, representados por
      *  su socket, esperando a entrar en partida
      */
     std::vector<std::unique_ptr<Socket>> clients;
     // TO DO: hacer que sean parejas de jugadores y multithreads
+
+    Match matches[Match::MAX_MATCHES];
+
+    int actualMatch = 0;
+
+    bool full = false;
 
     /**
      * Socket del servidor

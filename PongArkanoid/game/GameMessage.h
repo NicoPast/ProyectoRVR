@@ -35,7 +35,7 @@ struct GameMessage: public Serializable
 
     GameMessage(){};
 
-    GameMessage(MessageType msgT) : type(msgT){};
+    GameMessage(MessageType msgT, uint8_t mId) : type(msgT), matchId(mId){};
 
     void to_bin();
 
@@ -46,14 +46,16 @@ struct GameMessage: public Serializable
     int read_Header(char * bobj);
 
     uint8_t type;
+
+    uint8_t matchId;
 };
 
 
 struct MSGPlayerInfo : public GameMessage{
-    MSGPlayerInfo() : GameMessage(PLAYER_INFO){}
+    MSGPlayerInfo(uint8_t matchId) : GameMessage(PLAYER_INFO, matchId){}
 
-    MSGPlayerInfo(std::string n) : 
-    GameMessage(PLAYER_INFO), name(n) {
+    MSGPlayerInfo(std::string n, uint8_t matchId) : 
+    GameMessage(PLAYER_INFO, matchId), name(n) {
 
     }
 

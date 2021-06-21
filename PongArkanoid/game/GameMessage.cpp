@@ -22,6 +22,9 @@ void GameMessage::write_Header(size_t size){
     memcpy(b, &type, sizeof(type));
     b += sizeof(type);
 
+    memcpy(b, &matchId, sizeof(matchId));
+    b += sizeof(matchId);
+
     // memcpy(b, nick.c_str(), sizeof(char) * NICK_SIZE);
     // b += sizeof(char) * NICK_SIZE;
 
@@ -48,6 +51,10 @@ int GameMessage::read_Header(char * bobj){
     memcpy(&type, b, sizeof(type));
     b += sizeof(type);
     offset += sizeof(type);
+
+    memcpy(&matchId, b, sizeof(matchId));
+    b += sizeof(matchId);
+    offset += sizeof(matchId);
 
     // nick = std::string(sizeof(char) * NICK_SIZE, '\0');
     // memcpy((void *)nick.c_str(), b, sizeof(char) * NICK_SIZE);

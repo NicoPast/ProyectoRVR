@@ -67,7 +67,7 @@ GameMessage* Socket::recv(Socket * &sock)
     switch (msg.type)
     {
     case GameMessage::MessageType::PLAYER_INFO:
-        obj = new MSGPlayerInfo();
+        obj = new MSGPlayerInfo(msg.matchId);
         static_cast<MSGPlayerInfo*>(obj)->from_bin(buffer);
         break;
     

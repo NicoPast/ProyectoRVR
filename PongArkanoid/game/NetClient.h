@@ -30,6 +30,8 @@ private:
     SDLGame* game;
 
     std::thread* t;
+
+    uint8_t matchId;
 public:
     /**
      * @param s dirección del servidor
@@ -64,5 +66,13 @@ public:
      */
     void run();
 
+    /**
+     *  Gets Nombre del cliente 
+     */
     std::string& getName();
+
+    /**
+     *  Get Match en la que se encuentra el cliente
+     */
+    uint8_t getMatchId();
 };

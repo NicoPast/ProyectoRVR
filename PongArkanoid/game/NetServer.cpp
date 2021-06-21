@@ -27,8 +27,30 @@ void NetServer::do_messages()
         switch (msgInp->type)
         {
             case GameMessage::MessageType::LOGIN: {
-                std::unique_ptr<Socket> soc(client);
-                clients.push_back(std::move(soc));
+                int i = 0;
+                bool entered = false;
+
+                // hace matchmaking
+                // intenta entrar en la siguiente partida libre
+                // for(i = 0; i < 2; i++){
+                //     if(!matches[actualMatch].occupied){
+                //         std::unique_ptr<Socket> soc(client);
+                //         matches[actualMatch].clients[i] = std::move(soc);
+                //         matches[actualMatch].occupied[i] = true;
+                //         if(i == 1){
+                //             actualMatch++;
+                //         }
+                //         entered = true;
+                //         break;
+                //     }
+                // }
+
+                // si no pudo, espera a la siguiente
+                if(!entered){
+                    std::unique_ptr<Socket> soc(client);
+                    clients.push_back(std::move(soc));
+                    full = true;
+                }
 
                 // std::string m = msgInp.nick + " logged in.";
                 // //std::string m2 = "Connected users: " + std::to_string(clients.size());
@@ -52,11 +74,12 @@ void NetServer::do_messages()
                 
                 if(it != clients.end()){
                     // std::string m = msgInp.nick + " logged out.";
-                    // clients.erase(it);
+                    clients.erase(it);
                     // msgOut.type = ChatMessage::SERVER_MSG;
                     // msgOut.nick = "Server";
                     // msgOut.message = m;
-                    //std::cout << m << "\n";
+                    std::cout << "Player Disconnected:\nInfo: " << *client << "\n";
+                    std::cout << "Remaining Players: " << clients.size() << "\n";
                 }
                 else std::cout << "User not registered logged off\n";
                 break;
@@ -67,18 +90,6 @@ void NetServer::do_messages()
             default: 
                 std::cout << "Message Type unknown " << msgInp->type << "\n";
                 return;
-        }
-
-        //std::cout << "Connected users:\n";
-        auto it = clients.begin();
-        while(it != clients.end()) {
-            // std::cout << *((*it).get()) << "\n";
-            if(*((*it).get()) == *client){
-                it++;
-                continue;
-            }
-            socket.send(msgOut, *((*it).get()));
-            it++;
         }
     }
 }

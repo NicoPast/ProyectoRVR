@@ -11,14 +11,14 @@ NetClient::NetClient(SDLGame* g, const char * s, const char * p, const char * n)
 
 void NetClient::login()
 {
-    GameMessage msg(GameMessage::MessageType::LOGIN);
+    GameMessage msg(GameMessage::MessageType::LOGIN, matchId);
 
     socket.send(&msg, socket);
 }
 
 void NetClient::logout()
 {
-    GameMessage msg(GameMessage::MessageType::LOGOUT);
+    GameMessage msg(GameMessage::MessageType::LOGOUT, matchId);
 
     socket.send(&msg, socket);
 }
@@ -52,4 +52,8 @@ void NetClient::run(){
 
 std::string& NetClient::getName(){
     return nick;
+}
+
+uint8_t NetClient::getMatchId(){
+    return matchId;
 }

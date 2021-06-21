@@ -53,7 +53,7 @@ void SDLGame::run()
                 {
                 case SDLK_UP:{
                     gCurrentColor = &gKeyPressColors[KEY_PRESS_SURFACE_UP];
-                    MSGPlayerInfo msg(client->getName());
+                    MSGPlayerInfo msg(client->getName(), client->getMatchId());
                     client->send_Message(&msg);
                     break;
                 }
@@ -166,6 +166,8 @@ void SDLGame::manageMsg(GameMessage *msg)
 
 void SDLGame::close()
 {
+    client->logout();
+
     //Destroy window
     SDL_DestroyWindow(gWindow);
     gWindow = NULL;
