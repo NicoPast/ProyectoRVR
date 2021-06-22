@@ -9,6 +9,8 @@
 #include "Paddle.h"
 #include "Bullet.h"
 
+class Match;
+
 const float PADDLE_MARGIN = 50;
 const float PADDLE_HEIGHT = 50;
 const float PADDLE_WIDTH = 10;
@@ -23,6 +25,7 @@ class Logic {
 
 private:    
     SDLGame* game_;
+    Match* match_;
     Paddle* leftPaddle_;
     Paddle* rightPaddle_;
     //std::vector<Bullet*> bullets_;
@@ -32,13 +35,20 @@ private:
 
 public:
     // usado por el server
-    Logic();
+    Logic(Match* m);
     // usado por el cliente
     Logic(SDLGame* game);
     ~Logic(){}
 
     void Render();
     void Update();
+
+    void UpdateClient();
+    void UpdateServer();
+
+    void Collisions();
+
+    void MoveBullets();
     
     // cliente envia señal
     void movePaddle(int id, bool up);
@@ -49,6 +59,8 @@ public:
     void shoot(int id, float x, float y);
 
     void spawnBullet(Vector2D& pos, Vector2D& dir, size_t bulletID);
+
+    void setBulletPos(int id, Vector2D &pos, Vector2D &dir, int bounces);
 
     size_t getLastBulletId();
 };

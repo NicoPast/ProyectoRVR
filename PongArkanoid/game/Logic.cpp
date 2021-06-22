@@ -3,13 +3,14 @@
 #include "Vector2D.h"
 #include "GameMessage.h"
 #include "NetClient.h"
+#include "NetServer.h"
 
-Logic::Logic() : game_(nullptr){
+Logic::Logic(Match* m) : game_(nullptr), match_(m){
     leftPaddle_ = new Paddle(PADDLE_MARGIN, SCREEN_HEIGHT * 0.5 - PADDLE_HEIGHT * 0.5, PADDLE_WIDTH, PADDLE_HEIGHT, Color(255, 255, 255));
     rightPaddle_ = new Paddle(SCREEN_WIDTH - PADDLE_MARGIN, SCREEN_HEIGHT * 0.5 - PADDLE_HEIGHT * 0.5, PADDLE_WIDTH, PADDLE_HEIGHT, Color(255, 255, 255));
 }
 
-Logic::Logic(SDLGame* game) : game_(game)
+Logic::Logic(SDLGame* game) : game_(game), match_(nullptr)
 {
     leftPaddle_ = new Paddle(PADDLE_MARGIN, SCREEN_HEIGHT * 0.5 - PADDLE_HEIGHT * 0.5, PADDLE_WIDTH, PADDLE_HEIGHT, Color(255, 255, 255), game_);
     rightPaddle_ = new Paddle(SCREEN_WIDTH - PADDLE_MARGIN, SCREEN_HEIGHT * 0.5 - PADDLE_HEIGHT * 0.5, PADDLE_WIDTH, PADDLE_HEIGHT, Color(255, 255, 255), game_);
@@ -29,7 +30,36 @@ void Logic::Render(){
 void Logic::Update()
 {
     Render();
-    
+
+    MoveBullets();
+
+    Collisions();
+}
+
+void Logic::UpdateClient()
+{
+    Render();
+
+    MoveBullets();
+}
+
+void Logic::UpdateServer()
+{
+    MoveBullets();
+
+    Collisions();
+}
+
+void Logic::MoveBullets(){
+    auto it = bullets_.begin();
+    while (it != bullets_.end())
+    {
+        bullets_[(*it).second->getBulletId()]->move();     
+        it++;   
+    }
+}
+
+void Logic::Collisions(){
     Vector2D leftPos = leftPaddle_->getPos();
     Vector2D rightPos = rightPaddle_->getPos();
 
@@ -48,12 +78,12 @@ void Logic::Update()
             printf("Player 1 wins\n");
         }
 
-        if(bullets_[i]->move())
+        if(bullets_[i]->wallsCollisions())
         {
             delete bullets_[i];
             it = bullets_.erase(it);
         }
-        else it++;            
+        else it++;   
     }
 }
 
@@ -108,4 +138,12 @@ void Logic::spawnBullet(Vector2D& pos, Vector2D& dir, size_t bulletID){
 
 size_t Logic::getLastBulletId(){
     return lastBulletId++;
+}
+
+void Logic::setBulletPos(int id, Vector2D &pos, Vector2D &dir, int bounces){
+    if (bounces == 0){
+        delete bullets_[id];
+        bullets_.erase(id);
+    }
+    else bullets_[id]->updateBullet(pos, dir, bounces);
 }

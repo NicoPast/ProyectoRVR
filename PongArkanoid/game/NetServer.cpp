@@ -5,13 +5,16 @@
 #include <thread>
 
 Match::Match(int mId) : matchId(mId){
-    l = new Logic();
 }
 
 void Match::calculateLogic(){
     while(true){
         l->Update();
     }
+}
+
+void Match::init(){
+    l = new Logic(this);
 }
 
 void Match::run(){
@@ -94,6 +97,11 @@ void NetServer::do_messages()
                                 clients.front().release();
                                 clients.pop_front();
 
+                                m.init();
+
+                                // TO DO
+                                //m.run();
+
                                 matches[m.getMatchId()] = std::move(m);
 
                                 MSGSetMatch msg(0, m.getMatchId());
@@ -167,6 +175,19 @@ void NetServer::do_messages()
                 }
                 break;
             }
+            case GameMessage::MessageType::UPDATE_BULLET:{
+                auto it = matches.find(msgInp->matchId);
+                if(it != matches.end())
+                {
+                    MSGUpdateBullet* m = static_cast<MSGUpdateBullet*>(msgInp);
+                    for(int i = 0; i < 2; i++){
+                        socket.send(m, *(matches[msgInp->matchId].clients[i].get()));
+                    }
+
+                    //matches[msgInp->matchId].getLogic()->setPaddlePos(m->playerId, m->pos);
+                }
+                break;
+            }
             default: 
                 std::cout << "Message Type unknown " << msgInp->type << "\n";
                 return;
@@ -189,6 +210,11 @@ void NetServer::getClientInMatch(Socket* cl){
         m.clients[1] = std::move(clients.front());
         clients.front().release();
         clients.pop_front();
+
+        m.init();
+
+        // TO DO
+        //m.run();
 
         matches[m.getMatchId()] = std::move(m);
 

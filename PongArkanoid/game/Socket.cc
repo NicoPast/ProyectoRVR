@@ -83,13 +83,17 @@ GameMessage* Socket::recv(Socket * &sock)
         obj = new MSGMovePaddle();
         static_cast<MSGMovePaddle*>(obj)->from_bin(buffer);
         break;
+    case GameMessage::MessageType::UPDATE_BULLET:{
+        obj == new MSGUpdateBullet();
+        static_cast<MSGUpdateBullet*>(obj)->from_bin(buffer);
+        break;
+    }
     case GameMessage::MessageType::PLAYER_WAIT:
     default:
         obj = new GameMessage();
         obj->from_bin(buffer);
         break;
     }
-
     return obj;
 }
 

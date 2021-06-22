@@ -1,8 +1,9 @@
 #include "Paddle.h"
 #include "SDLGame.h"
+#include "NetServer.h"
 
 
-void Bullet::bounce(bool hor, bool vert)
+void Bullet::bounce(bool hor, bool vert, Match* m)
 {
     bool bounced = false;
 
@@ -14,6 +15,10 @@ void Bullet::bounce(bool hor, bool vert)
 
     if(hor || vert)
         collisionsLeft_ --;
+
+    if(m){
+        //m->clients
+    }
 }
 void Bullet::Update()
 {
@@ -29,9 +34,11 @@ bool Bullet::collides(Vector2D pos, float w, float h)
             position_.getY() + size_ > pos.getY();
 }
 
-bool Bullet::move(){
+void Bullet::move(){
     position_ = position_ + (direction_.normalize() * vel_);
+}
 
+bool Bullet::wallsCollisions(){
     bullet_.x = position_.getX();
     bullet_.y = position_.getY();
 
@@ -40,4 +47,10 @@ bool Bullet::move(){
     bounce(h, v);
 
     return collisionsLeft_ == 0;
+}
+
+void Bullet::updateBullet(Vector2D& pos, Vector2D& dir, int bounces){    
+    position_ = pos;
+    direction_ = dir;
+    collisionsLeft_ = bounces;
 }

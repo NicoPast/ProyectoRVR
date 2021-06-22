@@ -8,6 +8,7 @@
 #include "Vector2D.h"
 
 class SDLGame;
+class Match;
 
 class Bullet
 {
@@ -40,10 +41,14 @@ public:
     ~Bullet(){};
     void Update();
     
-    void bounce(bool hor, bool vert);
+    void bounce(bool hor, bool vert, Match* m = nullptr);
     bool collides(Vector2D pos, float w, float h);
     
-    bool move();
+    void move();
+
+    bool wallsCollisions();
 
     size_t getBulletId(){ return id;};
+
+    void updateBullet(Vector2D& pos, Vector2D& dir, int bounces);
 };

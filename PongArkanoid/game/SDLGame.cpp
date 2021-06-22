@@ -167,6 +167,10 @@ void SDLGame::manageMsg(GameMessage *msg)
         logic_->setPaddlePos(m->playerId, m->pos);
         break;
     }
+    case GameMessage::MessageType::UPDATE_BULLET:{
+        
+        break;
+    }
     default:
         break;
     }

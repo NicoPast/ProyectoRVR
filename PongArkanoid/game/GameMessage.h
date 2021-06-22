@@ -31,6 +31,7 @@ struct GameMessage: public Serializable
         MOVE_PADDLE,
         UPDATE_PLAYER,
         SHOOT,
+        UPDATE_BULLET,
         END,
 
         lastMsg
@@ -124,7 +125,7 @@ struct MSGMovePaddle : public GameMessage{
     Vector2D pos;
 };
 
-struct MSGShoot : public GameMessage{
+struct MSGShoot : public GameMessage {
     MSGShoot() : GameMessage(SHOOT, 0) {}
 
     MSGShoot(Vector2D p, Vector2D d, size_t id, int matchId) : 
@@ -138,4 +139,22 @@ struct MSGShoot : public GameMessage{
     Vector2D dir;
 
     size_t bulletId;
+};
+
+struct MSGUpdateBullet : public GameMessage {
+    MSGUpdateBullet() : GameMessage(UPDATE_BULLET, 0) {}
+
+    MSGUpdateBullet(Vector2D p, Vector2D d, size_t id, int matchId) : 
+    GameMessage(UPDATE_BULLET, matchId), pos(p), dir(d), bulletId(id) {}
+
+    void to_bin();
+
+    int from_bin(char * bobj);
+
+    Vector2D pos;
+    Vector2D dir;
+
+    size_t bulletId;
+
+    int bounces;
 };

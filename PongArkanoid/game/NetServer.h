@@ -28,6 +28,8 @@ public:
 
     void run();
 
+    void init();
+
     int getMatchId(){
         return matchId;
     }

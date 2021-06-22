@@ -191,3 +191,44 @@ int MSGMovePaddle::from_bin(char * bobj){
 
     return 0;
 }
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+
+void MSGUpdateBullet::to_bin(){
+    write_Header(sizeof(MSGShoot));
+    
+    char* b = _data + sizeof(GameMessage);
+
+    memcpy(b, &pos, sizeof(Vector2D));
+    b += sizeof(Vector2D);
+
+    memcpy(b, &dir, sizeof(Vector2D));
+    b += sizeof(Vector2D);
+
+    memcpy(b, &bulletId, sizeof(size_t));
+    b += sizeof(size_t);
+
+    memcpy(b, &bounces, sizeof(int));
+    //b += sizeof(int);
+}
+
+int MSGUpdateBullet::from_bin(char * bobj){
+    read_Header(bobj);
+
+    char* b = _data + sizeof(GameMessage);
+
+    memcpy(&pos, b, sizeof(Vector2D));
+    b += sizeof(Vector2D);
+
+    memcpy(&dir, b, sizeof(Vector2D));
+    b += sizeof(Vector2D);
+
+    memcpy(&bulletId, b, sizeof(size_t));
+    b += sizeof(size_t);
+
+    memcpy(&bounces, b, sizeof(int));
+    //b += sizeof(int);
+
+    return 0;
+}
