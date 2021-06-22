@@ -2,24 +2,41 @@
 #include "GameMessage.h"
 #include "Logic.h"
 
-#include <thread>
+#include <chrono>
 
-Match::Match(int mId) : matchId(mId){
+Match::Match() : matchId(-1), server(nullptr), l(this){
 }
+
+Match::Match(int mId, Socket* serv) : matchId(mId), server(serv), l(this){
+}
+
+// Match::~Match() {
+//     if(t){
+//         t->join();
+//         delete t;
+//     }
+// }
 
 void Match::calculateLogic(){
     while(true){
-        l->Update();
+        float frameTime = 0;
+        auto startTime = chrono::high_resolution_clock::now();
+
+        l.UpdateServer(frameTime);
+        
+        frameTime = (float)(chrono::high_resolution_clock::now() - startTime).count();
+        if (frameTime < 10)
+            SDL_Delay(10 - frameTime);
     }
 }
 
 void Match::init(){
-    l = new Logic(this);
+    l = Logic(this);
 }
 
 void Match::run(){
 
-    std::thread t = std::thread(&Match::calculateLogic, this);
+    t = std::thread([&](){ calculateLogic();});
 }
 
 void NetServer::do_messages()
@@ -87,7 +104,7 @@ void NetServer::do_messages()
                             it = matches.erase(it);
 
                             while(clients.size() >= 2 && matches.size() < Match::MAX_MATCHES){
-                                Match m(actualMatch);
+                                Match m(actualMatch, &socket);
                                 actualMatch++;
                                 m.clients[0] = std::move(clients.front());
                                 clients.front().release();
@@ -97,12 +114,10 @@ void NetServer::do_messages()
                                 clients.front().release();
                                 clients.pop_front();
 
-                                m.init();
-
-                                // TO DO
-                                //m.run();
-
                                 matches[m.getMatchId()] = std::move(m);
+
+                                matches[m.getMatchId()].init();
+                                //matches[m.getMatchId()].run();
 
                                 MSGSetMatch msg(0, m.getMatchId());
 
@@ -152,13 +167,13 @@ void NetServer::do_messages()
                 if(it != matches.end())
                 {
                     MSGShoot* m = static_cast<MSGShoot*>(msgInp);
-                    m->bulletId = matches[msgInp->matchId].getLogic()->getLastBulletId();;
+                    m->bulletId = matches[msgInp->matchId].getLogic()->getLastBulletId();
                     for(int i = 0; i < 2; i++){
                         socket.send(m, *(matches[msgInp->matchId].clients[i].get()));
                     }
 
                     // se crea para la gestion interna de la bala
-                    matches[msgInp->matchId].getLogic()->spawnBullet(m->pos, m->dir, m->bulletId);
+                    matches[msgInp->matchId].getLogic()->setBulletPos(m->bulletId, m->pos, m->dir, m->bounces);
                 }
                 break;
             }
@@ -200,7 +215,7 @@ void NetServer::getClientInMatch(Socket* cl){
     clients.push_back(std::move(soc));
 
     while(clients.size() >= 2 && matches.size() < Match::MAX_MATCHES){
-        Match m(actualMatch);
+        Match m(actualMatch, &socket);
         actualMatch++;
 
         m.clients[0] = std::move(clients.front());
@@ -211,12 +226,11 @@ void NetServer::getClientInMatch(Socket* cl){
         clients.front().release();
         clients.pop_front();
 
-        m.init();
-
-        // TO DO
         //m.run();
 
         matches[m.getMatchId()] = std::move(m);
+        matches[m.getMatchId()].init();
+        //matches[m.getMatchId()].run();
 
         MSGSetMatch msg(0, m.getMatchId());
 

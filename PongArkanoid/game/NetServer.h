@@ -4,38 +4,46 @@
 #include <list>
 #include <map>
 #include <memory>
+#include <thread>
 
 #include "Socket.h"
-
-class Logic;
+#include "Logic.h"
 
 class Match
 {
 private:
-    Logic* l;
 
     int matchId;
 
-    void calculateLogic();
+    std::thread t;
+
 public:
     static const size_t MAX_MATCHES = 1;
 
     std::unique_ptr<Socket> clients[2];
-    
-    Match() : matchId(-1) {};
 
-    Match(int mId);
+    Socket* server;
+    
+    Match();
+
+    Match(int mId, Socket* s);
+
+    // ~Match();
 
     void run();
 
     void init();
+    
+    Logic l;
+
+    void calculateLogic();
 
     int getMatchId(){
         return matchId;
     }
 
     Logic* getLogic(){
-        return l;
+        return &l;
     }
 };
 

@@ -159,7 +159,7 @@ void SDLGame::manageMsg(GameMessage *msg)
 
     case GameMessage::MessageType::SHOOT:{
         MSGShoot* m = static_cast<MSGShoot*>(msg);
-        logic_->spawnBullet(m->pos, m->dir, m->bulletId);
+        logic_->setBulletPos(m->bulletId, m->pos, m->dir, m->bounces);
         break;
     }
     case GameMessage::MessageType::MOVE_PADDLE:{
@@ -168,7 +168,8 @@ void SDLGame::manageMsg(GameMessage *msg)
         break;
     }
     case GameMessage::MessageType::UPDATE_BULLET:{
-        
+        MSGUpdateBullet* m = static_cast<MSGUpdateBullet*>(msg);
+        logic_->setBulletPos(m->bulletId, m->pos, m->dir, m->bounces);
         break;
     }
     default:

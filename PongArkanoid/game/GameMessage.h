@@ -128,8 +128,8 @@ struct MSGMovePaddle : public GameMessage{
 struct MSGShoot : public GameMessage {
     MSGShoot() : GameMessage(SHOOT, 0) {}
 
-    MSGShoot(Vector2D p, Vector2D d, size_t id, int matchId) : 
-    GameMessage(SHOOT, matchId), pos(p), dir(d), bulletId(id) {}
+    MSGShoot(Vector2D p, Vector2D d, size_t id, int b, int matchId) : 
+    GameMessage(SHOOT, matchId), pos(p), dir(d), bounces(b), bulletId(id) {}
 
     void to_bin();
 
@@ -139,13 +139,15 @@ struct MSGShoot : public GameMessage {
     Vector2D dir;
 
     size_t bulletId;
+
+    int bounces;
 };
 
 struct MSGUpdateBullet : public GameMessage {
     MSGUpdateBullet() : GameMessage(UPDATE_BULLET, 0) {}
 
-    MSGUpdateBullet(Vector2D p, Vector2D d, size_t id, int matchId) : 
-    GameMessage(UPDATE_BULLET, matchId), pos(p), dir(d), bulletId(id) {}
+    MSGUpdateBullet(Vector2D p, Vector2D d, size_t id, int b, int matchId) : 
+    GameMessage(UPDATE_BULLET, matchId), pos(p), dir(d), bulletId(id), bounces(b) {}
 
     void to_bin();
 

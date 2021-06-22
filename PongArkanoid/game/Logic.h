@@ -44,11 +44,11 @@ public:
     void Update();
 
     void UpdateClient();
-    void UpdateServer();
+    void UpdateServer(float t);
 
     void Collisions();
 
-    void MoveBullets();
+    void MoveBullets(float t);
     
     // cliente envia señal
     void movePaddle(int id, bool up);

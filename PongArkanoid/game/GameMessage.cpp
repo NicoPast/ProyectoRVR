@@ -143,7 +143,9 @@ void MSGShoot::to_bin(){
     b += sizeof(Vector2D);
 
     memcpy(b, &bulletId, sizeof(size_t));
-    //b += sizeof(size_t);
+    b += sizeof(size_t);
+
+    memcpy(b, &bounces, sizeof(int));
 }
 
 int MSGShoot::from_bin(char * bobj){
@@ -158,7 +160,9 @@ int MSGShoot::from_bin(char * bobj){
     b += sizeof(Vector2D);
 
     memcpy(&bulletId, b, sizeof(size_t));
-    //b += sizeof(size_t);
+    b += sizeof(size_t);
+
+    memcpy(&bounces, b, sizeof(int));
 
     return 0;
 }
@@ -196,7 +200,7 @@ int MSGMovePaddle::from_bin(char * bobj){
 //--------------------------------------------------------------------
 
 void MSGUpdateBullet::to_bin(){
-    write_Header(sizeof(MSGShoot));
+    write_Header(sizeof(MSGUpdateBullet));
     
     char* b = _data + sizeof(GameMessage);
 

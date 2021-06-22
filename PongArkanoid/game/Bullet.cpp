@@ -1,7 +1,7 @@
 #include "Paddle.h"
 #include "SDLGame.h"
 #include "NetServer.h"
-
+#include "GameMessage.h"
 
 void Bullet::bounce(bool hor, bool vert, Match* m)
 {
@@ -13,11 +13,15 @@ void Bullet::bounce(bool hor, bool vert, Match* m)
     if (hor)
         direction_.setX(direction_.getX() * -1.25f);
 
-    if(hor || vert)
+    if(hor || vert){
         collisionsLeft_ --;
+        printf("Collisions: %d\n", collisionsLeft_);
+    }
 
     if(m){
-        //m->clients
+        MSGShoot msg (position_, direction_, id, collisionsLeft_, m->getMatchId());
+        m->server->send(&msg, *(m->clients[0].get()));
+        m->server->send(&msg, *(m->clients[1].get()));
     }
 }
 void Bullet::Update()
@@ -34,17 +38,17 @@ bool Bullet::collides(Vector2D pos, float w, float h)
             position_.getY() + size_ > pos.getY();
 }
 
-void Bullet::move(){
-    position_ = position_ + (direction_.normalize() * vel_);
+void Bullet::move(float t){
+    position_ = position_ + (direction_.normalize() * vel_ * t);
 }
 
-bool Bullet::wallsCollisions(){
+bool Bullet::wallsCollisions(Match* m){
     bullet_.x = position_.getX();
     bullet_.y = position_.getY();
 
     bool v = (bullet_.y < 0 || bullet_.y + size_ > SCREEN_HEIGHT);
     bool h = (bullet_.x < 0 || bullet_.x + size_ > SCREEN_WIDTH);
-    bounce(h, v);
+    bounce(h, v, m);
 
     return collisionsLeft_ == 0;
 }

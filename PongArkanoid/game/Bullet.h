@@ -24,7 +24,7 @@ private:
 
     size_t id;
 public:
-    Bullet();
+    Bullet() {};
     Bullet(Vector2D pos, Vector2D dir, size_t id, float v, float s, SDLGame* g): 
     direction_(dir), position_(pos), id(id), game_(g), vel_(v), size_(s)
     {
@@ -44,9 +44,9 @@ public:
     void bounce(bool hor, bool vert, Match* m = nullptr);
     bool collides(Vector2D pos, float w, float h);
     
-    void move();
+    void move(float t);
 
-    bool wallsCollisions();
+    bool wallsCollisions(Match* m);
 
     size_t getBulletId(){ return id;};
 

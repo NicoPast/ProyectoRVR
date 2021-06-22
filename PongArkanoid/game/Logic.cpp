@@ -31,7 +31,7 @@ void Logic::Update()
 {
     Render();
 
-    MoveBullets();
+    MoveBullets(1.0f);
 
     Collisions();
 }
@@ -40,21 +40,21 @@ void Logic::UpdateClient()
 {
     Render();
 
-    MoveBullets();
+    MoveBullets(1.0f);
 }
 
-void Logic::UpdateServer()
+void Logic::UpdateServer(float t)
 {
-    MoveBullets();
+    MoveBullets(t);
 
     Collisions();
 }
 
-void Logic::MoveBullets(){
+void Logic::MoveBullets(float t){
     auto it = bullets_.begin();
     while (it != bullets_.end())
     {
-        bullets_[(*it).second->getBulletId()]->move();     
+        bullets_[(*it).second->getBulletId()]->move(t);     
         it++;   
     }
 }
@@ -69,19 +69,20 @@ void Logic::Collisions(){
         int i = (*it).second->getBulletId();
         if(bullets_[i]->collides(leftPos, PADDLE_WIDTH, PADDLE_HEIGHT))
         {
-            bullets_[i]->bounce(true, true);
+            bullets_[i]->bounce(true, true, match_);
             printf("Player 2 wins\n");
         }
         else if(bullets_[i]->collides(rightPos, PADDLE_WIDTH, PADDLE_HEIGHT))
         {
-            bullets_[i]->bounce(true, true);
+            bullets_[i]->bounce(true, true, match_);
             printf("Player 1 wins\n");
         }
 
-        if(bullets_[i]->wallsCollisions())
+        if(bullets_[i]->wallsCollisions(match_))
         {
             delete bullets_[i];
             it = bullets_.erase(it);
+            printf("Destroyed Bull %d\n", i);
         }
         else it++;   
     }
@@ -126,7 +127,9 @@ void Logic::shoot(int id, float x, float y)
     }
     Vector2D dir (x - pos.getX(), y - pos.getY());
 
-    MSGShoot msg(pos, dir, lastBulletId, game_->getClient()->getMatchId());
+    dir = dir.normalize();
+
+    MSGShoot msg(pos, dir, lastBulletId, 5, game_->getClient()->getMatchId());
     game_->getClient()->send_Message(&msg);
     lastBulletId++;
 }
@@ -141,6 +144,10 @@ size_t Logic::getLastBulletId(){
 }
 
 void Logic::setBulletPos(int id, Vector2D &pos, Vector2D &dir, int bounces){
+    if(bullets_.find(id) == bullets_.end()){
+        Bullet* b = new Bullet(pos, dir, id, BULLET_VEL, BULLET_SIZE, game_);
+        bullets_[id] = b;
+    }
     if (bounces == 0){
         delete bullets_[id];
         bullets_.erase(id);
