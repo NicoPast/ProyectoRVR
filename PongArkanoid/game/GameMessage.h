@@ -11,6 +11,8 @@
  *  +-------------------+
  *  | Tipo: uint8_t     | 0 (login), 1 (logout), ...
  *  +-------------------+
+ *  | Tipo: int         | match_id -> id de la partida actual
+ *  +-------------------+
  *
  */
 struct GameMessage: public Serializable
@@ -18,6 +20,7 @@ struct GameMessage: public Serializable
     static const size_t NICK_SIZE = 8; 
     static const size_t MSG_SIZE = 80; 
     static const size_t MAX_NAME_LENGTH = 16;
+    static const size_t MAX_SERVER_MSG_LENGTH = 256;
     static const size_t MAX_MESSAGE_SIZE = 1024;
 
     enum MessageType
@@ -88,8 +91,35 @@ struct MSGSetMatch : public GameMessage{
     int playerId;
 };
 
-struct MSGServerMsg : public GameMessage{
+struct MSGEndRound : public GameMessage{
+    MSGEndRound() : GameMessage(END, 0){}
 
+    MSGEndRound(int n, int matchId) : 
+    GameMessage(END, matchId), playerId(n) {
+        
+    }
+
+    void to_bin();
+
+    int from_bin(char * bobj);
+
+    int playerId;
+};
+
+struct MSGServerMsg : public GameMessage{
+    MSGServerMsg() : GameMessage(SERVER_MSG, 0){}
+
+    MSGServerMsg(std::string n, int matchId) : 
+    GameMessage(SERVER_MSG, matchId), name(n) {
+        if(name.size() > MAX_NAME_LENGTH)
+            name.resize(MAX_NAME_LENGTH);
+    }
+
+    void to_bin();
+
+    int from_bin(char * bobj);
+
+    std::string name;
 };
 
 struct MSGPaddlesInfo : public GameMessage{

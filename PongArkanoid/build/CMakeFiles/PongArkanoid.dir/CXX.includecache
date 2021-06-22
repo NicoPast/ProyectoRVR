@@ -90,6 +90,16 @@ Color.h
 Vector2D.h
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Vector2D.h
 
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/SDLGame.cpp
+SDLGame.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/SDLGame.h
+Color.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Color.h
+NetClient.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/NetClient.h
+GameMessage.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/GameMessage.h
+
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/SDLGame.h
 SDL.h
 -

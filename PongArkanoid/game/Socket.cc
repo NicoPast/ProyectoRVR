@@ -70,10 +70,17 @@ GameMessage* Socket::recv(Socket * &sock)
         obj = new MSGPlayerInfo();
         static_cast<MSGPlayerInfo*>(obj)->from_bin(buffer);
         break;
-
+    case GameMessage::MessageType::SERVER_MSG:
+        obj = new MSGServerMsg();
+        static_cast<MSGServerMsg*>(obj)->from_bin(buffer);
+        break;
     case GameMessage::MessageType::SET_MATCH:
         obj = new MSGSetMatch();
         static_cast<MSGSetMatch*>(obj)->from_bin(buffer);
+        break;
+    case GameMessage::MessageType::END:
+        obj = new MSGEndRound();
+        static_cast<MSGEndRound*>(obj)->from_bin(buffer);
         break;
     case GameMessage::MessageType::SHOOT:
         obj = new MSGShoot();

@@ -31,8 +31,14 @@ int main(int argc, char **argv)
             printArgsError();
             return 0;
         }
-        SDLGame game;
-        game.run();
+        if(argc == 4){
+            SDLGame game(argv[2], argv[3]);
+            game.run();
+        }
+        else {
+            SDLGame game(argv[2], argv[3], argv[4]);
+            game.run();
+        }
     }
     else if(strcmp(argv[1], "server") == 0){
         if(argc < 3){

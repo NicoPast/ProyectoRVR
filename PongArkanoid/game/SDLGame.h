@@ -36,7 +36,7 @@ private:
     void close();
 public:
     SDLGame();
-    SDLGame(const char * s, const char * p, const char * n, int w, int h);
+    SDLGame(const char * s, const char * p, const char *n = "Anonymous", int w = SCREEN_WIDTH, int h = SCREEN_HEIGHT);
     ~SDLGame();
 
     void run();

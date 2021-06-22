@@ -87,6 +87,31 @@ int MSGPlayerInfo::from_bin(char * bobj){
     return 0;
 }
 
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+
+void MSGServerMsg::to_bin(){
+    write_Header(sizeof(GameMessage) + name.size());
+    
+    char* b = _data + sizeof(GameMessage);
+
+    memcpy(b, name.c_str(), sizeof(char) * name.size());
+    // b += sizeof(char) * NICK_SIZE;
+}
+
+int MSGServerMsg::from_bin(char * bobj){
+    read_Header(bobj);
+
+    char* b = _data + sizeof(GameMessage);
+
+    name = std::string(sizeof(char) * MAX_SERVER_MSG_LENGTH, '\0');
+    memcpy((void *)name.c_str(), b, sizeof(char) * MAX_SERVER_MSG_LENGTH);
+    return 0;
+}
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+
 void MSGPaddlesInfo::to_bin(){
     write_Header(sizeof(GameMessage) + sizeof(std::pair<float, float>));
     
@@ -119,6 +144,28 @@ void MSGSetMatch::to_bin(){
 }
 
 int MSGSetMatch::from_bin(char * bobj){
+    read_Header(bobj);
+
+    char* b = _data + sizeof(GameMessage);
+
+    playerId = 0;
+    memcpy(&playerId, b, sizeof(playerId));
+    return 0;
+}
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+
+void MSGEndRound::to_bin(){
+    write_Header(sizeof(MSGEndRound));
+    
+    char* b = _data + sizeof(GameMessage);
+
+    memcpy(b, &playerId, sizeof(playerId));
+    // b += sizeof(char) * NICK_SIZE;
+}
+
+int MSGEndRound::from_bin(char * bobj){
     read_Header(bobj);
 
     char* b = _data + sizeof(GameMessage);

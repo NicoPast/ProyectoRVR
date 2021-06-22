@@ -3,7 +3,7 @@
 #include "NetClient.h"
 #include "GameMessage.h"
 
-SDLGame::SDLGame(const char *s, const char *p, const char *n = "Anonymous", int w = SCREEN_WIDTH, int h = SCREEN_HEIGHT) : screenW(w), screenH(h)
+SDLGame::SDLGame(const char *s, const char *p, const char *n, int w, int h) : screenW(w), screenH(h)
 {
     if (!init())
     {
@@ -23,6 +23,7 @@ SDLGame::SDLGame() : SDLGame("localhost", "8080")
 SDLGame::~SDLGame()
 {
     delete client;
+    delete logic_;
 }
 void SDLGame::run()
 {
@@ -69,9 +70,6 @@ void SDLGame::run()
                         }
                         case SDLK_UP:{
                             logic_->movePaddle(playerId, true);
-                            //MSGPlayerInfo msg(client->getName(), client->getMatchId());
-                            //client->send_Message(&msg);
-                            
                             break;
                         }
                         case SDLK_DOWN:
@@ -141,21 +139,33 @@ void SDLGame::manageMsg(GameMessage *msg)
     {
     case GameMessage::MessageType::UPDATE_PLAYER:
         break;
-    case GameMessage::MessageType::PLAYER_INFO:
-        std::cout << "PlayerName: " << static_cast<MSGPlayerInfo *>(msg)->name;
+    case GameMessage::MessageType::PLAYER_INFO:{
+        MSGPlayerInfo *m = static_cast<MSGPlayerInfo *>(msg);
+        std::cout << "Adversary name: " << m->name << "\n";
         break;
+    }
 
-    case GameMessage::MessageType::SET_MATCH:
+    case GameMessage::MessageType::SET_MATCH:{
         client->setMatchId(msg->matchId);
         playerId = static_cast<MSGSetMatch*>(msg)->playerId;
         std::cout << "Match [" << client->getMatchId() << "] joined with id: " << playerId << "\n"; 
+        MSGPlayerInfo msg(client->getName(), client->getMatchId());
+        client->send_Message(&msg);
+        logic_->reset();
         break;
+    }
 
     case GameMessage::MessageType::PLAYER_WAIT:
         client->setMatchId(-1);
         playerId = -1;
         std::cout << "Player waiting for companion\n";
         break;
+
+    case GameMessage::MessageType::END:{
+        logic_->reset();
+        printf("Player %d wins\n", static_cast<MSGSetMatch*>(msg)->playerId);
+        break;
+    }
 
     case GameMessage::MessageType::SHOOT:{
         MSGShoot* m = static_cast<MSGShoot*>(msg);

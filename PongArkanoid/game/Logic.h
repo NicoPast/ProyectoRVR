@@ -26,8 +26,8 @@ class Logic {
 private:    
     SDLGame* game_;
     Match* match_;
-    Paddle* leftPaddle_;
-    Paddle* rightPaddle_;
+    Paddle leftPaddle_;
+    Paddle rightPaddle_;
     //std::vector<Bullet*> bullets_;
     std::map<size_t, Bullet*> bullets_;
 
@@ -38,7 +38,11 @@ public:
     Logic(Match* m);
     // usado por el cliente
     Logic(SDLGame* game);
-    ~Logic(){}
+    ~Logic(){
+        // reset();
+        // delete leftPaddle_;
+        // delete rightPaddle_;
+    }
 
     void Render();
     void Update();
@@ -63,4 +67,6 @@ public:
     void setBulletPos(int id, Vector2D &pos, Vector2D &dir, int bounces);
 
     size_t getLastBulletId();
+
+    void reset();
 };

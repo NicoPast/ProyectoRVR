@@ -159,7 +159,17 @@ void NetServer::do_messages()
                 break;
             }
             case GameMessage::MessageType::PLAYER_INFO:{
-                std::cout << "Player Name: " << static_cast<MSGPlayerInfo*>(msgInp)->name << "\n";
+                auto it = matches.find(msgInp->matchId);
+                if(it != matches.end())
+                {
+                    int i = 0;
+                    MSGPlayerInfo* m = static_cast<MSGPlayerInfo*>(msgInp);
+                    if(*(matches[msgInp->matchId].clients[0].get()) == *client){
+                        i = 1;
+                    }
+                    socket.send(m, *(matches[msgInp->matchId].clients[i].get()));
+                }
+                //std::cout << "Player Name: " << static_cast<MSGPlayerInfo*>(msgInp)->name << "\n";
                 break;
             }
             case GameMessage::MessageType::SHOOT:{
@@ -174,6 +184,20 @@ void NetServer::do_messages()
 
                     // se crea para la gestion interna de la bala
                     matches[msgInp->matchId].getLogic()->setBulletPos(m->bulletId, m->pos, m->dir, m->bounces);
+                }
+                break;
+            }
+            case GameMessage::MessageType::END:{
+                auto it = matches.find(msgInp->matchId);
+                if(it != matches.end())
+                {
+                    MSGEndRound* m = static_cast<MSGEndRound*>(msgInp);
+                    for(int i = 0; i < 2; i++){
+                        socket.send(m, *(matches[msgInp->matchId].clients[i].get()));
+                    }
+
+                    // se crea para la gestion interna de la bala
+                    matches[msgInp->matchId].getLogic()->reset();
                 }
                 break;
             }
