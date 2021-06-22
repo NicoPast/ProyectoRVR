@@ -123,6 +123,33 @@ PongArkanoid/fast:
 	$(MAKE) -f CMakeFiles/PongArkanoid.dir/build.make CMakeFiles/PongArkanoid.dir/build
 .PHONY : PongArkanoid/fast
 
+game/BlockWall.o: game/BlockWall.cpp.o
+
+.PHONY : game/BlockWall.o
+
+# target to build an object file
+game/BlockWall.cpp.o:
+	$(MAKE) -f CMakeFiles/PongArkanoid.dir/build.make CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.o
+.PHONY : game/BlockWall.cpp.o
+
+game/BlockWall.i: game/BlockWall.cpp.i
+
+.PHONY : game/BlockWall.i
+
+# target to preprocess a source file
+game/BlockWall.cpp.i:
+	$(MAKE) -f CMakeFiles/PongArkanoid.dir/build.make CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.i
+.PHONY : game/BlockWall.cpp.i
+
+game/BlockWall.s: game/BlockWall.cpp.s
+
+.PHONY : game/BlockWall.s
+
+# target to generate assembly for a file
+game/BlockWall.cpp.s:
+	$(MAKE) -f CMakeFiles/PongArkanoid.dir/build.make CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.s
+.PHONY : game/BlockWall.cpp.s
+
 game/Bullet.o: game/Bullet.cpp.o
 
 .PHONY : game/Bullet.o
@@ -402,6 +429,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... PongArkanoid"
+	@echo "... game/BlockWall.o"
+	@echo "... game/BlockWall.i"
+	@echo "... game/BlockWall.s"
 	@echo "... game/Bullet.o"
 	@echo "... game/Bullet.i"
 	@echo "... game/Bullet.s"

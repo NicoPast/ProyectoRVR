@@ -15,7 +15,6 @@ void Bullet::bounce(bool hor, bool vert, Match* m)
 
     if(hor || vert){
         collisionsLeft_ --;
-        printf("Collisions: %d\n", collisionsLeft_);
     }
 
     if(m){

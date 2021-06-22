@@ -3,7 +3,7 @@
 
 void Paddle::Update()
 {
-    SDL_SetRenderDrawColor( game_->getRenderer(), 0xFF, 0xFF, 0xFF, 0xFF );		
+    SDL_SetRenderDrawColor( game_->getRenderer(), color_.r, color_.g, color_.b, 255);		
     SDL_RenderFillRect( game_->getRenderer(), &paddle_ );
 }
 

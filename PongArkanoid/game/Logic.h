@@ -8,6 +8,7 @@
 #include "Color.h"
 #include "Paddle.h"
 #include "Bullet.h"
+#include "BlockWall.h"
 
 class Match;
 
@@ -18,6 +19,10 @@ const float PADDLE_VEL = 5.0f;
 
 const float BULLET_SIZE = 20;
 const float BULLET_VEL = 2.5f;
+const float WALL_SIZE = 25;
+const float WALL_MARGIN = 7.5f;
+const int WALL_ROWS = 12;
+const int WALL_COLUMNS = 5;
 
 class SDLGame;
 
@@ -28,6 +33,7 @@ private:
     Match* match_;
     Paddle* leftPaddle_;
     Paddle* rightPaddle_;
+    BlockWall* blocks_;
     //std::vector<Bullet*> bullets_;
     std::map<size_t, Bullet*> bullets_;
 
@@ -47,6 +53,7 @@ public:
     void UpdateServer(float t);
 
     void Collisions();
+    bool BlocksCollisions(int index);
 
     void MoveBullets(float t);
     

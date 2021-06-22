@@ -8,17 +8,20 @@
 Logic::Logic(Match* m) : game_(nullptr), match_(m){
     leftPaddle_ = new Paddle(PADDLE_MARGIN, SCREEN_HEIGHT * 0.5 - PADDLE_HEIGHT * 0.5, PADDLE_WIDTH, PADDLE_HEIGHT, Color(255, 255, 255));
     rightPaddle_ = new Paddle(SCREEN_WIDTH - PADDLE_MARGIN, SCREEN_HEIGHT * 0.5 - PADDLE_HEIGHT * 0.5, PADDLE_WIDTH, PADDLE_HEIGHT, Color(255, 255, 255));
+    blocks_ = new BlockWall(Vector2D(WALL_COLUMNS, WALL_ROWS));
 }
 
 Logic::Logic(SDLGame* game) : game_(game), match_(nullptr)
 {
     leftPaddle_ = new Paddle(PADDLE_MARGIN, SCREEN_HEIGHT * 0.5 - PADDLE_HEIGHT * 0.5, PADDLE_WIDTH, PADDLE_HEIGHT, Color(255, 255, 255), game_);
     rightPaddle_ = new Paddle(SCREEN_WIDTH - PADDLE_MARGIN, SCREEN_HEIGHT * 0.5 - PADDLE_HEIGHT * 0.5, PADDLE_WIDTH, PADDLE_HEIGHT, Color(255, 255, 255), game_);
+    blocks_ = new BlockWall(Vector2D(WALL_COLUMNS, WALL_ROWS), game);
 }
 
 void Logic::Render(){
     leftPaddle_->Update();
     rightPaddle_->Update();
+    blocks_->Render();
     auto it = bullets_.begin();
     while (it != bullets_.end())
     {
@@ -77,8 +80,11 @@ void Logic::Collisions(){
             bullets_[i]->bounce(true, true, match_);
             printf("Player 1 wins\n");
         }
-
-        if(bullets_[i]->wallsCollisions(match_))
+        if(BlocksCollisions(i))
+        {
+            bullets_[i]->bounce(true, true, match_);
+        }
+        else if(bullets_[i]->wallsCollisions(match_))
         {
             delete bullets_[i];
             it = bullets_.erase(it);
@@ -86,6 +92,25 @@ void Logic::Collisions(){
         }
         else it++;   
     }
+}
+
+bool Logic::BlocksCollisions(int index)
+{
+    bool collides = false;
+
+    int i = 0;
+    while(i < WALL_ROWS && !collides)
+    {
+        int j = 0;
+        while(j < WALL_COLUMNS && !collides)
+        {
+            Vector2D pos = {blocks_->GetBlock(i,j).x, blocks_->GetBlock(i,j).y};
+            if(bullets_[index]->collides(pos, blocks_->GetBlock(i, j).w, blocks_->GetBlock(i, j).h)) collides = true;
+            else j++;
+        }
+        i++;
+    }
+    return collides;
 }
 
 void Logic::movePaddle(int id, bool up)

@@ -57,9 +57,22 @@ include CMakeFiles/PongArkanoid.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/PongArkanoid.dir/flags.make
 
+CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.o: CMakeFiles/PongArkanoid.dir/flags.make
+CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.o: ../game/BlockWall.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/BlockWall.cpp
+
+CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/BlockWall.cpp > CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.i
+
+CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/BlockWall.cpp -o CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.s
+
 CMakeFiles/PongArkanoid.dir/game/Bullet.cpp.o: CMakeFiles/PongArkanoid.dir/flags.make
 CMakeFiles/PongArkanoid.dir/game/Bullet.cpp.o: ../game/Bullet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PongArkanoid.dir/game/Bullet.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PongArkanoid.dir/game/Bullet.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PongArkanoid.dir/game/Bullet.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Bullet.cpp
 
 CMakeFiles/PongArkanoid.dir/game/Bullet.cpp.i: cmake_force
@@ -72,7 +85,7 @@ CMakeFiles/PongArkanoid.dir/game/Bullet.cpp.s: cmake_force
 
 CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.o: CMakeFiles/PongArkanoid.dir/flags.make
 CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.o: ../game/GameMessage.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/GameMessage.cpp
 
 CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.i: cmake_force
@@ -85,7 +98,7 @@ CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.s: cmake_force
 
 CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: CMakeFiles/PongArkanoid.dir/flags.make
 CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: ../game/Logic.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Logic.cpp
 
 CMakeFiles/PongArkanoid.dir/game/Logic.cpp.i: cmake_force
@@ -98,7 +111,7 @@ CMakeFiles/PongArkanoid.dir/game/Logic.cpp.s: cmake_force
 
 CMakeFiles/PongArkanoid.dir/game/NetClient.cpp.o: CMakeFiles/PongArkanoid.dir/flags.make
 CMakeFiles/PongArkanoid.dir/game/NetClient.cpp.o: ../game/NetClient.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PongArkanoid.dir/game/NetClient.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PongArkanoid.dir/game/NetClient.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PongArkanoid.dir/game/NetClient.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/NetClient.cpp
 
 CMakeFiles/PongArkanoid.dir/game/NetClient.cpp.i: cmake_force
@@ -111,7 +124,7 @@ CMakeFiles/PongArkanoid.dir/game/NetClient.cpp.s: cmake_force
 
 CMakeFiles/PongArkanoid.dir/game/NetServer.cpp.o: CMakeFiles/PongArkanoid.dir/flags.make
 CMakeFiles/PongArkanoid.dir/game/NetServer.cpp.o: ../game/NetServer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PongArkanoid.dir/game/NetServer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PongArkanoid.dir/game/NetServer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PongArkanoid.dir/game/NetServer.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/NetServer.cpp
 
 CMakeFiles/PongArkanoid.dir/game/NetServer.cpp.i: cmake_force
@@ -124,7 +137,7 @@ CMakeFiles/PongArkanoid.dir/game/NetServer.cpp.s: cmake_force
 
 CMakeFiles/PongArkanoid.dir/game/Paddle.cpp.o: CMakeFiles/PongArkanoid.dir/flags.make
 CMakeFiles/PongArkanoid.dir/game/Paddle.cpp.o: ../game/Paddle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PongArkanoid.dir/game/Paddle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/PongArkanoid.dir/game/Paddle.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PongArkanoid.dir/game/Paddle.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Paddle.cpp
 
 CMakeFiles/PongArkanoid.dir/game/Paddle.cpp.i: cmake_force
@@ -137,7 +150,7 @@ CMakeFiles/PongArkanoid.dir/game/Paddle.cpp.s: cmake_force
 
 CMakeFiles/PongArkanoid.dir/game/SDLGame.cpp.o: CMakeFiles/PongArkanoid.dir/flags.make
 CMakeFiles/PongArkanoid.dir/game/SDLGame.cpp.o: ../game/SDLGame.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/PongArkanoid.dir/game/SDLGame.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/PongArkanoid.dir/game/SDLGame.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PongArkanoid.dir/game/SDLGame.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/SDLGame.cpp
 
 CMakeFiles/PongArkanoid.dir/game/SDLGame.cpp.i: cmake_force
@@ -150,7 +163,7 @@ CMakeFiles/PongArkanoid.dir/game/SDLGame.cpp.s: cmake_force
 
 CMakeFiles/PongArkanoid.dir/game/Socket.cc.o: CMakeFiles/PongArkanoid.dir/flags.make
 CMakeFiles/PongArkanoid.dir/game/Socket.cc.o: ../game/Socket.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/PongArkanoid.dir/game/Socket.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/PongArkanoid.dir/game/Socket.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PongArkanoid.dir/game/Socket.cc.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Socket.cc
 
 CMakeFiles/PongArkanoid.dir/game/Socket.cc.i: cmake_force
@@ -163,7 +176,7 @@ CMakeFiles/PongArkanoid.dir/game/Socket.cc.s: cmake_force
 
 CMakeFiles/PongArkanoid.dir/game/Vector2D.cpp.o: CMakeFiles/PongArkanoid.dir/flags.make
 CMakeFiles/PongArkanoid.dir/game/Vector2D.cpp.o: ../game/Vector2D.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/PongArkanoid.dir/game/Vector2D.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/PongArkanoid.dir/game/Vector2D.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PongArkanoid.dir/game/Vector2D.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Vector2D.cpp
 
 CMakeFiles/PongArkanoid.dir/game/Vector2D.cpp.i: cmake_force
@@ -176,7 +189,7 @@ CMakeFiles/PongArkanoid.dir/game/Vector2D.cpp.s: cmake_force
 
 CMakeFiles/PongArkanoid.dir/game/main.cpp.o: CMakeFiles/PongArkanoid.dir/flags.make
 CMakeFiles/PongArkanoid.dir/game/main.cpp.o: ../game/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/PongArkanoid.dir/game/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/PongArkanoid.dir/game/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PongArkanoid.dir/game/main.cpp.o -c /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/main.cpp
 
 CMakeFiles/PongArkanoid.dir/game/main.cpp.i: cmake_force
@@ -189,6 +202,7 @@ CMakeFiles/PongArkanoid.dir/game/main.cpp.s: cmake_force
 
 # Object files for target PongArkanoid
 PongArkanoid_OBJECTS = \
+"CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.o" \
 "CMakeFiles/PongArkanoid.dir/game/Bullet.cpp.o" \
 "CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.o" \
 "CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o" \
@@ -203,6 +217,7 @@ PongArkanoid_OBJECTS = \
 # External object files for target PongArkanoid
 PongArkanoid_EXTERNAL_OBJECTS =
 
+PongArkanoid: CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.o
 PongArkanoid: CMakeFiles/PongArkanoid.dir/game/Bullet.cpp.o
 PongArkanoid: CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.o
 PongArkanoid: CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o
@@ -215,7 +230,7 @@ PongArkanoid: CMakeFiles/PongArkanoid.dir/game/Vector2D.cpp.o
 PongArkanoid: CMakeFiles/PongArkanoid.dir/game/main.cpp.o
 PongArkanoid: CMakeFiles/PongArkanoid.dir/build.make
 PongArkanoid: CMakeFiles/PongArkanoid.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable PongArkanoid"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable PongArkanoid"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PongArkanoid.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

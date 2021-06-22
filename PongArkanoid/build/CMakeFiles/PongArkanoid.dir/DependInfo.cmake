@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/BlockWall.cpp" "/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.o"
   "/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Bullet.cpp" "/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles/PongArkanoid.dir/game/Bullet.cpp.o"
   "/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/GameMessage.cpp" "/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.o"
   "/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Logic.cpp" "/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o"

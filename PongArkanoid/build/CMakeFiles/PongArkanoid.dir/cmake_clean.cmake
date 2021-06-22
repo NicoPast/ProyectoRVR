@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/PongArkanoid.dir/game/BlockWall.cpp.o"
   "CMakeFiles/PongArkanoid.dir/game/Bullet.cpp.o"
   "CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.o"
   "CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o"
