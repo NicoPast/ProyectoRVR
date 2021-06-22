@@ -14,18 +14,27 @@ class Match
 private:
     Logic* l;
 
+    int matchId;
+
     void calculateLogic();
-
 public:
-    Match(){};
-
-    void run();
-
     static const size_t MAX_MATCHES = 1;
 
     std::unique_ptr<Socket> clients[2];
+    
+    Match() : matchId(-1) {};
 
-    int matchId;
+    Match(int mId);
+
+    void run();
+
+    int getMatchId(){
+        return matchId;
+    }
+
+    Logic* getLogic(){
+        return l;
+    }
 };
 
 class NetServer{

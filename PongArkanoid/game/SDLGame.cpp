@@ -69,8 +69,8 @@ void SDLGame::run()
                         }
                         case SDLK_UP:{
                             logic_->movePaddle(playerId, true);
-                            MSGPlayerInfo msg(client->getName(), client->getMatchId());
-                            client->send_Message(&msg);
+                            //MSGPlayerInfo msg(client->getName(), client->getMatchId());
+                            //client->send_Message(&msg);
                             
                             break;
                         }
@@ -157,6 +157,16 @@ void SDLGame::manageMsg(GameMessage *msg)
         std::cout << "Player waiting for companion\n";
         break;
 
+    case GameMessage::MessageType::SHOOT:{
+        MSGShoot* m = static_cast<MSGShoot*>(msg);
+        logic_->spawnBullet(m->pos, m->dir, m->bulletId);
+        break;
+    }
+    case GameMessage::MessageType::MOVE_PADDLE:{
+        MSGMovePaddle* m = static_cast<MSGMovePaddle*>(msg);
+        logic_->setPaddlePos(m->playerId, m->pos);
+        break;
+    }
     default:
         break;
     }

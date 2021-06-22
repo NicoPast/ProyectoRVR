@@ -31,11 +31,24 @@ private:
     size_t lastBulletId = 0;
 
 public:
+    // usado por el server
+    Logic();
+    // usado por el cliente
     Logic(SDLGame* game);
     ~Logic(){}
 
     void Render();
     void Update();
+    
+    // cliente envia señal
     void movePaddle(int id, bool up);
+
+    void setPaddlePos(int id, Vector2D &pos);
+    
+    // cliente envia señal
     void shoot(int id, float x, float y);
+
+    void spawnBullet(Vector2D& pos, Vector2D& dir, size_t bulletID);
+
+    size_t getLastBulletId();
 };

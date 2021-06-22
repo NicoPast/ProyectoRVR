@@ -20,7 +20,7 @@ private:
     float width_;
     float height_;
 public:
-    Paddle(float x, float y, float w, float h, Color c, SDLGame* g): 
+    Paddle(float x, float y, float w, float h, Color c, SDLGame* g = nullptr): 
     width_(w), height_(h), color_(c), game_(g), position_(x, y)
     {        
         paddle_.x = x;
@@ -37,4 +37,9 @@ public:
     void move(float y);
 
     Vector2D& getPos(){return position_;}
+    void setPos(Vector2D& pos){
+        position_ = pos;
+        paddle_.x = position_.getX();
+        paddle_.y = position_.getY();
+    }
 };

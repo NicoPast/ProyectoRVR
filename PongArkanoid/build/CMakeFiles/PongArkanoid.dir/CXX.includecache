@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Bullet.cpp
+Paddle.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Paddle.h
+SDLGame.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/SDLGame.h
+
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Bullet.h
 SDL.h
 -
@@ -25,6 +31,20 @@ string
 -
 Serializable.h
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Serializable.h
+Vector2D.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Vector2D.h
+
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Logic.cpp
+SDLGame.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/SDLGame.h
+Logic.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Logic.h
+Vector2D.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Vector2D.h
+GameMessage.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/GameMessage.h
+NetClient.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/NetClient.h
 
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Logic.h
 SDL.h
@@ -41,6 +61,22 @@ Paddle.h
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Paddle.h
 Bullet.h
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Bullet.h
+
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/NetClient.cpp
+SDLGame.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/SDLGame.h
+GameMessage.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/GameMessage.h
+NetClient.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/NetClient.h
+thread
+-
+
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/NetClient.h
+memory
+-
+Socket.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Socket.h
 
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/NetServer.cpp
 NetServer.h
@@ -64,6 +100,12 @@ memory
 Socket.h
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Socket.h
 
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Paddle.cpp
+Paddle.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Paddle.h
+SDLGame.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/SDLGame.h
+
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Paddle.h
 SDL.h
 -
@@ -73,6 +115,26 @@ Color.h
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Color.h
 Vector2D.h
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Vector2D.h
+
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/SDLGame.cpp
+SDLGame.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/SDLGame.h
+Color.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Color.h
+NetClient.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/NetClient.h
+GameMessage.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/GameMessage.h
+
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/SDLGame.h
+SDL.h
+-
+stdio.h
+-
+vector
+-
+Logic.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Logic.h
 
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Serializable.h
 stdlib.h
@@ -99,6 +161,18 @@ iostream
 -
 math.h
 -
+
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/main.cpp
+SDL.h
+-
+stdio.h
+-
+string
+-
+NetServer.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/NetServer.h
+SDLGame.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/SDLGame.h
 
 /usr/include/SDL2/SDL.h
 SDL_main.h

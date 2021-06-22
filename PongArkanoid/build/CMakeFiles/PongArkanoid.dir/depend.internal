@@ -58,13 +58,18 @@ CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/GameMessage.cpp
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/GameMessage.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Serializable.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Vector2D.h
 CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Bullet.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Color.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/GameMessage.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Logic.cpp
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Logic.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/NetClient.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Paddle.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/SDLGame.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Serializable.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Socket.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Vector2D.h
  /usr/include/SDL2/SDL.h
  /usr/include/SDL2/SDL_assert.h
@@ -339,6 +344,7 @@ CMakeFiles/PongArkanoid.dir/game/Socket.cc.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Serializable.h
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Socket.cc
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Socket.h
+ /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Vector2D.h
 CMakeFiles/PongArkanoid.dir/game/Vector2D.cpp.o
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Vector2D.cpp
  /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Vector2D.h

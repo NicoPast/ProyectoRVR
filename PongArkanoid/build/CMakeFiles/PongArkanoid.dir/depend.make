@@ -57,13 +57,18 @@ CMakeFiles/PongArkanoid.dir/game/Bullet.cpp.o: /usr/include/SDL2/close_code.h
 CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.o: ../game/GameMessage.cpp
 CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.o: ../game/GameMessage.h
 CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.o: ../game/Serializable.h
+CMakeFiles/PongArkanoid.dir/game/GameMessage.cpp.o: ../game/Vector2D.h
 
 CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: ../game/Bullet.h
 CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: ../game/Color.h
+CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: ../game/GameMessage.h
 CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: ../game/Logic.cpp
 CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: ../game/Logic.h
+CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: ../game/NetClient.h
 CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: ../game/Paddle.h
 CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: ../game/SDLGame.h
+CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: ../game/Serializable.h
+CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: ../game/Socket.h
 CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: ../game/Vector2D.h
 CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: /usr/include/SDL2/SDL.h
 CMakeFiles/PongArkanoid.dir/game/Logic.cpp.o: /usr/include/SDL2/SDL_assert.h
@@ -338,6 +343,7 @@ CMakeFiles/PongArkanoid.dir/game/Socket.cc.o: ../game/GameMessage.h
 CMakeFiles/PongArkanoid.dir/game/Socket.cc.o: ../game/Serializable.h
 CMakeFiles/PongArkanoid.dir/game/Socket.cc.o: ../game/Socket.cc
 CMakeFiles/PongArkanoid.dir/game/Socket.cc.o: ../game/Socket.h
+CMakeFiles/PongArkanoid.dir/game/Socket.cc.o: ../game/Vector2D.h
 
 CMakeFiles/PongArkanoid.dir/game/Vector2D.cpp.o: ../game/Vector2D.cpp
 CMakeFiles/PongArkanoid.dir/game/Vector2D.cpp.o: ../game/Vector2D.h

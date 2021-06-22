@@ -75,6 +75,14 @@ GameMessage* Socket::recv(Socket * &sock)
         obj = new MSGSetMatch();
         static_cast<MSGSetMatch*>(obj)->from_bin(buffer);
         break;
+    case GameMessage::MessageType::SHOOT:
+        obj = new MSGShoot();
+        static_cast<MSGShoot*>(obj)->from_bin(buffer);
+        break;
+    case GameMessage::MessageType::MOVE_PADDLE:
+        obj = new MSGMovePaddle();
+        static_cast<MSGMovePaddle*>(obj)->from_bin(buffer);
+        break;
     case GameMessage::MessageType::PLAYER_WAIT:
     default:
         obj = new GameMessage();

@@ -3,6 +3,7 @@
 #include <string>
 
 #include "Serializable.h"
+#include "Vector2D.h"
 
 /**
  *  Mensaje del protocolo de la aplicación de Chat
@@ -27,9 +28,9 @@ struct GameMessage: public Serializable
         SET_MATCH,
         PLAYER_WAIT,
         PLAYER_INFO,
+        MOVE_PADDLE,
         UPDATE_PLAYER,
         SHOOT,
-        UPDATE_BALL,
         END,
 
         lastMsg
@@ -58,7 +59,7 @@ struct GameMessage: public Serializable
 struct MSGPlayerInfo : public GameMessage{
     MSGPlayerInfo() : GameMessage(PLAYER_INFO, 0){}
 
-    MSGPlayerInfo(std::string n, uint8_t matchId) : 
+    MSGPlayerInfo(std::string n, int matchId) : 
     GameMessage(PLAYER_INFO, matchId), name(n) {
         if(name.size() > MAX_NAME_LENGTH)
             name.resize(MAX_NAME_LENGTH);
@@ -74,7 +75,7 @@ struct MSGPlayerInfo : public GameMessage{
 struct MSGSetMatch : public GameMessage{
     MSGSetMatch() : GameMessage(SET_MATCH, 0){}
 
-    MSGSetMatch(int n, uint8_t matchId) : 
+    MSGSetMatch(int n, int matchId) : 
     GameMessage(SET_MATCH, matchId), playerId(n) {
         
     }
@@ -91,10 +92,10 @@ struct MSGServerMsg : public GameMessage{
 };
 
 struct MSGPaddlesInfo : public GameMessage{
-    MSGPaddlesInfo(uint8_t matchId) : GameMessage(UPDATE_PLAYER, matchId){}
+    MSGPaddlesInfo() : GameMessage(UPDATE_PLAYER, 0){}
 
-    MSGPaddlesInfo(std::pair<float, float> player1, uint8_t matchId) : 
-    GameMessage(UPDATE_PLAYER, matchId), position1_(player1) {
+    MSGPaddlesInfo(Vector2D player1, Vector2D player2, int matchId) : 
+    GameMessage(UPDATE_PLAYER, matchId), position1_(player1), position2_(player2) {
 
     }
 
@@ -102,5 +103,39 @@ struct MSGPaddlesInfo : public GameMessage{
 
     int from_bin(char * bobj);
 
-    std::pair<float, float> position1_;
+    Vector2D position1_;
+    Vector2D position2_;
+};
+
+struct MSGMovePaddle : public GameMessage{
+    MSGMovePaddle() : GameMessage(MOVE_PADDLE, 0) {}
+
+    MSGMovePaddle(Vector2D p, uint8_t id, int matchId) : 
+    GameMessage(MOVE_PADDLE, matchId), pos(p), playerId(id) {
+
+    }
+
+    void to_bin();
+
+    int from_bin(char * bobj);
+
+    uint8_t playerId;
+
+    Vector2D pos;
+};
+
+struct MSGShoot : public GameMessage{
+    MSGShoot() : GameMessage(SHOOT, 0) {}
+
+    MSGShoot(Vector2D p, Vector2D d, size_t id, int matchId) : 
+    GameMessage(SHOOT, matchId), pos(p), dir(d), bulletId(id) {}
+
+    void to_bin();
+
+    int from_bin(char * bobj);
+
+    Vector2D pos;
+    Vector2D dir;
+
+    size_t bulletId;
 };

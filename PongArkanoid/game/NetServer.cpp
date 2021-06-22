@@ -4,6 +4,10 @@
 
 #include <thread>
 
+Match::Match(int mId) : matchId(mId){
+    l = new Logic();
+}
+
 void Match::calculateLogic(){
     while(true){
         l->Update();
@@ -11,6 +15,7 @@ void Match::calculateLogic(){
 }
 
 void Match::run(){
+
     std::thread t = std::thread(&Match::calculateLogic, this);
 }
 
@@ -79,7 +84,8 @@ void NetServer::do_messages()
                             it = matches.erase(it);
 
                             while(clients.size() >= 2 && matches.size() < Match::MAX_MATCHES){
-                                Match m;
+                                Match m(actualMatch);
+                                actualMatch++;
                                 m.clients[0] = std::move(clients.front());
                                 clients.front().release();
                                 clients.pop_front();
@@ -88,18 +94,16 @@ void NetServer::do_messages()
                                 clients.front().release();
                                 clients.pop_front();
 
-                                m.matchId = actualMatch;
-                                actualMatch++;
-                                matches[m.matchId] = std::move(m);
+                                matches[m.getMatchId()] = std::move(m);
 
-                                MSGSetMatch msg(0, m.matchId);
+                                MSGSetMatch msg(0, m.getMatchId());
 
                                 //GameMessage msg(GameMessage::MessageType::SET_MATCH, m.matchId);
                                 
                                 // debe avisar a su compañero de la partida
                                 // que se ha conectado
                                 for(int i = 0; i < 2; i++){
-                                    socket.send(&msg, *(matches[m.matchId].clients[i].get()));
+                                    socket.send(&msg, *(matches[m.getMatchId()].clients[i].get()));
                                     msg.playerId = i+1;
                                 }
 
@@ -131,9 +135,38 @@ void NetServer::do_messages()
                 }
                 break;
             }
-            case GameMessage::MessageType::PLAYER_INFO:
+            case GameMessage::MessageType::PLAYER_INFO:{
                 std::cout << "Player Name: " << static_cast<MSGPlayerInfo*>(msgInp)->name << "\n";
                 break;
+            }
+            case GameMessage::MessageType::SHOOT:{
+                auto it = matches.find(msgInp->matchId);
+                if(it != matches.end())
+                {
+                    MSGShoot* m = static_cast<MSGShoot*>(msgInp);
+                    m->bulletId = matches[msgInp->matchId].getLogic()->getLastBulletId();;
+                    for(int i = 0; i < 2; i++){
+                        socket.send(m, *(matches[msgInp->matchId].clients[i].get()));
+                    }
+
+                    // se crea para la gestion interna de la bala
+                    matches[msgInp->matchId].getLogic()->spawnBullet(m->pos, m->dir, m->bulletId);
+                }
+                break;
+            }
+            case GameMessage::MessageType::MOVE_PADDLE:{
+                auto it = matches.find(msgInp->matchId);
+                if(it != matches.end())
+                {
+                    MSGMovePaddle* m = static_cast<MSGMovePaddle*>(msgInp);
+                    for(int i = 0; i < 2; i++){
+                        socket.send(m, *(matches[msgInp->matchId].clients[i].get()));
+                    }
+
+                    matches[msgInp->matchId].getLogic()->setPaddlePos(m->playerId, m->pos);
+                }
+                break;
+            }
             default: 
                 std::cout << "Message Type unknown " << msgInp->type << "\n";
                 return;
@@ -146,7 +179,9 @@ void NetServer::getClientInMatch(Socket* cl){
     clients.push_back(std::move(soc));
 
     while(clients.size() >= 2 && matches.size() < Match::MAX_MATCHES){
-        Match m;
+        Match m(actualMatch);
+        actualMatch++;
+
         m.clients[0] = std::move(clients.front());
         clients.front().release();
         clients.pop_front();
@@ -155,18 +190,16 @@ void NetServer::getClientInMatch(Socket* cl){
         clients.front().release();
         clients.pop_front();
 
-        m.matchId = actualMatch;
-        actualMatch++;
-        matches[m.matchId] = std::move(m);
+        matches[m.getMatchId()] = std::move(m);
 
-        MSGSetMatch msg(0, m.matchId);
+        MSGSetMatch msg(0, m.getMatchId());
 
         //GameMessage msg(GameMessage::MessageType::SET_MATCH, m.matchId);
         
         // debe avisar a su compañero de la partida
         // que se ha conectado
         for(int i = 0; i < 2; i++){
-            socket.send(&msg, *(matches[m.matchId].clients[i].get()));
+            socket.send(&msg, *(matches[m.getMatchId()].clients[i].get()));
             msg.playerId = i+1;
         }
 

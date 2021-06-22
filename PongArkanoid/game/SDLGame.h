@@ -48,4 +48,12 @@ public:
     inline Uint32 getTime() {
 		return SDL_GetTicks();
 	}
+
+    int getPlayerId() {
+		return playerId;
+	}
+
+    NetClient* getClient(){
+        return client;
+    }
 };
