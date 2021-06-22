@@ -3,6 +3,7 @@
 #include "Logic.h"
 
 #include <chrono>
+#include <unistd.h>
 
 Match::Match() : matchId(-1), server(nullptr), l(this){
 }
@@ -26,7 +27,7 @@ void Match::calculateLogic(){
         
         frameTime = (float)(chrono::high_resolution_clock::now() - startTime).count();
         if (frameTime < 10)
-            SDL_Delay(10 - frameTime);
+            usleep(10 - frameTime);
     }
 }
 
@@ -41,8 +42,6 @@ void Match::run(){
 
 void NetServer::do_messages()
 {
-    GameMessage* msgOut = new GameMessage();
-
     while (true)
     {
         /*
@@ -66,12 +65,12 @@ void NetServer::do_messages()
         {
             case GameMessage::MessageType::LOGIN: {
                 getClientInMatch(client);
-                if(clients.size() == 0){
-                    std::cout << "Player Connected in match [" << actualMatch-1 << "]\n";
+                //if(clients.size() == 0){
+                    //std::cout << "Player Connected in match [" << actualMatch-1 << "]\n";
                     //std::cout << "-> Info: " << *(matches[msgInp->matchId].clients[0].get()) << "\n";
                     //std::cout << "-> Info: " << *(matches[msgInp->matchId].clients[1].get()) << "\n";
-                }
-                else{
+                //}
+                if(clients.size() != 0){
                     std::cout << "Player Waiting:\nInfo: " << *client << "\n";
                     GameMessage msg(GameMessage::MessageType::PLAYER_WAIT);
                     socket.send(&msg, *clients.back());
@@ -214,19 +213,6 @@ void NetServer::do_messages()
                 }
                 break;
             }
-            case GameMessage::MessageType::UPDATE_BULLET:{
-                auto it = matches.find(msgInp->matchId);
-                if(it != matches.end())
-                {
-                    MSGUpdateBullet* m = static_cast<MSGUpdateBullet*>(msgInp);
-                    for(int i = 0; i < 2; i++){
-                        socket.send(m, *(matches[msgInp->matchId].clients[i].get()));
-                    }
-
-                    //matches[msgInp->matchId].getLogic()->setPaddlePos(m->playerId, m->pos);
-                }
-                break;
-            }
             default: 
                 std::cout << "Message Type unknown " << msgInp->type << "\n";
                 return;
@@ -260,8 +246,6 @@ void NetServer::getClientInMatch(Socket* cl){
 
         //GameMessage msg(GameMessage::MessageType::SET_MATCH, m.matchId);
         
-        // debe avisar a su compañero de la partida
-        // que se ha conectado
         for(int i = 0; i < 2; i++){
             socket.send(&msg, *(matches[m.getMatchId()].clients[i].get()));
             msg.playerId = i+1;

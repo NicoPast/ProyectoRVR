@@ -32,6 +32,8 @@ private:
 
     int playerId = -1;
 
+    bool quit = false;
+
     bool init();
     void close();
 public:
@@ -55,5 +57,9 @@ public:
 
     NetClient* getClient(){
         return client;
+    }
+
+    bool getActive(){
+        return !quit;
     }
 };

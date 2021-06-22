@@ -29,7 +29,6 @@ void SDLGame::run()
 {
     logic_ = new Logic(this);
     
-    bool quit = false;
     //Event handler
     SDL_Event e;
 
@@ -115,7 +114,7 @@ bool SDLGame::init()
     else
     {
         //Create window
-        gWindow = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+        gWindow = SDL_CreateWindow("PongArkanoid", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
         if (gWindow == NULL)
         {
             printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
@@ -137,8 +136,6 @@ void SDLGame::manageMsg(GameMessage *msg)
 {
     switch (msg->type)
     {
-    case GameMessage::MessageType::UPDATE_PLAYER:
-        break;
     case GameMessage::MessageType::PLAYER_INFO:{
         MSGPlayerInfo *m = static_cast<MSGPlayerInfo *>(msg);
         std::cout << "Adversary name: " << m->name << "\n";
@@ -175,11 +172,6 @@ void SDLGame::manageMsg(GameMessage *msg)
     case GameMessage::MessageType::MOVE_PADDLE:{
         MSGMovePaddle* m = static_cast<MSGMovePaddle*>(msg);
         logic_->setPaddlePos(m->playerId, m->pos);
-        break;
-    }
-    case GameMessage::MessageType::UPDATE_BULLET:{
-        MSGUpdateBullet* m = static_cast<MSGUpdateBullet*>(msg);
-        logic_->setBulletPos(m->bulletId, m->pos, m->dir, m->bounces);
         break;
     }
     default:

@@ -59,7 +59,6 @@ struct GameMessage: public Serializable
     int matchId = -1;
 };
 
-
 struct MSGPlayerInfo : public GameMessage{
     MSGPlayerInfo() : GameMessage(PLAYER_INFO, 0){}
 

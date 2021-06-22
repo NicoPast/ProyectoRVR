@@ -55,7 +55,6 @@ private:
      *  su socket, esperando a entrar en partida
      */
     std::list<std::unique_ptr<Socket>> clients;
-    // TO DO: hacer que sean parejas de jugadores y multithreads
 
     std::map<int, Match> matches;
 

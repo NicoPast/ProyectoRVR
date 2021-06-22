@@ -58,6 +58,16 @@ Paddle.h
 Bullet.h
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/Bullet.h
 
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/NetClient.cpp
+SDLGame.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/SDLGame.h
+GameMessage.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/GameMessage.h
+NetClient.h
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/NetClient.h
+thread
+-
+
 /home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/game/NetClient.h
 memory
 -
