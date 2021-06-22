@@ -37,6 +37,7 @@ void SDLGame::run()
     //Set default current surface
     while (!quit)
     {
+        Uint32 startTime = getTime();
         SDL_SetRenderDrawColor( gRenderer, 0x00, 0x00, 0x00, 0xFF );
 		SDL_RenderClear( gRenderer );
 
@@ -54,35 +55,48 @@ void SDLGame::run()
                 quit = true;
                 break;
             }
-            //User presses a key
-            else if (e.type == SDL_KEYDOWN)
-            {
-                //Select surfaces based on key press
-                switch (e.key.keysym.sym)
+
+            if(playerId != -1){
+                //User presses a key
+                if (e.type == SDL_KEYDOWN)
                 {
-                    case SDLK_UP:{
-                        logic_->movePaddle(playerId, true);
-                        MSGPlayerInfo msg(client->getName(), client->getMatchId());
-                        client->send_Message(&msg);
-                        
-                        break;
-                    }
-                    case SDLK_DOWN:
+                    //Select surfaces based on key press
+                    switch (e.key.keysym.sym)
                     {
-                        logic_->movePaddle(playerId, false);
+                        case SDLK_ESCAPE:{
+                            quit = true;
+                            break;
+                        }
+                        case SDLK_UP:{
+                            logic_->movePaddle(playerId, true);
+                            MSGPlayerInfo msg(client->getName(), client->getMatchId());
+                            client->send_Message(&msg);
+                            
+                            break;
+                        }
+                        case SDLK_DOWN:
+                        {
+                            logic_->movePaddle(playerId, false);
+                        }
                     }
                 }
-            }
-            else if (e.type == SDL_MOUSEBUTTONDOWN)
-            {
-                int x, y;
-                SDL_GetMouseState(&x, &y);
-                logic_->shoot(playerId, x, y);
+                else if (e.type == SDL_MOUSEBUTTONDOWN)
+                {
+                    int x, y;
+                    SDL_GetMouseState(&x, &y);
+                    logic_->shoot(playerId, x, y);
+                }
             }
         }
-        logic_->Update();
-
+        if(playerId != -1){
+            logic_->Update();
+        }
+        
         SDL_RenderPresent(gRenderer);
+
+        Uint32 frameTime = getTime() - startTime;
+        if (frameTime < 10)
+            SDL_Delay(10 - frameTime);
     }
 
     //Free resources and close SDL

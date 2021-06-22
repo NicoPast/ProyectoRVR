@@ -7,12 +7,23 @@
 
 #include "Socket.h"
 
-struct Match
+class Logic;
+
+class Match
 {
+private:
+    Logic* l;
+
+    void calculateLogic();
+
+public:
+    Match(){};
+
+    void run();
+
     static const size_t MAX_MATCHES = 1;
 
     std::unique_ptr<Socket> clients[2];
-    bool occupied [2];
 
     int matchId;
 };

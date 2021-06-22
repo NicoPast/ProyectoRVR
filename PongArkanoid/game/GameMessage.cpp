@@ -102,6 +102,8 @@ int MSGPaddlesInfo::from_bin(char * bobj){
     char* b = _data +  + sizeof(std::pair<float, float>);
 
     memcpy(&position1_, b, sizeof(std::pair<float, float>));
+
+    return 0;
 }
 //--------------------------------------------------------------------
 //--------------------------------------------------------------------

@@ -9,8 +9,7 @@ void Paddle::Update()
 
 void Paddle::move(float y)
 {
-    
-    position_.second += y;
+    position_.setY(position_.getY() + y);
 
-    paddle_.y = position_.second;
+    paddle_.y = position_.getY();
 }

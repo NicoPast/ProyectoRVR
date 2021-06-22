@@ -2,7 +2,9 @@
 
 #include <SDL.h>
 #include <utility>
+
 #include "Color.h"
+#include "Vector2D.h"
 
 class SDLGame;
 
@@ -13,16 +15,14 @@ private:
     SDLGame* game_;
     SDL_Rect paddle_;
 
-    std::pair<float, float> position_;
+    Vector2D position_;
+    //std::pair<float, float> position_;
     float width_;
     float height_;
 public:
     Paddle(float x, float y, float w, float h, Color c, SDLGame* g): 
-    width_(w), height_(h), color_(c), game_(g)
-    {
-        position_.first = x;
-        position_.second = y;
-        
+    width_(w), height_(h), color_(c), game_(g), position_(x, y)
+    {        
         paddle_.x = x;
         paddle_.y = y;
         paddle_.w = w;
@@ -36,5 +36,5 @@ public:
 
     void move(float y);
 
-    std::pair<float, float> getPos(){return position_;}
+    Vector2D& getPos(){return position_;}
 };

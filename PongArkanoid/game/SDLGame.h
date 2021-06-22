@@ -44,4 +44,8 @@ public:
     void manageMsg(GameMessage* msg);
 
     SDL_Renderer* getRenderer() {return gRenderer;}
+
+    inline Uint32 getTime() {
+		return SDL_GetTicks();
+	}
 };

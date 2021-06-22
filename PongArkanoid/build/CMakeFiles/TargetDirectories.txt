@@ -1,0 +1,3 @@
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles/rebuild_cache.dir
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles/edit_cache.dir
+/home/usuarioso/Desktop/ProyectoRVR/ProyectoRVR/PongArkanoid/build/CMakeFiles/PongArkanoid.dir

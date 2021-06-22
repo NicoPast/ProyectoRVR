@@ -1,5 +1,18 @@
 #include "NetServer.h"
 #include "GameMessage.h"
+#include "Logic.h"
+
+#include <thread>
+
+void Match::calculateLogic(){
+    while(true){
+        l->Update();
+    }
+}
+
+void Match::run(){
+    std::thread t = std::thread(&Match::calculateLogic, this);
+}
 
 void NetServer::do_messages()
 {
@@ -35,6 +48,8 @@ void NetServer::do_messages()
                 }
                 else{
                     std::cout << "Player Waiting:\nInfo: " << *client << "\n";
+                    GameMessage msg(GameMessage::MessageType::PLAYER_WAIT);
+                    socket.send(&msg, *clients.back());
                 }
 
                 break;

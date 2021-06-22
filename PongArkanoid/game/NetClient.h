@@ -41,8 +41,8 @@ public:
     NetClient(SDLGame* g, const char * s, const char * p, const char * n);
 
     ~NetClient(){
-        // if(t)
-        //     t->join();
+        if(t)
+            delete t;
     }
 
     /**
